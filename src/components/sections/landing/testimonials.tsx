@@ -33,8 +33,10 @@ export function TestimonialsSection() {
     <section className="py-20 px-6 md:px-12 bg-surface-muted">
       <div className="max-w-[1280px] mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-950 mb-3"
-            style={{ fontFamily: "var(--font-display)" }}>
+          <h2
+            className="text-3xl md:text-4xl font-bold text-navy-950 mb-3"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             Testimonials
           </h2>
           <p className="text-text-secondary">
@@ -46,7 +48,7 @@ export function TestimonialsSection() {
           {testimonials.map(({ id, quote, name, title, avatar }) => (
             <div
               key={id}
-              className="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-sm flex flex-col"
+              className="bg-white border border-border rounded-2xl p-8 shadow-md flex flex-col"
             >
               <div className="flex gap-1 mb-6">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -58,19 +60,19 @@ export function TestimonialsSection() {
                 &ldquo;{quote}&rdquo;
               </p>
 
-              <div className="flex items-center gap-3 mt-auto">
-                <div className="h-12 w-12 rounded-full overflow-hidden border border-border shrink-0">
+              <div className="flex items-center gap-3 mt-auto pt-6 border-t border-border">
+                <div className="h-11 w-11 rounded-full overflow-hidden shrink-0">
                   <Image
                     src={avatar}
                     alt={name}
-                    width={48}
-                    height={48}
+                    width={44}
+                    height={44}
                     className="object-cover w-full h-full"
                   />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-navy-950">{name}</p>
-                  <p className="text-xs text-text-secondary mt-0.5">{title}</p>
+                  <p className="text-xs text-text-muted mt-0.5">{title}</p>
                 </div>
               </div>
             </div>
