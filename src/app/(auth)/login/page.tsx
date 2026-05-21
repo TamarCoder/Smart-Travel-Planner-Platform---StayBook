@@ -2,16 +2,34 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { mockLogin, setAuthSession } from "@/lib/auth";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError("");
     setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+
+    setTimeout(() => {
+      if (mockLogin(email, password)) {
+        setAuthSession();
+        router.push("/dashboard");
+      } else {
+        setError("Invalid email or password.");
+        setLoading(false);
+      }
+    }, 800);
   }
 
   return (
@@ -37,9 +55,11 @@ export default function LoginPage() {
             <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#76777d] pointer-events-none" />
             <input
               id="email"
+              name="email"
               type="email"
-              placeholder="you@example.com"
+              placeholder="alex@voyager.com"
               required
+              defaultValue="alex@voyager.com"
               className="w-full rounded-xl bg-white border border-[#e0e3e5] pl-10 pr-4 py-3 text-sm text-[#191c1e] placeholder:text-[#76777d] outline-none transition-all focus:border-[#00668a] focus:ring-2 focus:ring-[#00668a]/20"
             />
           </div>
@@ -58,9 +78,11 @@ export default function LoginPage() {
             <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#76777d] pointer-events-none" />
             <input
               id="password"
+              name="password"
               type={showPassword ? "text" : "password"}
               placeholder="••••••••"
               required
+              defaultValue="voyager2024"
               className="w-full rounded-xl bg-white border border-[#e0e3e5] pl-10 pr-11 py-3 text-sm text-[#191c1e] placeholder:text-[#76777d] outline-none transition-all focus:border-[#00668a] focus:ring-2 focus:ring-[#00668a]/20"
             />
             <button
@@ -73,10 +95,14 @@ export default function LoginPage() {
           </div>
         </div>
 
+        {error && (
+          <p className="text-xs text-[#ba1a1a] bg-[#ffdad6] px-3 py-2 rounded-lg">{error}</p>
+        )}
+
         <button
           type="submit"
           disabled={loading}
-          className="mt-2 w-full py-3 rounded-xl bg-[#000] hover:bg-[#131b2e] text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+          className="mt-1 w-full py-3 rounded-xl bg-[#000] hover:bg-[#131b2e] text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
         >
           {loading ? "Signing in…" : "Sign in"}
         </button>
