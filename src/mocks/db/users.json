@@ -1,0 +1,62 @@
+[
+  {
+    "id": "usr_001",
+    "email": "alex.morgan@email.com",
+    "password": "hashed_password_1",
+    "name": "Alex Morgan",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop",
+    "role": "user",
+    "createdAt": "2024-01-15T08:30:00Z",
+    "preferences": {
+      "currency": "USD",
+      "language": "en",
+      "darkMode": false,
+      "notifications": true
+    }
+  },
+  {
+    "id": "usr_002",
+    "email": "james.carter@email.com",
+    "password": "hashed_password_2",
+    "name": "James Carter",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop",
+    "role": "user",
+    "createdAt": "2024-02-20T10:15:00Z",
+    "preferences": {
+      "currency": "EUR",
+      "language": "en",
+      "darkMode": true,
+      "notifications": true
+    }
+  },
+  {
+    "id": "usr_003",
+    "email": "sofia.chen@email.com",
+    "password": "hashed_password_3",
+    "name": "Sofia Chen",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop",
+    "role": "admin",
+    "createdAt": "2023-11-05T14:00:00Z",
+    "preferences": {
+      "currency": "USD",
+      "language": "en",
+      "darkMode": false,
+      "notifications": false
+    }
+  },
+  {
+    "id": "usr_004",
+    "email": "demo@staybook.io",
+    "password": "demo1234",
+    "name": "Demo User",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&h=96&fit=crop",
+    "role": "user",
+    "createdAt": "2024-03-01T09:00:00Z",
+    "preferences": {
+      "currency": "USD",
+      "language": "en",
+      "darkMode": false,
+      "notifications": true
+    }
+  }
+]
