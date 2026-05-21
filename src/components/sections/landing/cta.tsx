@@ -1,26 +1,31 @@
-import { Button } from "@/components/ui/button";
-
 export function CTASection() {
   return (
-    <section className="py-24 px-6 text-center bg-background">
-      <div className="mx-auto" style={{ maxWidth: "40rem" }}>
+    <section className="py-16 md:py-24 px-4 md:px-12 text-center relative overflow-hidden bg-[#f7f9fb]">
+      <div className="relative z-10 mx-auto py-8" style={{ maxWidth: "42rem" }}>
         <h2
-          className="text-4xl md:text-5xl font-bold text-navy-950 mb-5 tracking-tight"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="font-bold text-[#000] mb-5"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(2rem, 4vw, 3rem)",
+            lineHeight: "1.15",
+            letterSpacing: "-0.02em",
+          }}
         >
           Ready to begin your journey?
         </h2>
-        <p className="text-lg text-text-secondary mb-10 leading-relaxed">
+        <p
+          className="text-base md:text-lg text-[#45464d] mb-10 leading-relaxed"
+        >
           Join an exclusive community of travelers and start planning your next
           escape today.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="rounded-full px-10">
+          <button className="px-8 py-4 bg-[#000] hover:bg-[#131b2e] text-white rounded-full text-sm font-semibold transition-all hover:scale-105">
             Create Your First Plan
-          </Button>
-          <Button variant="secondary" size="lg" className="rounded-full px-10">
+          </button>
+          <button className="px-8 py-4 border-2 border-[#000] text-[#000] hover:bg-[#000] hover:text-white rounded-full text-sm font-semibold transition-all">
             Talk to a Concierge
-          </Button>
+          </button>
         </div>
       </div>
     </section>
