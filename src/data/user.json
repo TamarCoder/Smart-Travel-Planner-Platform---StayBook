@@ -1,0 +1,22 @@
+{
+  "id": "user-001",
+  "name": "Alex Johnson",
+  "email": "alex@voyager.com",
+  "avatar": "/assets/travel_dashboard__img_01.png",
+  "role": "Premium Member",
+  "joinedAt": "2023-01-15",
+  "stats": {
+    "tripsPlanned": 12,
+    "countriesVisited": 24,
+    "milesFlown": 48600,
+    "totalSpent": 34200
+  },
+  "preferences": {
+    "currency": "USD",
+    "travelStyle": [
+      "Luxury",
+      "Cultural"
+    ],
+    "notifications": true
+  }
+}

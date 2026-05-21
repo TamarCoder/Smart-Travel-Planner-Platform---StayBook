@@ -1,0 +1,128 @@
+[
+  {
+    "id": "trip-001",
+    "title": "Santorini, Greece",
+    "destination": "santorini-greece",
+    "coverImage": "/assets/luxury_travel_planner_landing_page__img_03.png",
+    "startDate": "2024-06-12",
+    "endDate": "2024-06-20",
+    "nights": 8,
+    "status": "upcoming",
+    "daysLeft": 14,
+    "planningProgress": 85,
+    "totalBudget": 12450,
+    "spent": 8715,
+    "budgetBreakdown": {
+      "flights": 4200,
+      "hotels": 2800,
+      "dining": 1150,
+      "activities": 565,
+      "other": 0
+    },
+    "milesMowed": 24800,
+    "carbonFootprint": 1.2,
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2024-06-12",
+        "title": "Arrival in Santorini",
+        "activities": [
+          {
+            "id": "act-001",
+            "time": "14:00",
+            "type": "flight",
+            "title": "LX1204 \u00b7 Zurich to Naples",
+            "detail": "08:30 AM \u2013 10:45 AM \u00b7 Terminal 1",
+            "status": "confirmed"
+          },
+          {
+            "id": "act-002",
+            "time": "15:30",
+            "type": "transfer",
+            "title": "Private Transfer to Positano",
+            "detail": "1h 30 min \u00b7 Pick up at N4P Airport",
+            "status": "confirmed"
+          },
+          {
+            "id": "act-003",
+            "time": "19:00",
+            "type": "hotel",
+            "title": "Hotel Le Sirenuse",
+            "detail": "Check-in 3:00 PM \u00b7 Sea View Junior Suite",
+            "status": "confirmed"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "date": "2024-06-13",
+        "title": "Capri Island Tour",
+        "activities": []
+      }
+    ],
+    "collaborators": [
+      {
+        "id": "u1",
+        "name": "Alex",
+        "avatar": "/assets/travel_dashboard__img_01.png"
+      },
+      {
+        "id": "u2",
+        "name": "Mia",
+        "avatar": ""
+      }
+    ],
+    "recentActivity": [
+      {
+        "id": "ra-1",
+        "type": "edit",
+        "text": "Trip Edit: Santorini \u2014 Added 'Villa Kallisteo' to itinerary",
+        "time": "3 hours ago"
+      },
+      {
+        "id": "ra-2",
+        "type": "booking",
+        "text": "Booking Confirmed: Flight LX4 confirmed by Sarah",
+        "time": "yesterday, 4:30 PM"
+      },
+      {
+        "id": "ra-3",
+        "type": "join",
+        "text": "New Contributor: Mark joined 'Yosemite 2024'",
+        "time": "May 19, 2024"
+      }
+    ]
+  },
+  {
+    "id": "trip-002",
+    "title": "Yosemite, USA",
+    "destination": "yosemite-usa",
+    "coverImage": "/assets/destination_santorini_greece__img_04.png",
+    "startDate": "2024-07-28",
+    "endDate": "2024-08-05",
+    "nights": 8,
+    "status": "planning",
+    "daysLeft": 60,
+    "planningProgress": 40,
+    "totalBudget": 6800,
+    "spent": 2720,
+    "budgetBreakdown": {
+      "flights": 1800,
+      "hotels": 600,
+      "dining": 200,
+      "activities": 120,
+      "other": 0
+    },
+    "milesMowed": 0,
+    "carbonFootprint": 0,
+    "itinerary": [],
+    "collaborators": [
+      {
+        "id": "u1",
+        "name": "Alex",
+        "avatar": "/assets/travel_dashboard__img_01.png"
+      }
+    ],
+    "recentActivity": []
+  }
+]

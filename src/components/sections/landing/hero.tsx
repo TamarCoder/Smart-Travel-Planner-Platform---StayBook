@@ -8,7 +8,7 @@ export function HeroSection() {
     <section className="relative min-h-[600px] sm:min-h-[750px] md:min-h-[921px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/landing/hero-beach.png"
+          src="/assets/luxury_travel_planner_landing_page__img_02.png"
           alt="Luxury tropical beach"
           fill
           className="object-cover object-center"
