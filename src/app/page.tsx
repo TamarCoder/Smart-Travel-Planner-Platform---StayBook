@@ -9,8 +9,8 @@ import { LandingFooter } from "@/components/sections/landing/landing-footer";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="fixed z-[-1] w-[500px] h-[500px] rounded-full bg-sky-500 opacity-[0.08] blur-[80px] top-[-200px] left-[-100px] pointer-events-none" />
-      <div className="fixed z-[-1] w-[400px] h-[400px] rounded-full bg-emerald-500 opacity-[0.08] blur-[80px] bottom-[-100px] right-[-50px] pointer-events-none" />
+      <div className="fixed z-[-1] w-125 h-125 rounded-full bg-sky-500 opacity-[0.08] blur-[80px] -top-50 -left-25 pointer-events-none" />
+      <div className="fixed z-[-1] w-100 h-100 rounded-full bg-emerald-500 opacity-[0.08] blur-[80px] -bottom-25 -right-12.5 pointer-events-none" />
 
       <LandingHeader />
 

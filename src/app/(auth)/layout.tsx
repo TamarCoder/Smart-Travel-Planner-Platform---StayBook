@@ -12,7 +12,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-br from-black/60 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-between p-12">
           <Link href="/" className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
             Voyager
@@ -26,9 +26,9 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center px-6 py-12 bg-[#f7f9fb]">
+      <div className="flex flex-col justify-center items-center px-6 py-12 bg-background">
         <div className="lg:hidden mb-8">
-          <Link href="/" className="text-2xl font-bold text-[#000]" style={{ fontFamily: "var(--font-display)" }}>
+          <Link href="/" className="text-2xl font-bold text-navy-950" style={{ fontFamily: "var(--font-display)" }}>
             Voyager
           </Link>
         </div>

@@ -19,7 +19,7 @@ export function LandingHeader() {
       <div className="flex items-center">
         <Link href="/">
           <span
-            className="text-xl font-bold tracking-tight text-[#000]"
+            className="text-xl font-bold tracking-tight text-navy-950"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Voyager
@@ -35,7 +35,7 @@ export function LandingHeader() {
             className={
               i === 0
                 ? "text-sm font-semibold text-sky-600 transition-colors"
-                : "text-sm font-medium text-[#45464d] hover:text-sky-600 transition-colors"
+                : "text-sm font-medium text-text-secondary hover:text-sky-600 transition-colors"
             }
           >
             {label}
@@ -46,18 +46,18 @@ export function LandingHeader() {
       <div className="flex items-center gap-3">
         <Link
           href="/login"
-          className="hidden md:block text-sm font-medium text-[#45464d] hover:text-[#000] transition-colors"
+          className="hidden md:block text-sm font-medium text-text-secondary hover:text-navy-950 transition-colors"
         >
           Sign in
         </Link>
         <Link
           href="/register"
-          className="hidden md:block text-sm font-semibold px-5 py-2 bg-[#000] hover:bg-[#131b2e] text-white rounded-full transition-all"
+          className="hidden md:block text-sm font-semibold px-5 py-2 bg-navy-950 hover:bg-navy-800 text-white rounded-full transition-all"
         >
           Get started
         </Link>
         <button
-          className="md:hidden text-[#45464d]"
+          className="md:hidden text-text-secondary"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -75,17 +75,17 @@ export function LandingHeader() {
               className={
                 i === 0
                   ? "text-sm font-semibold text-sky-600"
-                  : "text-sm font-medium text-[#45464d]"
+                  : "text-sm font-medium text-text-secondary"
               }
             >
               {label}
             </Link>
           ))}
-          <div className="pt-2 border-t border-[#e0e3e5] flex flex-col gap-2">
-            <Link href="/login" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-[#45464d] py-1">
+          <div className="pt-2 border-t border-border flex flex-col gap-2">
+            <Link href="/login" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-text-secondary py-1">
               Sign in
             </Link>
-            <Link href="/register" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-center py-2.5 bg-[#000] text-white rounded-full">
+            <Link href="/register" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-center py-2.5 bg-navy-950 text-white rounded-full">
               Get started
             </Link>
           </div>

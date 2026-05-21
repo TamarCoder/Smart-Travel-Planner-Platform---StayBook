@@ -18,94 +18,94 @@ export default function RegisterPage() {
     <div>
       <div className="mb-8">
         <h1
-          className="text-3xl font-bold text-[#191c1e] mb-2"
+          className="text-3xl font-bold text-text-primary mb-2"
           style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
         >
           Create your account
         </h1>
-        <p className="text-[#45464d] text-sm">
+        <p className="text-text-secondary text-sm">
           Join thousands of travelers planning smarter journeys.
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="name" className="text-sm font-medium text-[#191c1e]">
+          <label htmlFor="name" className="text-sm font-medium text-text-primary">
             Full name
           </label>
           <div className="relative">
-            <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#76777d] pointer-events-none" />
+            <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
             <input
               id="name"
               type="text"
               placeholder="Alex Johnson"
               required
-              className="w-full rounded-xl bg-white border border-[#e0e3e5] pl-10 pr-4 py-3 text-sm text-[#191c1e] placeholder:text-[#76777d] outline-none transition-all focus:border-[#00668a] focus:ring-2 focus:ring-[#00668a]/20"
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
             />
           </div>
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="email" className="text-sm font-medium text-[#191c1e]">
+          <label htmlFor="email" className="text-sm font-medium text-text-primary">
             Email
           </label>
           <div className="relative">
-            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#76777d] pointer-events-none" />
+            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
             <input
               id="email"
               type="email"
               placeholder="you@example.com"
               required
-              className="w-full rounded-xl bg-white border border-[#e0e3e5] pl-10 pr-4 py-3 text-sm text-[#191c1e] placeholder:text-[#76777d] outline-none transition-all focus:border-[#00668a] focus:ring-2 focus:ring-[#00668a]/20"
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
             />
           </div>
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="password" className="text-sm font-medium text-[#191c1e]">
+          <label htmlFor="password" className="text-sm font-medium text-text-primary">
             Password
           </label>
           <div className="relative">
-            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#76777d] pointer-events-none" />
+            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
             <input
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Min. 8 characters"
               required
               minLength={8}
-              className="w-full rounded-xl bg-white border border-[#e0e3e5] pl-10 pr-11 py-3 text-sm text-[#191c1e] placeholder:text-[#76777d] outline-none transition-all focus:border-[#00668a] focus:ring-2 focus:ring-[#00668a]/20"
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-11 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
             />
             <button
               type="button"
               onClick={() => setShowPassword((p) => !p)}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#76777d] hover:text-[#191c1e] transition-colors"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
           </div>
-          <p className="text-xs text-[#76777d]">Must be at least 8 characters.</p>
+          <p className="text-xs text-text-muted">Must be at least 8 characters.</p>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="mt-2 w-full py-3 rounded-xl bg-[#000] hover:bg-[#131b2e] text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+          className="mt-2 w-full py-3 rounded-xl bg-navy-950 hover:bg-navy-800 text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
         >
           {loading ? "Creating account…" : "Create account"}
         </button>
 
         <div className="relative my-1">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-[#e0e3e5]" />
+            <div className="w-full border-t border-border" />
           </div>
           <div className="relative flex justify-center">
-            <span className="bg-[#f7f9fb] px-3 text-xs text-[#76777d]">or continue with</span>
+            <span className="bg-background px-3 text-xs text-text-muted">or continue with</span>
           </div>
         </div>
 
         <button
           type="button"
-          className="w-full py-3 rounded-xl bg-white border border-[#e0e3e5] hover:border-[#c6c6cd] text-[#191c1e] text-sm font-medium transition-all flex items-center justify-center gap-3 hover:shadow-sm"
+          className="w-full py-3 rounded-xl bg-surface border border-border hover:border-border-strong text-text-primary text-sm font-medium transition-all flex items-center justify-center gap-3 hover:shadow-sm"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -117,9 +117,9 @@ export default function RegisterPage() {
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-[#45464d]">
+      <p className="mt-6 text-center text-sm text-text-secondary">
         Already have an account?{" "}
-        <Link href="/login" className="text-[#00668a] font-semibold hover:underline">
+        <Link href="/login" className="text-sky-600 font-semibold hover:underline">
           Sign in
         </Link>
       </p>
