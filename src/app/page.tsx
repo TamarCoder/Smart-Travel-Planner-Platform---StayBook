@@ -17,9 +17,9 @@ export default function HomePage() {
       <main className="pt-16">
         <HeroSection />
         <StatsSection />
-        <DestinationsSection />
-        <TestimonialsSection />
-        <CTASection />
+        <div id="destinations"><DestinationsSection /></div>
+        <div id="testimonials"><TestimonialsSection /></div>
+        <div id="pricing"><CTASection /></div>
       </main>
 
       <LandingFooter />

@@ -7,8 +7,8 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Destinations", href: "#destinations" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Concierge", href: "#concierge" },
 ];
 
 export function LandingHeader() {
