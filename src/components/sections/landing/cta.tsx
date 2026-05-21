@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function CTASection() {
   return (
     <section className="py-16 md:py-24 px-4 md:px-12 text-center bg-[#f7f9fb]">
@@ -18,12 +20,18 @@ export function CTASection() {
           escape today.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-          <button className="w-full sm:w-auto px-8 py-4 bg-[#000] hover:bg-[#131b2e] text-white rounded-full text-sm font-semibold transition-all hover:scale-105">
+          <Link
+            href="/register"
+            className="w-full sm:w-auto px-8 py-4 bg-[#000] hover:bg-[#131b2e] text-white rounded-full text-sm font-semibold transition-all hover:scale-105 text-center"
+          >
             Create Your First Plan
-          </button>
-          <button className="w-full sm:w-auto px-8 py-4 border-2 border-[#000] text-[#000] hover:bg-[#000] hover:text-white rounded-full text-sm font-semibold transition-all">
-            Talk to a Concierge
-          </button>
+          </Link>
+          <Link
+            href="/login"
+            className="w-full sm:w-auto px-8 py-4 border-2 border-[#000] text-[#000] hover:bg-[#000] hover:text-white rounded-full text-sm font-semibold transition-all text-center"
+          >
+            Sign in
+          </Link>
         </div>
       </div>
     </section>

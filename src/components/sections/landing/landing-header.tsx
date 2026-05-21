@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Bell, Settings, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -44,20 +43,19 @@ export function LandingHeader() {
         ))}
       </nav>
 
-      <div className="flex items-center gap-6">
-        <div className="hidden md:flex items-center gap-4">
-          <Bell className="h-5 w-5 text-[#45464d] cursor-pointer hover:text-sky-600 transition-colors" />
-          <Settings className="h-5 w-5 text-[#45464d] cursor-pointer hover:text-sky-600 transition-colors" />
-        </div>
-        <div className="h-10 w-10 rounded-full overflow-hidden border-2 border-white/40 shadow-sm cursor-pointer hover:scale-95 transition-transform shrink-0">
-          <Image
-            src="/assets/luxury_travel_planner_landing_page__img_01.png"
-            alt="User profile"
-            width={40}
-            height={40}
-            className="object-cover w-full h-full"
-          />
-        </div>
+      <div className="flex items-center gap-3">
+        <Link
+          href="/login"
+          className="hidden md:block text-sm font-medium text-[#45464d] hover:text-[#000] transition-colors"
+        >
+          Sign in
+        </Link>
+        <Link
+          href="/register"
+          className="hidden md:block text-sm font-semibold px-5 py-2 bg-[#000] hover:bg-[#131b2e] text-white rounded-full transition-all"
+        >
+          Get started
+        </Link>
         <button
           className="md:hidden text-[#45464d]"
           onClick={() => setMobileOpen((v) => !v)}
@@ -83,6 +81,14 @@ export function LandingHeader() {
               {label}
             </Link>
           ))}
+          <div className="pt-2 border-t border-[#e0e3e5] flex flex-col gap-2">
+            <Link href="/login" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-[#45464d] py-1">
+              Sign in
+            </Link>
+            <Link href="/register" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-center py-2.5 bg-[#000] text-white rounded-full">
+              Get started
+            </Link>
+          </div>
         </div>
       )}
     </header>
