@@ -5,7 +5,7 @@ import { Search, Bell, Settings } from "lucide-react";
 
 export default function DashboardHeader() {
   return (
-    <header className="flex justify-between items-center h-16 px-4 md:px-12 bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm">
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center h-16 px-4 md:px-12 bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm">
       <span
         className="text-xl font-bold tracking-tight text-navy-950"
         style={{ fontFamily: "var(--font-display)" }}

@@ -32,7 +32,7 @@ export default function DashboardSidebar() {
   }
 
   return (
-    <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-16 z-40 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-lg pb-6">
+    <aside className="hidden lg:flex flex-col w-64 fixed left-0 top-16 bottom-0 z-40 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-lg pb-6">
       <div className="px-6 mt-10 mb-10">
         <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
           <Plus className="h-5 w-5" />
@@ -72,7 +72,7 @@ export default function DashboardSidebar() {
           onClick={handleLogout}
           className="flex items-center gap-4 px-6 py-4 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all text-sm font-medium w-full text-left"
         >
-          <LogOut className="h-5 w-5" />
+          <LogOut className="h-5 w-5 shrink-0" />
           Logout
         </button>
       </div>
