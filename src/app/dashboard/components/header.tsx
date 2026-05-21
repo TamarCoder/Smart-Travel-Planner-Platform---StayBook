@@ -1,17 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { Search, Bell, Settings } from "lucide-react";
+import { Search, Bell, Settings, Menu } from "lucide-react";
 
-export default function DashboardHeader() {
+interface Props {
+  onMenuToggle: () => void;
+}
+
+export default function DashboardHeader({ onMenuToggle }: Props) {
   return (
     <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center h-16 px-4 md:px-12 bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm">
-      <span
-        className="text-xl font-bold tracking-tight text-navy-950"
-        style={{ fontFamily: "var(--font-display)" }}
-      >
-        Voyager
-      </span>
+      <div className="flex items-center gap-3">
+        <button
+          onClick={onMenuToggle}
+          className="lg:hidden text-text-secondary hover:text-navy-950 transition-colors"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+        <span
+          className="text-xl font-bold tracking-tight text-navy-950"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          Voyager
+        </span>
+      </div>
 
       <div className="flex items-center gap-6">
         <div className="hidden md:flex items-center gap-2 bg-surface-muted px-4 py-1.5 rounded-xl border border-border-strong/30">
