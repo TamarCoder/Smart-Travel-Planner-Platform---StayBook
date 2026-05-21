@@ -9,18 +9,18 @@ export default function DashboardMain() {
   const nextTrip = upcomingTrips[0];
 
   return (
-    <main className="lg:ml-64 pt-16 min-h-screen bg-background px-4 md:px-12 py-10">
+    <main className="lg:ml-64 pt-24 pb-16 min-h-screen bg-background px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
 
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h1
-              className="text-3xl font-bold text-navy-950 mb-1"
+              className="font-semibold text-[2rem] leading-10 text-navy-950 mb-1"
               style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
             >
               Welcome back, {user.name.split(" ")[0]}
             </h1>
-            <p className="text-text-secondary text-sm">
+            <p className="text-base text-text-secondary">
               Your next adventure to {nextTrip?.title} begins in {nextTrip?.daysLeft} days.
             </p>
           </div>
