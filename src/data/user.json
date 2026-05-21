@@ -2,7 +2,7 @@
   "id": "user-001",
   "name": "Alex Johnson",
   "email": "alex@voyager.com",
-  "avatar": "/images/avatars/alex.jpg",
+  "avatar": "/assets/travel_dashboard__img_01.png",
   "role": "Premium Member",
   "joinedAt": "2023-01-15",
   "stats": {
@@ -13,7 +13,10 @@
   },
   "preferences": {
     "currency": "USD",
-    "travelStyle": ["Luxury", "Cultural"],
+    "travelStyle": [
+      "Luxury",
+      "Cultural"
+    ],
     "notifications": true
   }
 }

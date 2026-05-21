@@ -6,7 +6,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     <div className="min-h-screen grid lg:grid-cols-2">
       <div className="hidden lg:block relative overflow-hidden">
         <Image
-          src="/images/landing/hero-beach.png"
+          src="/assets/luxury_travel_planner_landing_page__img_02.png"
           alt="Luxury travel destination"
           fill
           className="object-cover object-center"

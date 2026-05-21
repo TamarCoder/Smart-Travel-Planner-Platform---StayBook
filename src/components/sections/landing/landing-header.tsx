@@ -51,7 +51,7 @@ export function LandingHeader() {
         </div>
         <div className="h-10 w-10 rounded-full overflow-hidden border-2 border-white/40 shadow-sm cursor-pointer hover:scale-95 transition-transform shrink-0">
           <Image
-            src="/images/landing/avatar-user.png"
+            src="/assets/luxury_travel_planner_landing_page__img_01.png"
             alt="User profile"
             width={40}
             height={40}

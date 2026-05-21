@@ -7,21 +7,21 @@ const destinations = [
     name: "Santorini Essence",
     location: "Greece",
     price: "from $1,200/night",
-    image: "/images/landing/dest-santorini.png",
+    image: "/assets/luxury_travel_planner_landing_page__img_03.png",
   },
   {
     slug: "maldives",
     name: "Azure Maldives",
     location: "Maldives",
     price: "from $2,450/night",
-    image: "/images/landing/dest-maldives.png",
+    image: "/assets/luxury_travel_planner_landing_page__img_04.png",
   },
   {
     slug: "kyoto",
     name: "Kyoto Serenity",
     location: "Japan",
     price: "from $890/night",
-    image: "/images/landing/dest-kyoto.png",
+    image: "/assets/luxury_travel_planner_landing_page__img_05.png",
   },
 ];
 
