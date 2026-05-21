@@ -7,21 +7,21 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="py-16 px-4 md:px-12 bg-white border-b border-[#e0e3e5]">
-      <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
+    <section className="py-12 md:py-16 px-4 md:px-12 bg-white border-b border-[#e0e3e5]">
+      <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
         {stats.map(({ value, label }) => (
           <div key={label} className="text-center">
             <div
               className="font-bold text-[#000] mb-1 tracking-tight"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 4vw, 3rem)",
+                fontSize: "clamp(1.75rem, 5vw, 3rem)",
                 lineHeight: "1.1",
               }}
             >
               {value}
             </div>
-            <div className="text-xs font-semibold text-[#45464d] uppercase tracking-widest">
+            <div className="text-[10px] sm:text-xs font-semibold text-[#45464d] uppercase tracking-widest leading-relaxed">
               {label}
             </div>
           </div>

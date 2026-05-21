@@ -30,14 +30,14 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-16 px-4 md:px-12 bg-[#f2f4f6]">
+    <section className="py-12 md:py-16 px-4 md:px-12 bg-[#f2f4f6]">
       <div className="max-w-[1280px] mx-auto">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10 md:mb-14">
           <h2
-            className="font-bold text-[#000] mb-3"
+            className="font-bold text-[#000] mb-2 md:mb-3"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              fontSize: "clamp(1.375rem, 3vw, 2rem)",
               lineHeight: "1.25",
             }}
           >
@@ -48,24 +48,22 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {testimonials.map(({ id, quote, name, title, avatar }) => (
             <div
               key={id}
-              className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl p-10 shadow-sm flex flex-col"
+              className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-10 shadow-sm flex flex-col"
             >
-              <div className="flex gap-0.5 mb-6">
+              <div className="flex gap-0.5 mb-5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-[#40c2fd] text-[#40c2fd]" />
+                  <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-[#40c2fd] text-[#40c2fd]" />
                 ))}
               </div>
-
-              <p className="text-sm md:text-base text-[#191c1e] italic leading-relaxed flex-1 mb-10">
+              <p className="text-sm md:text-base text-[#191c1e] italic leading-relaxed flex-1 mb-6 md:mb-10">
                 &ldquo;{quote}&rdquo;
               </p>
-
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="h-12 w-12 rounded-full overflow-hidden border border-[#c6c6cd] shrink-0">
+              <div className="flex items-center gap-3 md:gap-4 mt-auto">
+                <div className="h-11 w-11 md:h-12 md:w-12 rounded-full overflow-hidden border border-[#c6c6cd] shrink-0">
                   <Image
                     src={avatar}
                     alt={name}
@@ -75,10 +73,7 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p
-                    className="text-sm font-medium text-[#000]"
-                    style={{ letterSpacing: "0.01em" }}
-                  >
+                  <p className="text-sm font-medium text-[#000]" style={{ letterSpacing: "0.01em" }}>
                     {name}
                   </p>
                   <p className="text-xs text-[#45464d] mt-0.5">{title}</p>
