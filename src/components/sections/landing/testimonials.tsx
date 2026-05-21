@@ -8,7 +8,7 @@ const testimonials = [
       "Voyager redefined how I think about travel. The level of detail in the planning and the exclusivity of the experiences are truly unmatched in the industry.",
     name: "Marcus Sterling",
     title: "Global Venture Partner",
-    avatar: "/images/landing/testimonial-marcus.png",
+    avatar: "/assets/luxury_travel_planner_landing_page__img_08.png",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const testimonials = [
       "The AI concierge is hauntingly accurate. It suggested a hidden bistro in Lyon that was the highlight of my entire month-long European trip.",
     name: "Elena Rodriguez",
     title: "Interior Designer",
-    avatar: "/images/landing/testimonial-elena.png",
+    avatar: "/assets/luxury_travel_planner_landing_page__img_07.png",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const testimonials = [
       "Finally, a travel app that understands the value of time. The seamless booking and itinerary management allow me to truly disconnect and enjoy the moment.",
     name: "David Chen",
     title: "Tech Executive",
-    avatar: "/images/landing/testimonial-david.png",
+    avatar: "/assets/luxury_travel_planner_landing_page__img_06.png",
   },
 ];
 
