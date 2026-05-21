@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Plus,
   LayoutDashboard,
   CalendarDays,
   Plane,
@@ -11,6 +10,8 @@ import {
   Bookmark,
   HelpCircle,
   LogOut,
+  Plus,
+  PlaneTakeoff,
   X,
 } from "lucide-react";
 import { clearAuthSession } from "@/lib/auth";
@@ -28,7 +29,7 @@ interface Props {
   onClose: () => void;
 }
 
-export default function DashboardSidebar({ isOpen, onClose }: Props) {
+export default function PlannerSidebar({ isOpen, onClose }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -46,7 +47,7 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
         />
       )}
       <aside
-        className={`flex flex-col w-64 fixed left-0 top-0 bottom-0 z-40 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-lg pb-6 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:top-16 ${
+        className={`flex flex-col w-64 fixed left-0 top-0 bottom-0 z-40 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-lg pb-6 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -57,19 +58,26 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
           >
             Voyager
           </span>
-          <button
-            onClick={onClose}
-            className="text-text-secondary hover:text-navy-950 transition-colors"
-          >
+          <button onClick={onClose} className="text-text-secondary hover:text-navy-950 transition-colors">
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="px-6 mt-6 lg:mt-10 mb-10">
-          <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
-            <Plus className="h-5 w-5" />
-            New Trip
-          </button>
+        <div className="hidden lg:block px-6 mt-[72px] mb-6">
+          <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-surface-hover transition-all cursor-pointer">
+            <div className="w-10 h-10 rounded-lg bg-navy-950 flex items-center justify-center text-white shrink-0">
+              <PlaneTakeoff className="h-5 w-5" />
+            </div>
+            <div>
+              <p
+                className="text-sm font-semibold text-navy-950"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Voyager
+              </p>
+              <p className="text-xs text-text-secondary">Premium Planner</p>
+            </div>
+          </div>
         </div>
 
         <nav className="flex-1 flex flex-col gap-1 px-4">
@@ -94,6 +102,11 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
         </nav>
 
         <div className="mt-auto px-4 flex flex-col gap-1">
+          <button className="w-full bg-sky-100 text-sky-600 py-3 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold hover:bg-sky-200 transition-all active:scale-95 mb-2">
+            <Plus className="h-5 w-5" />
+            New Trip
+          </button>
+          <div className="h-px bg-border-strong/20 my-1" />
           <Link
             href="#"
             className="flex items-center gap-4 px-6 py-4 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all text-sm font-medium"
