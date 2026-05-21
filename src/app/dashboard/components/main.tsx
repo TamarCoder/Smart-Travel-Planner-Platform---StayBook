@@ -1,18 +1,47 @@
 import Image from "next/image";
-import { UserPlus } from "lucide-react";
+import { UserPlus, DollarSign, PlaneTakeoff, Leaf } from "lucide-react";
 import { getCurrentUser } from "@/lib/api/user";
-import { getUpcomingTrips } from "@/lib/api/trips";
+import { getAllTrips, getUpcomingTrips } from "@/lib/api/trips";
 
 export default function DashboardMain() {
   const user = getCurrentUser();
   const upcomingTrips = getUpcomingTrips();
+  const allTrips = getAllTrips();
   const nextTrip = upcomingTrips[0];
+
+  const totalSpent = allTrips.reduce((sum, t) => sum + t.spent, 0);
+  const totalMiles = allTrips.reduce((sum, t) => sum + t.milesMowed, 0);
+  const totalCarbon = allTrips.reduce((sum, t) => sum + t.carbonFootprint, 0);
+
+  const analytics = [
+    {
+      label: "Total Spent",
+      value: "$" + totalSpent.toLocaleString(),
+      icon: DollarSign,
+      delay: "0s",
+    },
+    {
+      label: "Miles Flown",
+      value: (totalMiles / 1000).toFixed(1) + "k",
+      icon: PlaneTakeoff,
+      delay: "0.1s",
+    },
+    {
+      label: "Carbon Footprint",
+      value: totalCarbon.toFixed(1) + " tCO2",
+      icon: Leaf,
+      delay: "0.2s",
+    },
+  ];
 
   return (
     <main className="lg:ml-64 pt-24 pb-16 min-h-screen bg-background px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
 
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div
+          className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6"
+          style={{ animation: "fadeInUp 0.4s ease both" }}
+        >
           <div>
             <h1
               className="font-semibold text-[2rem] leading-10 text-navy-950 mb-1"
@@ -52,6 +81,102 @@ export default function DashboardMain() {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+          <div
+            className="md:col-span-8 flex flex-col gap-6"
+            style={{ animation: "fadeInUp 0.4s ease 0.1s both" }}
+          >
+            <div className="flex items-center justify-between">
+              <h2
+                className="text-2xl font-semibold text-navy-950"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Upcoming Trips
+              </h2>
+              <a href="#" className="text-sm font-medium text-sky-600 hover:underline">
+                View all
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {upcomingTrips.map((trip) => (
+                <div
+                  key={trip.id}
+                  className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div className="relative h-48">
+                    <Image
+                      src={trip.coverImage}
+                      alt={trip.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-navy-950">
+                      {trip.daysLeft} Days Left
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3
+                      className="font-semibold text-navy-950 mb-1"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      {trip.title}
+                    </h3>
+                    <p className="text-text-secondary text-sm mb-4">
+                      {new Date(trip.startDate).toLocaleDateString("en-US", { month: "short", day: "numeric" })} –{" "}
+                      {new Date(trip.endDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    </p>
+                    <div className="w-full bg-surface-hover h-1.5 rounded-full mb-1 overflow-hidden">
+                      <div
+                        className="bg-sky-600 h-full rounded-full"
+                        style={{
+                          width: trip.planningProgress + "%",
+                          animation: "progressGrow 1s ease-out both",
+                          animationDelay: "0.5s",
+                        }}
+                      />
+                    </div>
+                    <div className="flex justify-between text-[11px] font-medium text-text-secondary">
+                      <span>Planning Progress</span>
+                      <span>{trip.planningProgress}%</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="md:col-span-4 flex flex-col gap-6"
+            style={{ animation: "fadeInUp 0.4s ease 0.2s both" }}
+          >
+            <h2
+              className="text-2xl font-semibold text-navy-950"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Analytics
+            </h2>
+            <div className="flex flex-col gap-4">
+              {analytics.map(({ label, value, icon: Icon, delay }) => (
+                <div
+                  key={label}
+                  className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl p-6 flex items-center justify-between transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{ animation: `fadeInUp 0.4s ease ${delay} both` }}
+                >
+                  <div>
+                    <p className="text-text-secondary text-sm font-medium mb-1">{label}</p>
+                    <h4 className="text-2xl font-bold text-navy-950">{value}</h4>
+                  </div>
+                  <div className="w-12 h-12 bg-sky-600/10 rounded-xl flex items-center justify-center text-sky-600">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </div>
     </main>
   );
