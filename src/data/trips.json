@@ -76,19 +76,22 @@
       {
         "id": "ra-1",
         "type": "edit",
-        "text": "Trip Edit: Santorini \u2014 Added 'Villa Kallisteo' to itinerary",
-        "time": "3 hours ago"
+        "title": "Trip Edit: Santorini",
+        "subtitle": "Added 'Villa Katikies' to itinerary",
+        "time": "2 hours ago"
       },
       {
         "id": "ra-2",
         "type": "booking",
-        "text": "Booking Confirmed: Flight LX4 confirmed by Sarah",
-        "time": "yesterday, 4:30 PM"
+        "title": "Booking Confirmed",
+        "subtitle": "Flight LX4 confirmed by Sarah",
+        "time": "Yesterday, 4:30 PM"
       },
       {
         "id": "ra-3",
         "type": "join",
-        "text": "New Contributor: Mark joined 'Yosemite 2024'",
+        "title": "New Contributor",
+        "subtitle": "Mark joined 'Yosemite 2024'",
         "time": "May 19, 2024"
       }
     ]
@@ -101,7 +104,7 @@
     "startDate": "2024-07-28",
     "endDate": "2024-08-05",
     "nights": 8,
-    "status": "planning",
+    "status": "upcoming",
     "daysLeft": 60,
     "planningProgress": 40,
     "totalBudget": 6800,

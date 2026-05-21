@@ -85,6 +85,11 @@
   from { width: 0%; }
 }
 
+@keyframes donutDraw {
+  from { stroke-dashoffset: 365; }
+  to { stroke-dashoffset: 110; }
+}
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
