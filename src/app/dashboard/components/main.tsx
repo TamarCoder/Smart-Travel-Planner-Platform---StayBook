@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { UserPlus, DollarSign, PlaneTakeoff, Leaf, Pencil, Ticket, Users, MoreHorizontal } from "lucide-react";
 import { getCurrentUser } from "@/lib/api/user";
 import { getAllTrips, getUpcomingTrips } from "@/lib/api/trips";
@@ -119,8 +120,9 @@ export default function DashboardMain() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {upcomingTrips.map((trip) => (
-                <div
+                <Link
                   key={trip.id}
+                  href={`/trips/${trip.id}`}
                   className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
                 >
                   <div className="relative h-48">
@@ -160,7 +162,7 @@ export default function DashboardMain() {
                       <span>{trip.planningProgress}%</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
