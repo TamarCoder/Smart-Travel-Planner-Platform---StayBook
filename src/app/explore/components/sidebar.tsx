@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Plus,
   LayoutDashboard,
   CalendarDays,
   Plane,
@@ -11,6 +10,7 @@ import {
   Bookmark,
   HelpCircle,
   LogOut,
+  Plus,
   X,
 } from "lucide-react";
 import { clearAuthSession } from "@/lib/auth";
@@ -28,7 +28,7 @@ interface Props {
   onClose: () => void;
 }
 
-export default function DashboardSidebar({ isOpen, onClose }: Props) {
+export default function ExploreSidebar({ isOpen, onClose }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -46,7 +46,7 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
         />
       )}
       <aside
-        className={`flex flex-col w-64 fixed left-0 top-0 bottom-0 z-40 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-lg pb-6 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:top-16 ${
+        className={`flex flex-col w-64 fixed left-0 top-0 bottom-0 z-40 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-lg transition-transform duration-300 ease-in-out lg:translate-x-0 lg:pt-20 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -57,16 +57,13 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
           >
             Voyager
           </span>
-          <button
-            onClick={onClose}
-            className="text-text-secondary hover:text-navy-950 transition-colors"
-          >
+          <button onClick={onClose} className="text-text-secondary hover:text-navy-950 transition-colors">
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="px-6 mt-6 lg:mt-10 mb-10">
-          <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
+        <div className="px-6 py-6">
+          <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-3 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
             <Plus className="h-5 w-5" />
             New Trip
           </button>
@@ -93,7 +90,7 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
           })}
         </nav>
 
-        <div className="mt-auto px-4 flex flex-col gap-1">
+        <div className="px-4 pt-4 border-t border-border-strong/20 flex flex-col gap-1 pb-6">
           <Link
             href="#"
             className="flex items-center gap-4 px-6 py-4 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all text-sm font-medium"

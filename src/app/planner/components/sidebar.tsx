@@ -20,7 +20,7 @@ const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { label: "Planner", href: "/planner", icon: CalendarDays },
   { label: "Trips", href: "/dashboard/trips", icon: Plane },
-  { label: "Explore", href: "/dashboard/explore", icon: Compass },
+  { label: "Explore", href: "/explore", icon: Compass },
   { label: "Saved", href: "/dashboard/saved", icon: Bookmark },
 ];
 
