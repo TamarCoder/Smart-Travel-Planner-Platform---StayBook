@@ -1,3 +1,10 @@
+import TripHeader from "./components/header";
+
 export default function TripPage() {
-  return <h1>hello</h1>;
+  return (
+    <div>
+      <TripHeader />
+      <h1>hello</h1>
+    </div>
+  );
 }
