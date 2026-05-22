@@ -9,7 +9,7 @@ export default function TripPage() {
       <TripHeader />
       <main className="pt-16 pb-16">
         <TripGallery />
-        <div className="max-w-7xl mx-auto px-4 md:px-12 mt-12 flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <div className="px-4 md:px-12 mt-12 flex flex-col lg:flex-row gap-8 lg:gap-12">
           <div className="lg:w-2/3 min-w-0">
             <TripDetails />
           </div>
