@@ -1,4 +1,5 @@
 import { Star, CalendarDays, Diamond, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function BookingCard() {
   return (
@@ -48,9 +49,12 @@ export default function BookingCard() {
       </div>
 
       <div className="space-y-3">
-        <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 rounded-xl text-base font-semibold active:scale-95 transition-all">
+        <Link
+          href="/booking"
+          className="block w-full text-center bg-sky-600 hover:bg-sky-700 text-white py-4 rounded-xl text-base font-semibold active:scale-95 transition-all"
+        >
           Book This Journey
-        </button>
+        </Link>
         <button className="w-full bg-transparent border border-border-strong text-navy-950 py-4 rounded-xl text-base font-semibold hover:bg-surface-hover transition-all">
           Add to Planner
         </button>
