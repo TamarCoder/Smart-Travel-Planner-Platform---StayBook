@@ -1,10 +1,13 @@
 import TripHeader from "./components/header";
+import TripGallery from "./components/gallery";
 
 export default function TripPage() {
   return (
     <div>
       <TripHeader />
-      <h1>hello</h1>
+      <main className="pt-16">
+        <TripGallery />
+      </main>
     </div>
   );
 }
