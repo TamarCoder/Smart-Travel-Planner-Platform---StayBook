@@ -13,7 +13,7 @@ import {
   LogOut,
   X,
 } from "lucide-react";
-import { clearAuthSession } from "@/lib/auth";
+import { useLogout } from "@/features/auth";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -31,9 +31,10 @@ interface Props {
 export default function DashboardSidebar({ isOpen, onClose }: Props) {
   const pathname = usePathname();
   const router = useRouter();
+  const logout = useLogout();
 
-  function handleLogout() {
-    clearAuthSession();
+  async function handleLogout() {
+    await logout.mutateAsync();
     router.push("/login");
   }
 
