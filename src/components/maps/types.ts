@@ -10,6 +10,28 @@ export interface MapMarker {
   label?: string;
 }
 
+export interface MapRoute {
+  id: string;
+  positions: LatLng[];
+  color?: string;
+  label?: string;
+  dashed?: boolean;
+}
+
+export const ROUTE_COLORS = [
+  "#0ea5e9",
+  "#10b981",
+  "#f97316",
+  "#8b5cf6",
+  "#ec4899",
+  "#22c55e",
+  "#eab308",
+] as const;
+
+export function routeColorForIndex(index: number) {
+  return ROUTE_COLORS[index % ROUTE_COLORS.length];
+}
+
 export interface MapTheme {
   url: string;
   attribution: string;
