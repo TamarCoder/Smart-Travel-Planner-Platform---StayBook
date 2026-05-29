@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -44,6 +45,7 @@ export function LandingHeader() {
       </nav>
 
       <div className="flex items-center gap-3">
+        <ThemeToggle className="hidden md:inline-flex" />
         <Link
           href="/login"
           className="hidden md:block text-sm font-medium text-text-secondary hover:text-navy-950 transition-colors"
@@ -82,6 +84,10 @@ export function LandingHeader() {
             </Link>
           ))}
           <div className="pt-2 border-t border-border flex flex-col gap-2">
+            <div className="flex items-center justify-between py-1">
+              <span className="text-sm font-medium text-text-secondary">Theme</span>
+              <ThemeToggle align="end" />
+            </div>
             <Link href="/login" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-text-secondary py-1">
               Sign in
             </Link>
