@@ -1,13 +1,20 @@
 export type LatLng = [number, number];
 
+export type MarkerAccent = "sky" | "emerald" | "amber" | "rose" | "navy" | "violet";
+
+export type MarkerKind = "pin" | "dot" | "price";
+
 export interface MapMarker {
   id: string;
   position: LatLng;
   title?: string;
   description?: string;
+  image?: string;
   href?: string;
-  accent?: "sky" | "emerald" | "amber" | "rose";
+  accent?: MarkerAccent;
   label?: string;
+  kind?: MarkerKind;
+  meta?: string;
 }
 
 export interface MapRoute {
