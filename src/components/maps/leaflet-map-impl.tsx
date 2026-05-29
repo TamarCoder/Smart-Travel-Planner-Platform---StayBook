@@ -3,6 +3,7 @@
 import "leaflet/dist/leaflet.css";
 import { useEffect, useMemo } from "react";
 import L, { type LatLngBoundsLiteral } from "leaflet";
+import Image from "next/image";
 import {
   MapContainer,
   Marker,
@@ -13,7 +14,14 @@ import {
   useMap,
 } from "react-leaflet";
 import { useTheme } from "next-themes";
-import { TILE_THEMES, type LatLng, type MapMarker, type MapRoute } from "./types";
+import {
+  TILE_THEMES,
+  type LatLng,
+  type MapMarker,
+  type MapRoute,
+  type MarkerAccent,
+  type MarkerKind,
+} from "./types";
 import { cn } from "@/lib/utils";
 
 interface LeafletMapImplProps {
@@ -28,13 +36,51 @@ interface LeafletMapImplProps {
   onMarkerClick?: (markerId: string) => void;
 }
 
-const FALLBACK_ICON = L.icon({
-  iconUrl:
-    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI4IiBoZWlnaHQ9IjI4Ij48cGF0aCBmaWxsPSIjMGVhNWU5IiBkPSJNMTIgMkM4LjEzIDIgNSA1LjEzIDUgOWMwIDUuMjUgNyAxMyA3IDEzczctNy43NSA3LTEzYzAtMy44Ny0zLjEzLTctNy03em0wIDkuNWMtMS4zOCAwLTIuNS0xLjEyLTIuNS0yLjVTMTAuNjIgNi41IDEyIDYuNXMyLjUgMS4xMiAyLjUgMi41LTEuMTIgMi41LTIuNSAyLjV6Ii8+PC9zdmc+",
-  iconSize: [28, 28],
-  iconAnchor: [14, 28],
-  popupAnchor: [0, -24],
-});
+const ACCENT_HEX: Record<MarkerAccent, string> = {
+  sky: "#0ea5e9",
+  emerald: "#10b981",
+  amber: "#f59e0b",
+  rose: "#f43f5e",
+  navy: "#0f172a",
+  violet: "#8b5cf6",
+};
+
+function buildIcon(marker: MapMarker) {
+  const accent = ACCENT_HEX[marker.accent ?? "sky"];
+  const kind: MarkerKind = marker.kind ?? "pin";
+  const isUser = marker.id === "user-location";
+
+  if (kind === "dot" || isUser) {
+    const html = `<div class="map-pin map-pin--dot ${isUser ? "map-pin--user" : ""}" style="--accent:${accent}"></div>`;
+    return L.divIcon({
+      html,
+      className: "",
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -10],
+    });
+  }
+
+  if (kind === "price" && marker.label) {
+    const html = `<div class="map-pin map-pin--price" style="--accent:${accent}">${marker.label}</div>`;
+    return L.divIcon({
+      html,
+      className: "",
+      iconSize: [60, 28],
+      iconAnchor: [30, 28],
+      popupAnchor: [0, -24],
+    });
+  }
+
+  const html = `<div class="map-pin" style="--accent:${accent}">${marker.label ?? ""}</div>`;
+  return L.divIcon({
+    html,
+    className: "",
+    iconSize: [36, 36],
+    iconAnchor: [18, 36],
+    popupAnchor: [0, -32],
+  });
+}
 
 function ThemeTiles() {
   const { resolvedTheme } = useTheme();
@@ -78,6 +124,38 @@ function FlyTo({ position }: { position: LatLng | null | undefined }) {
     map.flyTo(position, Math.max(map.getZoom(), 8), { duration: 1.2 });
   }, [position, map]);
   return null;
+}
+
+function MarkerPopup({ marker }: { marker: MapMarker }) {
+  if (!marker.title && !marker.description && !marker.image) return null;
+  return (
+    <Popup closeButton={false}>
+      <div className="overflow-hidden rounded-xl">
+        {marker.image && (
+          <div className="relative h-28 w-full">
+            <Image
+              src={marker.image}
+              alt={marker.title ?? ""}
+              fill
+              sizes="240px"
+              className="object-cover"
+            />
+          </div>
+        )}
+        <div className="space-y-1 p-3">
+          {marker.title && (
+            <p className="text-sm font-semibold text-text-primary">{marker.title}</p>
+          )}
+          {marker.description && (
+            <p className="text-xs text-text-secondary">{marker.description}</p>
+          )}
+          {marker.meta && (
+            <p className="text-xs font-medium text-sky-600">{marker.meta}</p>
+          )}
+        </div>
+      </div>
+    </Popup>
+  );
 }
 
 export function LeafletMapImpl({
@@ -128,23 +206,12 @@ export function LeafletMapImpl({
         <Marker
           key={marker.id}
           position={marker.position}
-          icon={FALLBACK_ICON}
+          icon={buildIcon(marker)}
           eventHandlers={{
             click: () => onMarkerClick?.(marker.id),
           }}
         >
-          {(marker.title || marker.description) && (
-            <Popup>
-              <div className="space-y-1">
-                {marker.title && (
-                  <p className="text-sm font-semibold text-text-primary">{marker.title}</p>
-                )}
-                {marker.description && (
-                  <p className="text-xs text-text-secondary">{marker.description}</p>
-                )}
-              </div>
-            </Popup>
-          )}
+          <MarkerPopup marker={marker} />
         </Marker>
       ))}
     </MapContainer>

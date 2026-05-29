@@ -39,7 +39,6 @@ export function ExploreMapView() {
       .filter((d) => d.coordinates)
       .map((d) => {
         const position: LatLng = [d.coordinates!.lat, d.coordinates!.lng];
-        const base = `${d.country} · ${formatPrice(d.pricePerNight, d.currency)} / night`;
         const distance = geo.position
           ? formatDistance(haversineDistance(geo.position, d.coordinates!))
           : null;
@@ -47,7 +46,12 @@ export function ExploreMapView() {
           id: d.slug,
           position,
           title: d.name,
-          description: distance ? `${base} · ${distance} away` : base,
+          description: distance ? `${d.country} · ${distance} away` : d.country,
+          meta: `${formatPrice(d.pricePerNight, d.currency)} / night`,
+          image: d.image,
+          accent: d.featured ? "sky" : "navy",
+          kind: "price",
+          label: formatPriceShort(d.pricePerNight, d.currency),
         };
       });
 
@@ -57,6 +61,8 @@ export function ExploreMapView() {
         position: userPosition,
         title: "You are here",
         description: "Approximate location from your browser",
+        accent: "rose",
+        kind: "dot",
       });
     }
     return list;
@@ -154,4 +160,12 @@ function formatPrice(amount: number, currency: string) {
   } catch {
     return `${currency} ${amount}`;
   }
+}
+
+function formatPriceShort(amount: number, currency: string) {
+  const symbol = currency === "USD" ? "$" : currency === "EUR" ? "€" : currency === "GBP" ? "£" : "";
+  if (amount >= 1000) {
+    return `${symbol}${(amount / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  }
+  return `${symbol}${Math.round(amount)}`;
 }

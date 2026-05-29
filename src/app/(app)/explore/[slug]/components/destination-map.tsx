@@ -21,6 +21,9 @@ export function DestinationMap({ destination }: DestinationMapProps) {
         position: [destination.coordinates.lat, destination.coordinates.lng],
         title: destination.name,
         description: destination.tagline,
+        image: destination.image,
+        accent: "navy",
+        kind: "pin",
       });
     }
     (attractions ?? []).forEach((a) => {
@@ -30,6 +33,10 @@ export function DestinationMap({ destination }: DestinationMapProps) {
         position: [a.coordinates.lat, a.coordinates.lng],
         title: a.name,
         description: a.category,
+        image: a.image,
+        meta: a.priceFrom === 0 ? "Free" : `From $${a.priceFrom}`,
+        accent: "sky",
+        kind: "pin",
       });
     });
     return list;
@@ -57,7 +64,7 @@ export function DestinationMap({ destination }: DestinationMapProps) {
       </header>
 
       <div className="overflow-hidden rounded-2xl border border-border shadow-sm">
-        <div className="h-[420px] w-full">
+        <div className="h-105 w-full">
           <LeafletMap center={center} zoom={9} markers={markers} fitToMarkers />
         </div>
       </div>
