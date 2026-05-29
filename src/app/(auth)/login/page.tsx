@@ -3,34 +3,40 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
-import { mockLogin, setAuthSession } from "@/lib/auth";
+import { toast } from "sonner";
+import { useLogin } from "@/features/auth";
+import { loginSchema, type LoginInput } from "@/lib/validations/auth";
 
 export default function LoginPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const login = useLogin();
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginInput>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: { email: "alex@voyager.com", password: "voyager2024" },
+  });
 
-    const form = e.currentTarget;
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+  const onSubmit = handleSubmit(async (values) => {
+    try {
+      await login.mutateAsync(values);
+      toast.success("Welcome back");
+      router.push("/dashboard");
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Something went wrong. Try again.";
+      toast.error(message);
+    }
+  });
 
-    setTimeout(() => {
-      if (mockLogin(email, password)) {
-        setAuthSession();
-        router.push("/dashboard");
-      } else {
-        setError("Invalid email or password.");
-        setLoading(false);
-      }
-    }, 800);
-  }
+  const busy = isSubmitting || login.isPending;
 
   return (
     <div>
@@ -46,7 +52,7 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={onSubmit} className="flex flex-col gap-4" noValidate>
         <div className="flex flex-col gap-1.5">
           <label htmlFor="email" className="text-sm font-medium text-text-primary">
             Email
@@ -55,14 +61,17 @@ export default function LoginPage() {
             <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
             <input
               id="email"
-              name="email"
               type="email"
               placeholder="alex@voyager.com"
-              required
-              defaultValue="alex@voyager.com"
-              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
+              autoComplete="email"
+              aria-invalid={!!errors.email}
+              {...register("email")}
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20 aria-invalid:border-error"
             />
           </div>
+          {errors.email && (
+            <p className="text-xs text-error-dark">{errors.email.message}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-1.5">
@@ -78,33 +87,33 @@ export default function LoginPage() {
             <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
             <input
               id="password"
-              name="password"
               type={showPassword ? "text" : "password"}
               placeholder="••••••••"
-              required
-              defaultValue="voyager2024"
-              className="w-full rounded-xl bg-surface border border-border pl-10 pr-11 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
+              autoComplete="current-password"
+              aria-invalid={!!errors.password}
+              {...register("password")}
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-11 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20 aria-invalid:border-error"
             />
             <button
               type="button"
               onClick={() => setShowPassword((p) => !p)}
               className="absolute right-3.5 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
           </div>
+          {errors.password && (
+            <p className="text-xs text-error-dark">{errors.password.message}</p>
+          )}
         </div>
-
-        {error && (
-          <p className="text-xs text-error-dark bg-error-bg px-3 py-2 rounded-lg">{error}</p>
-        )}
 
         <button
           type="submit"
-          disabled={loading}
+          disabled={busy}
           className="mt-1 w-full py-3 rounded-xl bg-navy-950 hover:bg-navy-800 text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
         >
-          {loading ? "Signing in…" : "Sign in"}
+          {busy ? "Signing in…" : "Sign in"}
         </button>
 
         <div className="relative my-1">

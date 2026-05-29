@@ -2,17 +2,41 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Lock, Eye, EyeOff, User } from "lucide-react";
+import { toast } from "sonner";
+import { useRegister } from "@/features/auth";
+import { registerSchema, type RegisterInput } from "@/lib/validations/auth";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const registerMutation = useRegister();
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<RegisterInput>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: { name: "", email: "", password: "" },
+  });
+
+  const onSubmit = handleSubmit(async (values) => {
+    try {
+      await registerMutation.mutateAsync(values);
+      toast.success("Account created");
+      router.push("/dashboard");
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Something went wrong. Try again.";
+      toast.error(message);
+    }
+  });
+
+  const busy = isSubmitting || registerMutation.isPending;
 
   return (
     <div>
@@ -28,7 +52,7 @@ export default function RegisterPage() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={onSubmit} className="flex flex-col gap-4" noValidate>
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-sm font-medium text-text-primary">
             Full name
@@ -39,10 +63,15 @@ export default function RegisterPage() {
               id="name"
               type="text"
               placeholder="Alex Johnson"
-              required
-              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
+              autoComplete="name"
+              aria-invalid={!!errors.name}
+              {...register("name")}
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20 aria-invalid:border-error"
             />
           </div>
+          {errors.name && (
+            <p className="text-xs text-error-dark">{errors.name.message}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-1.5">
@@ -55,10 +84,15 @@ export default function RegisterPage() {
               id="email"
               type="email"
               placeholder="you@example.com"
-              required
-              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
+              autoComplete="email"
+              aria-invalid={!!errors.email}
+              {...register("email")}
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20 aria-invalid:border-error"
             />
           </div>
+          {errors.email && (
+            <p className="text-xs text-error-dark">{errors.email.message}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-1.5">
@@ -71,27 +105,33 @@ export default function RegisterPage() {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Min. 8 characters"
-              required
-              minLength={8}
-              className="w-full rounded-xl bg-surface border border-border pl-10 pr-11 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20"
+              autoComplete="new-password"
+              aria-invalid={!!errors.password}
+              {...register("password")}
+              className="w-full rounded-xl bg-surface border border-border pl-10 pr-11 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all focus:border-sky-600 focus:ring-2 focus:ring-sky-600/20 aria-invalid:border-error"
             />
             <button
               type="button"
               onClick={() => setShowPassword((p) => !p)}
               className="absolute right-3.5 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
           </div>
-          <p className="text-xs text-text-muted">Must be at least 8 characters.</p>
+          {errors.password ? (
+            <p className="text-xs text-error-dark">{errors.password.message}</p>
+          ) : (
+            <p className="text-xs text-text-muted">Must be at least 8 characters.</p>
+          )}
         </div>
 
         <button
           type="submit"
-          disabled={loading}
+          disabled={busy}
           className="mt-2 w-full py-3 rounded-xl bg-navy-950 hover:bg-navy-800 text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
         >
-          {loading ? "Creating account…" : "Create account"}
+          {busy ? "Creating account…" : "Create account"}
         </button>
 
         <div className="relative my-1">
