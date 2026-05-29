@@ -1,14 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useDestinationFilters, useDestinations } from "@/features/destinations";
+import { useDestinationFilters, useDestinations, useExploreView } from "@/features/destinations";
 import { ExploreToolbar } from "./explore-toolbar";
 import { ExploreFilters } from "./explore-filters";
 import { ExploreResults } from "./explore-results";
+import { ExploreMapView } from "./explore-map-view";
 
 export default function ExploreMain() {
   const { filters } = useDestinationFilters();
   const query = useDestinations(filters);
+  const { view } = useExploreView();
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const activeFilterCount = useMemo(() => {
@@ -59,7 +61,7 @@ export default function ExploreMain() {
             <ExploreFilters open={filtersOpen} onClose={() => setFiltersOpen(false)} />
           </div>
 
-          <ExploreResults />
+          {view === "map" ? <ExploreMapView /> : <ExploreResults />}
         </div>
       </div>
     </main>

@@ -5,6 +5,7 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 import { useDestinationFilters } from "@/features/destinations";
 import { useDebouncedValue } from "@/hooks/use-debounced-value";
 import type { SortKey } from "@/lib/api/destinations";
+import { ViewToggle } from "./view-toggle";
 
 const SORT_OPTIONS: { value: SortKey; label: string }[] = [
   { value: "popular", label: "Most popular" },
@@ -70,6 +71,7 @@ export function ExploreToolbar({ total, onToggleFilters, activeFilterCount }: Ex
         </button>
 
         <div className="flex items-center gap-3">
+          <ViewToggle />
           <span className="hidden text-xs text-text-secondary sm:inline">
             {total} {total === 1 ? "result" : "results"}
           </span>
