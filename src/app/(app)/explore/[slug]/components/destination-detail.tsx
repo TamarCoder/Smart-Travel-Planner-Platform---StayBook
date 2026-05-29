@@ -9,6 +9,7 @@ import ExploreShell from "../../components/shell";
 import { HeroGallery } from "./hero-gallery";
 import { AttractionsSection } from "./attractions-section";
 import { RelatedSection } from "./related-section";
+import { DestinationMap } from "./destination-map";
 
 interface DestinationDetailProps {
   slug: string;
@@ -145,6 +146,8 @@ export function DestinationDetail({ slug }: DestinationDetailProps) {
                 </header>
                 <AttractionsSection destinationId={data.id} />
               </section>
+
+              <DestinationMap destination={data} />
 
               <section className="flex flex-col gap-5">
                 <header>
