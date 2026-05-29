@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { Heart, Star, MapPin } from "lucide-react";
+import { Star, MapPin } from "lucide-react";
+import { FavoriteButton } from "@/components/shared/favorite-button";
 
 export interface HotelCardProps {
+  id: string;
   image: string;
   name: string;
   location: string;
@@ -10,10 +12,10 @@ export interface HotelCardProps {
   price: string;
   priceNote: string;
   tags: string[];
-  saved: boolean;
 }
 
 export default function HotelCard({
+  id,
   image,
   name,
   location,
@@ -22,7 +24,6 @@ export default function HotelCard({
   price,
   priceNote,
   tags,
-  saved,
 }: HotelCardProps) {
   return (
     <div className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-2xl">
@@ -33,18 +34,11 @@ export default function HotelCard({
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <button
-          className="absolute top-4 right-4 bg-white/90 p-2 rounded-full shadow-md hover:scale-110 transition-transform"
-          aria-label="Save"
-        >
-          <Heart
-            className={
-              saved
-                ? "h-5 w-5 fill-red-500 text-red-500"
-                : "h-5 w-5 text-text-secondary"
-            }
-          />
-        </button>
+        <FavoriteButton
+          entityType="hotel"
+          entityId={id}
+          className="absolute top-4 right-4"
+        />
         <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
