@@ -6,12 +6,14 @@ import L, { type LatLngBoundsLiteral } from "leaflet";
 import {
   MapContainer,
   Marker,
+  Polyline,
   Popup,
   TileLayer,
+  Tooltip,
   useMap,
 } from "react-leaflet";
 import { useTheme } from "next-themes";
-import { TILE_THEMES, type LatLng, type MapMarker } from "./types";
+import { TILE_THEMES, type LatLng, type MapMarker, type MapRoute } from "./types";
 import { cn } from "@/lib/utils";
 
 interface LeafletMapImplProps {
@@ -19,6 +21,7 @@ interface LeafletMapImplProps {
   zoom?: number;
   className?: string;
   markers?: MapMarker[];
+  routes?: MapRoute[];
   fitToMarkers?: boolean;
   interactive?: boolean;
   onMarkerClick?: (markerId: string) => void;
@@ -38,18 +41,31 @@ function ThemeTiles() {
   return <TileLayer url={theme.url} attribution={theme.attribution} />;
 }
 
-function FitToMarkers({ markers, enabled }: { markers: MapMarker[]; enabled: boolean }) {
+function FitBounds({
+  markers,
+  routes,
+  enabled,
+}: {
+  markers: MapMarker[];
+  routes: MapRoute[];
+  enabled: boolean;
+}) {
   const map = useMap();
 
   useEffect(() => {
-    if (!enabled || markers.length === 0) return;
-    if (markers.length === 1) {
-      map.setView(markers[0].position, Math.max(map.getZoom(), 6));
+    if (!enabled) return;
+    const points: LatLng[] = [
+      ...markers.map((m) => m.position),
+      ...routes.flatMap((r) => r.positions),
+    ];
+    if (points.length === 0) return;
+    if (points.length === 1) {
+      map.setView(points[0], Math.max(map.getZoom(), 6));
       return;
     }
-    const bounds: LatLngBoundsLiteral = markers.map((m) => m.position);
-    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 8 });
-  }, [enabled, markers, map]);
+    const bounds: LatLngBoundsLiteral = points;
+    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+  }, [enabled, markers, routes, map]);
 
   return null;
 }
@@ -59,11 +75,13 @@ export function LeafletMapImpl({
   zoom = 4,
   className,
   markers = [],
+  routes = [],
   fitToMarkers = false,
   interactive = true,
   onMarkerClick,
 }: LeafletMapImplProps) {
   const stableMarkers = useMemo(() => markers, [markers]);
+  const stableRoutes = useMemo(() => routes, [routes]);
 
   return (
     <MapContainer
@@ -77,7 +95,23 @@ export function LeafletMapImpl({
       attributionControl
     >
       <ThemeTiles />
-      <FitToMarkers markers={stableMarkers} enabled={fitToMarkers} />
+      <FitBounds markers={stableMarkers} routes={stableRoutes} enabled={fitToMarkers} />
+      {stableRoutes.map((route) => (
+        <Polyline
+          key={route.id}
+          positions={route.positions}
+          pathOptions={{
+            color: route.color ?? "#0ea5e9",
+            weight: 4,
+            opacity: 0.9,
+            dashArray: route.dashed ? "8 8" : undefined,
+            lineCap: "round",
+            lineJoin: "round",
+          }}
+        >
+          {route.label && <Tooltip sticky>{route.label}</Tooltip>}
+        </Polyline>
+      ))}
       {stableMarkers.map((marker) => (
         <Marker
           key={marker.id}
