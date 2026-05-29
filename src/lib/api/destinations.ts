@@ -176,3 +176,7 @@ export function getDurations() {
     new Set(DESTINATIONS.map((d) => d.duration).filter(Boolean)),
   ) as string[];
 }
+
+export async function getDestinationsByIds(ids: string[]): Promise<Destination[]> {
+  return fakeRequest(() => DESTINATIONS.filter((d) => ids.includes(d.id)));
+}
