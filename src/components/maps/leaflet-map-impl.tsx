@@ -24,6 +24,7 @@ interface LeafletMapImplProps {
   routes?: MapRoute[];
   fitToMarkers?: boolean;
   interactive?: boolean;
+  flyTo?: LatLng | null;
   onMarkerClick?: (markerId: string) => void;
 }
 
@@ -70,6 +71,15 @@ function FitBounds({
   return null;
 }
 
+function FlyTo({ position }: { position: LatLng | null | undefined }) {
+  const map = useMap();
+  useEffect(() => {
+    if (!position) return;
+    map.flyTo(position, Math.max(map.getZoom(), 8), { duration: 1.2 });
+  }, [position, map]);
+  return null;
+}
+
 export function LeafletMapImpl({
   center,
   zoom = 4,
@@ -78,6 +88,7 @@ export function LeafletMapImpl({
   routes = [],
   fitToMarkers = false,
   interactive = true,
+  flyTo,
   onMarkerClick,
 }: LeafletMapImplProps) {
   const stableMarkers = useMemo(() => markers, [markers]);
@@ -96,6 +107,7 @@ export function LeafletMapImpl({
     >
       <ThemeTiles />
       <FitBounds markers={stableMarkers} routes={stableRoutes} enabled={fitToMarkers} />
+      <FlyTo position={flyTo} />
       {stableRoutes.map((route) => (
         <Polyline
           key={route.id}

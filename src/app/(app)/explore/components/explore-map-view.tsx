@@ -1,12 +1,15 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { Compass } from "lucide-react";
+import { Compass, Crosshair, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { useDestinationFilters, useDestinations } from "@/features/destinations";
 import { LeafletMap, type LatLng, type MapMarker } from "@/components/maps";
 import { Spinner } from "@/components/ui/spinner";
 import { EmptyState } from "@/components/ui/empty-state";
+import { useGeolocation } from "@/hooks/use-geolocation";
+import { haversineDistance, formatDistance } from "@/lib/utils/distance";
 
 const DEFAULT_CENTER: LatLng = [25, 10];
 
@@ -18,18 +21,46 @@ export function ExploreMapView() {
     pageSize: 50,
     page: 1,
   });
+  const geo = useGeolocation();
+
+  useEffect(() => {
+    if (geo.status === "error" && geo.error) {
+      toast.error(geo.error);
+    }
+  }, [geo.status, geo.error]);
+
+  const userPosition = useMemo<LatLng | null>(
+    () => (geo.position ? [geo.position.lat, geo.position.lng] : null),
+    [geo.position],
+  );
 
   const markers = useMemo<MapMarker[]>(() => {
-    if (!data?.items) return [];
-    return data.items
+    const list: MapMarker[] = (data?.items ?? [])
       .filter((d) => d.coordinates)
-      .map((d) => ({
-        id: d.slug,
-        position: [d.coordinates!.lat, d.coordinates!.lng] as LatLng,
-        title: d.name,
-        description: `${d.country} · ${formatPrice(d.pricePerNight, d.currency)} / night`,
-      }));
-  }, [data]);
+      .map((d) => {
+        const position: LatLng = [d.coordinates!.lat, d.coordinates!.lng];
+        const base = `${d.country} · ${formatPrice(d.pricePerNight, d.currency)} / night`;
+        const distance = geo.position
+          ? formatDistance(haversineDistance(geo.position, d.coordinates!))
+          : null;
+        return {
+          id: d.slug,
+          position,
+          title: d.name,
+          description: distance ? `${base} · ${distance} away` : base,
+        };
+      });
+
+    if (userPosition) {
+      list.push({
+        id: "user-location",
+        position: userPosition,
+        title: "You are here",
+        description: "Approximate location from your browser",
+      });
+    }
+    return list;
+  }, [data, geo.position, userPosition]);
 
   if (isError) {
     return (
@@ -81,16 +112,34 @@ export function ExploreMapView() {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
-      <div className="h-[70vh] min-h-[420px] w-full">
+    <div className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
+      <div className="h-[70vh] min-h-105 w-full">
         <LeafletMap
           center={markers[0]?.position ?? DEFAULT_CENTER}
           zoom={3}
           markers={markers}
-          fitToMarkers
-          onMarkerClick={(slug) => router.push(`/explore/${slug}`)}
+          fitToMarkers={!userPosition}
+          flyTo={userPosition}
+          onMarkerClick={(slug) => {
+            if (slug === "user-location") return;
+            router.push(`/explore/${slug}`);
+          }}
         />
       </div>
+
+      <button
+        type="button"
+        onClick={() => geo.request()}
+        disabled={geo.status === "loading"}
+        className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full bg-surface px-4 py-2.5 text-xs font-medium text-text-primary shadow-lg ring-1 ring-border transition-transform hover:scale-105 disabled:opacity-60"
+      >
+        {geo.status === "loading" ? (
+          <Loader2 className="h-4 w-4 animate-spin text-sky-600" />
+        ) : (
+          <Crosshair className="h-4 w-4 text-sky-600" />
+        )}
+        {geo.status === "success" ? "Recenter on me" : "Use my location"}
+      </button>
     </div>
   );
 }
