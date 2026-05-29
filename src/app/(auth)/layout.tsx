@@ -19,7 +19,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           </Link>
           <div>
             <blockquote className="text-white/90 text-xl font-medium leading-relaxed mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              "Travel is not just a destination — it's a state of mind curated by the finest details."
+              &ldquo;Travel is not just a destination — it&rsquo;s a state of mind curated by the finest details.&rdquo;
             </blockquote>
             <p className="text-white/60 text-sm">Voyager Luxury Concierge</p>
           </div>
