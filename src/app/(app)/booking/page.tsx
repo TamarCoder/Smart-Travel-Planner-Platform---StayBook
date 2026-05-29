@@ -49,7 +49,6 @@ export default function BookingPage() {
               price: "$840",
               priceNote: "Includes taxes & fees",
               tags: ["Infinity Pool", "Ocean View"],
-              saved: true,
             },
             {
               id: "h2",
@@ -61,7 +60,6 @@ export default function BookingPage() {
               price: "$1,250",
               priceNote: "Excludes resort fees",
               tags: ["Private Hot Tub"],
-              saved: false,
             },
           ]}
         />
