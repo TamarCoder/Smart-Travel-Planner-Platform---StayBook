@@ -1,0 +1,90 @@
+[
+  {
+    "id": "exp-001",
+    "tripId": "trip-001",
+    "userId": "user-001",
+    "category": "flights",
+    "amount": 4200,
+    "currency": "USD",
+    "note": "Round trip · ZRH → JTR",
+    "spentAt": "2024-04-12",
+    "createdAt": "2024-04-12T09:14:00Z"
+  },
+  {
+    "id": "exp-002",
+    "tripId": "trip-001",
+    "userId": "user-001",
+    "category": "hotels",
+    "amount": 1620,
+    "currency": "USD",
+    "note": "Astra Suites · 3 nights",
+    "spentAt": "2024-05-25",
+    "createdAt": "2024-05-25T10:50:00Z"
+  },
+  {
+    "id": "exp-003",
+    "tripId": "trip-001",
+    "userId": "user-001",
+    "category": "hotels",
+    "amount": 1180,
+    "currency": "USD",
+    "note": "Canaves Oia · 2 nights",
+    "spentAt": "2024-05-26",
+    "createdAt": "2024-05-26T11:00:00Z"
+  },
+  {
+    "id": "exp-004",
+    "tripId": "trip-001",
+    "userId": "user-001",
+    "category": "dining",
+    "amount": 480,
+    "currency": "USD",
+    "note": "Selene tasting menu reservation",
+    "spentAt": "2024-05-26",
+    "createdAt": "2024-05-26T19:11:00Z"
+  },
+  {
+    "id": "exp-005",
+    "tripId": "trip-001",
+    "userId": "user-001",
+    "category": "dining",
+    "amount": 670,
+    "currency": "USD",
+    "note": "Daily food allowance estimate",
+    "spentAt": "2024-05-27",
+    "createdAt": "2024-05-27T08:30:00Z"
+  },
+  {
+    "id": "exp-006",
+    "tripId": "trip-001",
+    "userId": "user-001",
+    "category": "activities",
+    "amount": 565,
+    "currency": "USD",
+    "note": "Catamaran sunset cruise + winery tour",
+    "spentAt": "2024-05-22",
+    "createdAt": "2024-05-22T18:14:00Z"
+  },
+  {
+    "id": "exp-007",
+    "tripId": "trip-002",
+    "userId": "user-001",
+    "category": "flights",
+    "amount": 1450,
+    "currency": "USD",
+    "note": "SFO → Fresno",
+    "spentAt": "2024-04-30",
+    "createdAt": "2024-04-30T14:11:00Z"
+  },
+  {
+    "id": "exp-008",
+    "tripId": "trip-002",
+    "userId": "user-001",
+    "category": "activities",
+    "amount": 320,
+    "currency": "USD",
+    "note": "Yosemite Valley guided hike",
+    "spentAt": "2024-07-15",
+    "createdAt": "2024-07-15T08:00:00Z"
+  }
+]
