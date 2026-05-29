@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { useLogout } from "@/features/auth";
+import { CreateTripDialog } from "./create-trip-dialog";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -67,10 +68,14 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
         </div>
 
         <div className="px-6 mt-6 lg:mt-10 mb-10">
-          <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
-            <Plus className="h-5 w-5" />
-            New Trip
-          </button>
+          <CreateTripDialog
+            trigger={
+              <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
+                <Plus className="h-5 w-5" />
+                New Trip
+              </button>
+            }
+          />
         </div>
 
         <nav className="flex-1 flex flex-col gap-1 px-4">
