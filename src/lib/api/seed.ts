@@ -1,6 +1,6 @@
 import userData from "@/data/user.json";
 import tripsData from "@/data/trips.json";
-import { getDb, type DbTrip, type DbUser } from "./db";
+import { getDb, type DbTrip, type DbUser, type TripDay, type TripActivityLog } from "./db";
 
 const SEED_KEY = "seedVersion";
 const SEED_VERSION = 1;
@@ -47,9 +47,9 @@ interface RawTrip {
   budgetBreakdown: Record<string, number>;
   milesMowed?: number;
   carbonFootprint?: number;
-  itinerary: unknown[];
+  itinerary: TripDay[];
   collaborators?: DbTrip["collaborators"];
-  recentActivity?: unknown[];
+  recentActivity?: TripActivityLog[];
 }
 
 function toDbUser(raw: RawUser): DbUser {

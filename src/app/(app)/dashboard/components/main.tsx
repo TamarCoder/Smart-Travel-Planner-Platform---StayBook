@@ -17,8 +17,8 @@ export default function DashboardMain() {
   const nextTrip = upcomingTrips[0];
 
   const totalSpent = allTrips.reduce((sum, t) => sum + t.spent, 0);
-  const totalMiles = allTrips.reduce((sum, t) => sum + t.milesMowed, 0);
-  const totalCarbon = allTrips.reduce((sum, t) => sum + t.carbonFootprint, 0);
+  const totalMiles = allTrips.reduce((sum, t) => sum + (t.milesMowed ?? 0), 0);
+  const totalCarbon = allTrips.reduce((sum, t) => sum + (t.carbonFootprint ?? 0), 0);
 
   const budgetPct = nextTrip
     ? Math.round((nextTrip.spent / nextTrip.totalBudget) * 100)
@@ -127,7 +127,7 @@ export default function DashboardMain() {
                 >
                   <div className="relative h-48">
                     <Image
-                      src={trip.coverImage}
+                      src={trip.coverImage ?? "/assets/luxury_travel_planner_landing_page__img_03.png"}
                       alt={trip.title}
                       fill
                       className="object-cover"
@@ -265,9 +265,9 @@ export default function DashboardMain() {
               Recent Activity
             </h2>
             <div className="flex flex-col">
-              {nextTrip?.recentActivity.map((item, idx) => {
+              {(nextTrip?.recentActivity ?? []).map((item, idx) => {
                 const Icon = getActivityIcon(item.type);
-                const isLast = idx === (nextTrip.recentActivity.length - 1);
+                const isLast = idx === ((nextTrip?.recentActivity?.length ?? 0) - 1);
                 return (
                   <div key={item.id} className="flex gap-4 cursor-pointer">
                     <div className="flex flex-col items-center">

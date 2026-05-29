@@ -31,6 +31,54 @@ export interface DbSession {
   expiresAt: string;
 }
 
+export type ActivityType =
+  | "flight"
+  | "transfer"
+  | "hotel"
+  | "activity"
+  | "dining"
+  | "spa"
+  | "tour"
+  | "note";
+
+export type ActivityStatus = "pending" | "confirmed" | "cancelled";
+
+export interface TripActivity {
+  id: string;
+  time?: string;
+  type: ActivityType;
+  title: string;
+  detail?: string;
+  status?: ActivityStatus;
+  location?: string;
+  coordinates?: { lat: number; lng: number };
+  notes?: string;
+  cost?: number;
+  currency?: string;
+}
+
+export interface TripDay {
+  day: number;
+  date: string;
+  title: string;
+  activities: TripActivity[];
+}
+
+export interface TripCollaborator {
+  id: string;
+  name: string;
+  avatar?: string;
+  role?: string;
+}
+
+export interface TripActivityLog {
+  id: string;
+  type: string;
+  title: string;
+  subtitle?: string;
+  time: string;
+}
+
 export interface DbTrip {
   id: string;
   userId: string;
@@ -41,15 +89,16 @@ export interface DbTrip {
   endDate: string;
   nights: number;
   status: "draft" | "upcoming" | "active" | "completed" | "cancelled";
+  daysLeft?: number;
   planningProgress: number;
   totalBudget: number;
   spent: number;
   budgetBreakdown: Record<string, number>;
   milesMowed?: number;
   carbonFootprint?: number;
-  itinerary: unknown[];
-  collaborators?: Array<{ id: string; name: string; avatar?: string; role?: string }>;
-  recentActivity?: unknown[];
+  itinerary: TripDay[];
+  collaborators?: TripCollaborator[];
+  recentActivity?: TripActivityLog[];
   createdAt: string;
   updatedAt: string;
 }
