@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Providers } from "./providers";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -42,10 +41,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased">
-        <TooltipProvider>
-          {children}
-          <Toaster />
-        </TooltipProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
