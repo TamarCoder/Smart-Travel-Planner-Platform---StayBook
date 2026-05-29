@@ -1,0 +1,100 @@
+[
+  {
+    "id": "ntf-001",
+    "userId": "user-001",
+    "type": "trip",
+    "title": "Santorini countdown begins",
+    "body": "Your trip starts in 14 days. We have prepared a packing list and offline maps.",
+    "link": "/trips/trip-001",
+    "readAt": null,
+    "createdAt": "2024-05-28T09:14:00Z"
+  },
+  {
+    "id": "ntf-002",
+    "userId": "user-001",
+    "type": "collaboration",
+    "title": "Sofia accepted your invite",
+    "body": "Sofia Castellanos joined the Santorini trip and can now edit the itinerary.",
+    "link": "/trips/trip-001",
+    "readAt": null,
+    "createdAt": "2024-05-27T16:42:00Z"
+  },
+  {
+    "id": "ntf-003",
+    "userId": "user-001",
+    "type": "booking",
+    "title": "Astra Suites — booking confirmed",
+    "body": "Your three-night stay at Astra Suites is confirmed. Check-in June 14.",
+    "link": "/booking",
+    "readAt": "2024-05-25T11:00:00Z",
+    "createdAt": "2024-05-25T10:48:00Z"
+  },
+  {
+    "id": "ntf-004",
+    "userId": "user-001",
+    "type": "trip",
+    "title": "New review on Mystique Cave Hotel",
+    "body": "A reviewer you follow rated Mystique Cave 5/5 last week.",
+    "link": "/explore/santorini-greece",
+    "readAt": null,
+    "createdAt": "2024-05-24T07:30:00Z"
+  },
+  {
+    "id": "ntf-005",
+    "userId": "user-001",
+    "type": "system",
+    "title": "Currency rates refreshed",
+    "body": "Your dashboard now reflects today's USD to EUR rate.",
+    "readAt": "2024-05-23T05:00:00Z",
+    "createdAt": "2024-05-23T04:58:00Z"
+  },
+  {
+    "id": "ntf-006",
+    "userId": "user-001",
+    "type": "collaboration",
+    "title": "Marcus added a new activity",
+    "body": "Marcus added \"Catamaran sunset cruise\" to Day 4 of your Santorini trip.",
+    "link": "/planner/trip-001",
+    "readAt": null,
+    "createdAt": "2024-05-22T18:11:00Z"
+  },
+  {
+    "id": "ntf-007",
+    "userId": "user-001",
+    "type": "trip",
+    "title": "Patagonia trip draft saved",
+    "body": "We saved your draft itinerary. Pick up where you left off when ready.",
+    "link": "/planner/trip-004",
+    "readAt": "2024-05-20T15:23:00Z",
+    "createdAt": "2024-05-20T15:20:00Z"
+  },
+  {
+    "id": "ntf-008",
+    "userId": "user-001",
+    "type": "booking",
+    "title": "Hot deal: Royal Mansour suites",
+    "body": "Marrakech suites you saved are 18% off through Friday.",
+    "link": "/booking",
+    "readAt": null,
+    "createdAt": "2024-05-19T12:05:00Z"
+  },
+  {
+    "id": "ntf-009",
+    "userId": "user-001",
+    "type": "system",
+    "title": "Welcome to StayBook",
+    "body": "Your account is ready. Start by exploring destinations or planning a trip.",
+    "readAt": "2024-05-15T10:01:00Z",
+    "createdAt": "2024-05-15T10:00:00Z"
+  },
+  {
+    "id": "ntf-010",
+    "userId": "user-001",
+    "type": "collaboration",
+    "title": "Comment on Day 2 activity",
+    "body": "Elena: \"Can we swap the wine tour to morning?\"",
+    "link": "/planner/trip-001",
+    "readAt": null,
+    "createdAt": "2024-05-18T19:48:00Z"
+  }
+]

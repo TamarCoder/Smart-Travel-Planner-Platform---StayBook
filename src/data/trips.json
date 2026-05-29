@@ -127,5 +127,225 @@
       }
     ],
     "recentActivity": []
+  },
+  {
+    "id": "trip-003",
+    "title": "Bali Ubud Retreat",
+    "destination": "bali-ubud",
+    "coverImage": "/assets/destination_santorini_greece__img_03.png",
+    "startDate": "2024-02-04",
+    "endDate": "2024-02-15",
+    "nights": 11,
+    "status": "completed",
+    "daysLeft": 0,
+    "planningProgress": 100,
+    "totalBudget": 8200,
+    "spent": 8042,
+    "budgetBreakdown": {
+      "flights": 2150,
+      "hotels": 3200,
+      "dining": 1340,
+      "activities": 980,
+      "other": 372
+    },
+    "milesMowed": 16400,
+    "carbonFootprint": 2.4,
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2024-02-04",
+        "title": "Arrival & Sayan welcome",
+        "activities": [
+          {
+            "id": "act-201",
+            "time": "13:30",
+            "type": "flight",
+            "title": "QF42 · Sydney to Denpasar",
+            "detail": "11:55 AM – 16:40 PM · Terminal 1",
+            "status": "confirmed"
+          },
+          {
+            "id": "act-202",
+            "time": "18:00",
+            "type": "hotel",
+            "title": "Four Seasons Sayan check-in",
+            "detail": "River Suite · 1 King",
+            "status": "confirmed"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "date": "2024-02-05",
+        "title": "Rice terraces and healing",
+        "activities": [
+          {
+            "id": "act-203",
+            "time": "07:30",
+            "type": "activity",
+            "title": "Tegalalang sunrise walk",
+            "detail": "Private guide · 2h",
+            "status": "confirmed"
+          },
+          {
+            "id": "act-204",
+            "time": "14:00",
+            "type": "spa",
+            "title": "Sacred River healing ritual",
+            "detail": "Como Shambhala spa · 90 min",
+            "status": "confirmed"
+          }
+        ]
+      }
+    ],
+    "collaborators": [
+      {
+        "id": "u1",
+        "name": "Alex",
+        "avatar": "/assets/travel_dashboard__img_01.png"
+      },
+      {
+        "id": "u3",
+        "name": "Elena",
+        "avatar": "/images/landing/testimonial-elena.png"
+      }
+    ],
+    "recentActivity": [
+      {
+        "id": "ra-101",
+        "type": "complete",
+        "title": "Trip closed",
+        "subtitle": "Marked Bali Ubud Retreat as completed",
+        "time": "Feb 15, 2024"
+      }
+    ]
+  },
+  {
+    "id": "trip-004",
+    "title": "Patagonia Wilderness",
+    "destination": "patagonia-argentina",
+    "coverImage": "/assets/smart_trip_planner__img_01.png",
+    "startDate": "2024-11-08",
+    "endDate": "2024-11-21",
+    "nights": 13,
+    "status": "draft",
+    "daysLeft": 162,
+    "planningProgress": 22,
+    "totalBudget": 18500,
+    "spent": 0,
+    "budgetBreakdown": {
+      "flights": 0,
+      "hotels": 0,
+      "dining": 0,
+      "activities": 0,
+      "other": 0
+    },
+    "milesMowed": 0,
+    "carbonFootprint": 0,
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2024-11-08",
+        "title": "Buenos Aires layover",
+        "activities": []
+      },
+      {
+        "day": 2,
+        "date": "2024-11-09",
+        "title": "Onward to El Calafate",
+        "activities": []
+      }
+    ],
+    "collaborators": [
+      {
+        "id": "u1",
+        "name": "Alex",
+        "avatar": "/assets/travel_dashboard__img_01.png"
+      }
+    ],
+    "recentActivity": [
+      {
+        "id": "ra-102",
+        "type": "edit",
+        "title": "Draft saved",
+        "subtitle": "Outline created for Patagonia trip",
+        "time": "May 20, 2024"
+      }
+    ]
+  },
+  {
+    "id": "trip-005",
+    "title": "Marrakech & Atlas",
+    "destination": "marrakech-morocco",
+    "coverImage": "/assets/smart_trip_planner__img_03.png",
+    "startDate": "2024-09-18",
+    "endDate": "2024-09-25",
+    "nights": 7,
+    "status": "upcoming",
+    "daysLeft": 96,
+    "planningProgress": 64,
+    "totalBudget": 7200,
+    "spent": 1820,
+    "budgetBreakdown": {
+      "flights": 1320,
+      "hotels": 500,
+      "dining": 0,
+      "activities": 0,
+      "other": 0
+    },
+    "milesMowed": 2640,
+    "carbonFootprint": 0.4,
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2024-09-18",
+        "title": "Land in Marrakech",
+        "activities": [
+          {
+            "id": "act-301",
+            "time": "10:15",
+            "type": "flight",
+            "title": "AF1396 · Paris to Marrakech",
+            "detail": "07:45 AM – 10:15 AM · Terminal 2E",
+            "status": "confirmed"
+          },
+          {
+            "id": "act-302",
+            "time": "12:30",
+            "type": "hotel",
+            "title": "Royal Mansour check-in",
+            "detail": "Private riad · 3 floors",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "date": "2024-09-19",
+        "title": "Medina deep dive",
+        "activities": []
+      }
+    ],
+    "collaborators": [
+      {
+        "id": "u1",
+        "name": "Alex",
+        "avatar": "/assets/travel_dashboard__img_01.png"
+      },
+      {
+        "id": "u4",
+        "name": "Marcus",
+        "avatar": "/images/landing/testimonial-marcus.png"
+      }
+    ],
+    "recentActivity": [
+      {
+        "id": "ra-103",
+        "type": "edit",
+        "title": "Itinerary refined",
+        "subtitle": "Added Day 1 activities",
+        "time": "3 days ago"
+      }
+    ]
   }
 ]
