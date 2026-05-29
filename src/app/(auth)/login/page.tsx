@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
@@ -11,7 +11,16 @@ import { useLogin } from "@/features/auth";
 import { loginSchema, type LoginInput } from "@/lib/validations/auth";
 
 export default function LoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <LoginForm />
+    </Suspense>
+  );
+}
+
+function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);
   const login = useLogin();
 
@@ -28,7 +37,8 @@ export default function LoginPage() {
     try {
       await login.mutateAsync(values);
       toast.success("Welcome back");
-      router.push("/dashboard");
+      const next = searchParams.get("next");
+      router.push(next && next.startsWith("/") ? next : "/dashboard");
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Something went wrong. Try again.";

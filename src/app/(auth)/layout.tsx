@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RedirectIfAuthenticated } from "@/features/auth";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
+      <RedirectIfAuthenticated />
       <div className="hidden lg:block relative overflow-hidden">
         <Image
           src="/assets/luxury_travel_planner_landing_page__img_02.png"
