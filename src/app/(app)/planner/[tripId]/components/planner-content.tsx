@@ -23,6 +23,7 @@ import { MapView } from "./map-view";
 import { BudgetView } from "./budget-view";
 import { PlannerViewToggle } from "./view-toggle";
 import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/features/trips";
+import { useTripRealtime } from "@/features/realtime";
 import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -33,6 +34,7 @@ interface PlannerContentProps {
 }
 
 export function PlannerContent({ tripId }: PlannerContentProps) {
+  useTripRealtime(tripId);
   const { data: trip, isPending, isError, refetch } = useTrip(tripId);
   const reorderDay = useReorderDay();
   const moveActivity = useMoveActivity();
