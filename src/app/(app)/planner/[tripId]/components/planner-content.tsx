@@ -25,6 +25,7 @@ import { PlannerViewToggle } from "./view-toggle";
 import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/features/trips";
 import { useTripRealtime } from "@/features/realtime";
 import { PresenceStack } from "./presence-stack";
+import { InviteDialog } from "./invite-dialog";
 import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -172,7 +173,10 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
             </div>
             <div className="flex flex-col gap-3 text-right md:items-end">
               <PresenceStack tripId={tripId} />
-              <PlannerViewToggle />
+              <div className="flex items-center gap-2">
+                <InviteDialog tripId={trip.id} tripTitle={trip.title} />
+                <PlannerViewToggle />
+              </div>
               <div className="inline-flex items-center justify-end gap-2 text-sm text-text-secondary">
                 <Wallet className="h-4 w-4 text-sky-600" />
                 {formatCurrency(trip.spent)} of {formatCurrency(trip.totalBudget)}

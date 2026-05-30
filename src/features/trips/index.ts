@@ -10,6 +10,8 @@ export {
   useDeleteActivity,
   useMoveActivity,
   useReorderDay,
+  useAddCollaborator,
+  useRemoveCollaborator,
 } from "./hooks";
 export { tripsKeys } from "./keys";
 export { usePlannerView } from "./use-planner-view";
