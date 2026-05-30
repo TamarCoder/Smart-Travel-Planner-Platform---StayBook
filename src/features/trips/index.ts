@@ -12,3 +12,5 @@ export {
   useReorderDay,
 } from "./hooks";
 export { tripsKeys } from "./keys";
+export { usePlannerView } from "./use-planner-view";
+export type { PlannerView } from "./use-planner-view";
