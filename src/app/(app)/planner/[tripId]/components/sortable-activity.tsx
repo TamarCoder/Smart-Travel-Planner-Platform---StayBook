@@ -4,7 +4,9 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical, Plane, Car, Hotel, Utensils, Map, Sparkles, Sun, Clock } from "lucide-react";
 import type { TripActivity } from "@/lib/api/trips";
+import { useTripComments } from "@/features/comments";
 import { cn } from "@/lib/utils";
+import { CommentPopover } from "./comment-popover";
 
 const ICONS: Record<TripActivity["type"], typeof Plane> = {
   flight: Plane,
@@ -26,10 +28,13 @@ const STATUS_BADGE: Record<NonNullable<TripActivity["status"]>, string> = {
 interface SortableActivityProps {
   activity: TripActivity;
   dayIndex: number;
+  tripId?: string;
   overlay?: boolean;
 }
 
-export function SortableActivity({ activity, dayIndex, overlay }: SortableActivityProps) {
+export function SortableActivity({ activity, dayIndex, tripId, overlay }: SortableActivityProps) {
+  const comments = useTripComments(tripId);
+  const activityComments = (comments.data ?? []).filter((c) => c.activityId === activity.id);
   const {
     attributes,
     listeners,
@@ -96,6 +101,16 @@ export function SortableActivity({ activity, dayIndex, overlay }: SortableActivi
         </p>
         {activity.detail && (
           <p className="mt-0.5 truncate text-xs text-text-secondary">{activity.detail}</p>
+        )}
+        {tripId && !overlay && (
+          <div className="mt-2">
+            <CommentPopover
+              tripId={tripId}
+              activityId={activity.id}
+              activityTitle={activity.title}
+              count={activityComments.length}
+            />
+          </div>
         )}
       </div>
     </div>

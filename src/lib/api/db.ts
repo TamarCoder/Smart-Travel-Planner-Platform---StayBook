@@ -1,7 +1,7 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 
 export const DB_NAME = "staybook";
-export const DB_VERSION = 1;
+export const DB_VERSION = 2;
 
 export interface DbUser {
   id: string;
@@ -149,6 +149,18 @@ export interface DbNotification {
   createdAt: string;
 }
 
+export interface DbComment {
+  id: string;
+  tripId: string;
+  activityId: string;
+  authorId: string;
+  authorName: string;
+  authorAvatar?: string;
+  text: string;
+  reactions: Record<string, string[]>;
+  createdAt: string;
+}
+
 export interface DbMeta {
   key: string;
   value: unknown;
@@ -178,6 +190,11 @@ interface StayBookDb extends DBSchema {
     key: string;
     value: DbNotification;
     indexes: { "by-user": string; "by-read": string };
+  };
+  comments: {
+    key: string;
+    value: DbComment;
+    indexes: { "by-trip": string; "by-activity": string };
   };
 }
 
@@ -225,6 +242,11 @@ export function getDb(): Promise<IDBPDatabase<StayBookDb>> {
           const store = db.createObjectStore("notifications", { keyPath: "id" });
           store.createIndex("by-user", "userId");
           store.createIndex("by-read", "readAt");
+        }
+        if (!db.objectStoreNames.contains("comments")) {
+          const store = db.createObjectStore("comments", { keyPath: "id" });
+          store.createIndex("by-trip", "tripId");
+          store.createIndex("by-activity", "activityId");
         }
       },
     });

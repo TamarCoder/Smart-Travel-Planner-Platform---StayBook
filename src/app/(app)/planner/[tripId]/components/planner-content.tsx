@@ -212,7 +212,7 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
                   )}
                 >
                   {trip.itinerary.map((day, idx) => (
-                    <DayColumn key={day.day} day={day} dayIndex={idx} />
+                    <DayColumn key={day.day} day={day} dayIndex={idx} tripId={trip.id} />
                   ))}
                 </div>
 
