@@ -1,12 +1,23 @@
 import userData from "@/data/user.json";
 import tripsData from "@/data/trips.json";
 import expensesData from "@/data/expenses.json";
-import { getDb, type DbExpense, type DbTrip, type DbUser, type TripDay, type TripActivityLog } from "./db";
+import notificationsData from "@/data/notifications.json";
+import {
+  getDb,
+  type DbExpense,
+  type DbNotification,
+  type DbTrip,
+  type DbUser,
+  type TripDay,
+  type TripActivityLog,
+} from "./db";
 
 const SEED_KEY = "seedVersion";
 const SEED_VERSION = 1;
 const EXPENSES_SEED_KEY = "expensesSeedVersion";
 const EXPENSES_SEED_VERSION = 1;
+const NOTIFICATIONS_SEED_KEY = "notificationsSeedVersion";
+const NOTIFICATIONS_SEED_VERSION = 1;
 
 function encodePassword(plain: string): string {
   if (typeof window === "undefined") {
@@ -121,6 +132,20 @@ export async function ensureSeeded(): Promise<void> {
     await Promise.all([
       ...expenses.map((e) => tx.objectStore("expenses").put(e)),
       tx.objectStore("meta").put({ key: EXPENSES_SEED_KEY, value: EXPENSES_SEED_VERSION }),
+    ]);
+    await tx.done;
+  }
+
+  const notificationsMeta = await db.get("meta", NOTIFICATIONS_SEED_KEY);
+  if (!notificationsMeta || (notificationsMeta.value as number) < NOTIFICATIONS_SEED_VERSION) {
+    const notifications = (notificationsData as unknown as DbNotification[]).map((n) => ({
+      ...n,
+      readAt: n.readAt ?? undefined,
+    }));
+    const tx = db.transaction(["meta", "notifications"], "readwrite");
+    await Promise.all([
+      ...notifications.map((n) => tx.objectStore("notifications").put(n)),
+      tx.objectStore("meta").put({ key: NOTIFICATIONS_SEED_KEY, value: NOTIFICATIONS_SEED_VERSION }),
     ]);
     await tx.done;
   }
