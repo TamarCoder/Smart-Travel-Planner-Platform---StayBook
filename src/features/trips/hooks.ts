@@ -22,7 +22,14 @@ import {
 } from "@/lib/api/trips";
 import type { DbTrip } from "@/lib/api/db";
 import { useAuthStore } from "@/stores";
+import { broadcast } from "@/lib/realtime/channel";
+import { tripRoom } from "@/features/realtime/rooms";
 import { tripsKeys } from "./keys";
+
+function emitTripEvent(tripId: string, type: string) {
+  const name = useAuthStore.getState().user?.name;
+  broadcast(tripRoom(tripId), type, { tripId }, name);
+}
 
 export function useTrips() {
   const token = useAuthStore((s) => s.token);
@@ -151,6 +158,7 @@ export function useAddActivity() {
     },
     onSuccess: (trip) => {
       queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "activity:added");
     },
   });
 }
@@ -183,6 +191,7 @@ export function useUpdateActivity() {
     },
     onSuccess: (trip) => {
       queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "activity:updated");
     },
   });
 }
@@ -214,6 +223,7 @@ export function useDeleteActivity() {
     },
     onSuccess: (trip) => {
       queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "activity:deleted");
     },
   });
 }
@@ -249,6 +259,7 @@ export function useMoveActivity() {
     },
     onSuccess: (trip) => {
       queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "activity:moved");
     },
   });
 }
@@ -282,6 +293,7 @@ export function useReorderDay() {
     },
     onSuccess: (trip) => {
       queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "activity:reordered");
     },
   });
 }
