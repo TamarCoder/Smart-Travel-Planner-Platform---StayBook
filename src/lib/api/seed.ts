@@ -1,9 +1,12 @@
 import userData from "@/data/user.json";
 import tripsData from "@/data/trips.json";
-import { getDb, type DbTrip, type DbUser, type TripDay, type TripActivityLog } from "./db";
+import expensesData from "@/data/expenses.json";
+import { getDb, type DbExpense, type DbTrip, type DbUser, type TripDay, type TripActivityLog } from "./db";
 
 const SEED_KEY = "seedVersion";
 const SEED_VERSION = 1;
+const EXPENSES_SEED_KEY = "expensesSeedVersion";
+const EXPENSES_SEED_VERSION = 1;
 
 function encodePassword(plain: string): string {
   if (typeof window === "undefined") {
@@ -96,18 +99,29 @@ export async function ensureSeeded(): Promise<void> {
 
   const db = await getDb();
   const current = await db.get("meta", SEED_KEY);
-  if (current && (current.value as number) >= SEED_VERSION) return;
+  if (!current || (current.value as number) < SEED_VERSION) {
+    const now = new Date().toISOString();
+    const rawUser = userData as RawUser;
+    const user = toDbUser(rawUser);
+    const trips = (tripsData as RawTrip[]).map((t) => toDbTrip(t, user.id, now));
 
-  const now = new Date().toISOString();
-  const rawUser = userData as RawUser;
-  const user = toDbUser(rawUser);
-  const trips = (tripsData as RawTrip[]).map((t) => toDbTrip(t, user.id, now));
+    const tx = db.transaction(["meta", "users", "trips"], "readwrite");
+    await Promise.all([
+      tx.objectStore("users").put(user),
+      ...trips.map((t) => tx.objectStore("trips").put(t)),
+      tx.objectStore("meta").put({ key: SEED_KEY, value: SEED_VERSION }),
+    ]);
+    await tx.done;
+  }
 
-  const tx = db.transaction(["meta", "users", "trips"], "readwrite");
-  await Promise.all([
-    tx.objectStore("users").put(user),
-    ...trips.map((t) => tx.objectStore("trips").put(t)),
-    tx.objectStore("meta").put({ key: SEED_KEY, value: SEED_VERSION }),
-  ]);
-  await tx.done;
+  const expensesMeta = await db.get("meta", EXPENSES_SEED_KEY);
+  if (!expensesMeta || (expensesMeta.value as number) < EXPENSES_SEED_VERSION) {
+    const expenses = expensesData as DbExpense[];
+    const tx = db.transaction(["meta", "expenses"], "readwrite");
+    await Promise.all([
+      ...expenses.map((e) => tx.objectStore("expenses").put(e)),
+      tx.objectStore("meta").put({ key: EXPENSES_SEED_KEY, value: EXPENSES_SEED_VERSION }),
+    ]);
+    await tx.done;
+  }
 }
