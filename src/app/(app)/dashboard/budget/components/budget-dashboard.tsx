@@ -12,6 +12,8 @@ import { formatMoney, convert } from "@/lib/utils/currency";
 import { usePreferredCurrency } from "@/hooks/use-preferred-currency";
 import { CategoryDonut } from "./category-donut";
 import { TripBarChart } from "./trip-bar-chart";
+import { DailySpendChart } from "./daily-spend-chart";
+import { TripProgressList } from "./trip-progress-list";
 import { cn } from "@/lib/utils";
 
 export function BudgetDashboard() {
@@ -54,6 +56,28 @@ export function BudgetDashboard() {
     const items = (expenses.data ?? []).slice().sort((a, b) => b.amount - a.amount);
     return items.slice(0, 5);
   }, [expenses.data]);
+
+  const dailySeries = useMemo(() => {
+    const buckets = new Map<string, number>();
+    (expenses.data ?? []).forEach((expense) => {
+      const date = expense.spentAt.slice(0, 10);
+      const amount = convert(expense.amount, expense.currency, currency);
+      buckets.set(date, (buckets.get(date) ?? 0) + amount);
+    });
+    const ordered = Array.from(buckets.entries()).sort(([a], [b]) => (a < b ? -1 : 1));
+    return ordered.reduce<{ date: string; daily: number; cumulative: number }[]>(
+      (acc, [date, daily]) => {
+        const previous = acc.length > 0 ? acc[acc.length - 1].cumulative : 0;
+        acc.push({
+          date,
+          daily: Math.round(daily),
+          cumulative: Math.round(previous + daily),
+        });
+        return acc;
+      },
+      [],
+    );
+  }, [expenses.data, currency]);
 
   if (trips.isPending) {
     return (
@@ -158,6 +182,26 @@ export function BudgetDashboard() {
           <p className="mt-1 text-xs text-text-secondary">Spent vs. planned across your trips.</p>
           <div className="mt-6">
             <TripBarChart data={tripBars} currency={currency} />
+          </div>
+        </div>
+      </section>
+
+      <section className="grid grid-cols-1 gap-6 xl:grid-cols-[3fr_2fr]">
+        <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
+          <div className="flex items-center justify-between">
+            <h2 className="text-base font-semibold text-text-primary">Spending over time</h2>
+            <p className="text-xs text-text-secondary">Cumulative + daily</p>
+          </div>
+          <div className="mt-6">
+            <DailySpendChart data={dailySeries} currency={currency} />
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
+          <h2 className="text-base font-semibold text-text-primary">Trip progress</h2>
+          <p className="mt-1 text-xs text-text-secondary">Click any trip to open its budget view.</p>
+          <div className="mt-6">
+            <TripProgressList trips={trips.data ?? []} currency={currency} />
           </div>
         </div>
       </section>
