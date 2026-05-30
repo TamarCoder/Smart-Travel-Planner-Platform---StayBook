@@ -1,49 +1,34 @@
+import Link from "next/link";
 import Image from "next/image";
 import { Star, MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/shared/favorite-button";
+import { formatMoney } from "@/lib/utils/currency";
+import type { Hotel } from "@/lib/api/hotels";
 
-export interface HotelCardProps {
-  id: string;
-  image: string;
-  name: string;
-  location: string;
-  rating: number;
-  reviews: number;
-  price: string;
-  priceNote: string;
-  tags: string[];
+interface HotelCardProps {
+  hotel: Hotel;
 }
 
-export default function HotelCard({
-  id,
-  image,
-  name,
-  location,
-  rating,
-  reviews,
-  price,
-  priceNote,
-  tags,
-}: HotelCardProps) {
+export default function HotelCard({ hotel }: HotelCardProps) {
   return (
-    <div className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-2xl">
-      <div className="relative h-64 overflow-hidden">
+    <Link
+      href={`/booking/${hotel.id}`}
+      className="group block overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+    >
+      <div className="relative aspect-4/3 overflow-hidden">
         <Image
-          src={image}
-          alt={name}
+          src={hotel.image}
+          alt={hotel.name}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <FavoriteButton
-          entityType="hotel"
-          entityId={id}
-          className="absolute top-4 right-4"
-        />
-        <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
+        <FavoriteButton entityType="hotel" entityId={hotel.id} className="absolute top-4 right-4" />
+        <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
+          {hotel.tags.slice(0, 2).map((tag) => (
             <span
               key={tag}
-              className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-lg text-xs font-medium text-navy-950"
+              className="rounded-md bg-white/90 px-2 py-0.5 text-[10px] font-medium text-navy-950 backdrop-blur"
             >
               {tag}
             </span>
@@ -51,39 +36,46 @@ export default function HotelCard({
         </div>
       </div>
 
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-4 gap-3">
-          <div>
+      <div className="p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-sky-600">
+              {hotel.propertyType}
+            </p>
             <h3
-              className="text-lg font-semibold text-navy-950"
+              className="mt-1 truncate text-base font-semibold text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              {name}
+              {hotel.name}
             </h3>
-            <p className="text-sm text-text-secondary flex items-center gap-1 mt-0.5">
-              <MapPin className="h-4 w-4 shrink-0" />
-              {location}
+            <p className="mt-1 inline-flex items-center gap-1 text-xs text-text-secondary">
+              <MapPin className="h-3.5 w-3.5 text-sky-600" />
+              {hotel.neighborhood}
             </p>
           </div>
-          <div className="text-right shrink-0">
-            <div className="flex items-center justify-end gap-1 text-sky-600 font-bold">
-              <Star className="h-4 w-4 fill-sky-600 text-sky-600" />
-              {rating}
+          <div className="text-right text-xs">
+            <div className="inline-flex items-center justify-end gap-1 font-semibold text-text-primary">
+              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+              {hotel.rating.toFixed(2)}
             </div>
-            <p className="text-xs text-text-muted mt-0.5">{reviews} reviews</p>
+            <p className="text-text-muted">{hotel.reviewCount} reviews</p>
           </div>
         </div>
 
-        <div className="flex justify-between items-end gap-3">
-          <div className="text-text-secondary text-sm">
-            <span className="text-navy-950 font-bold text-xl">{price}</span> / night
-            <p className="text-xs">{priceNote}</p>
+        <p className="mt-3 text-xs text-text-secondary line-clamp-2">{hotel.description}</p>
+
+        <div className="mt-4 flex items-end justify-between border-t border-border pt-3">
+          <div className="text-xs text-text-muted">
+            <span className="text-base font-bold text-text-primary">
+              {formatMoney(hotel.pricePerNight, hotel.currency)}
+            </span>
+            <span> / night</span>
           </div>
-          <button className="bg-sky-600/10 text-sky-600 border border-sky-600 px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-sky-600 hover:text-white transition-all shrink-0">
-            View Details
-          </button>
+          <span className="text-xs font-semibold text-sky-600 transition-transform group-hover:translate-x-0.5">
+            View →
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
