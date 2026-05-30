@@ -3,16 +3,19 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   addActivity,
+  addCollaborator,
   createTrip,
   deleteActivity,
   deleteTrip,
   getTrip,
   listTrips,
   moveActivity,
+  removeCollaborator,
   reorderDayActivities,
   updateActivity,
   updateTrip,
   type AddActivityInput,
+  type AddCollaboratorInput,
   type CreateTripInput,
   type DeleteActivityInput,
   type MoveActivityInput,
@@ -260,6 +263,32 @@ export function useMoveActivity() {
     onSuccess: (trip) => {
       queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
       emitTripEvent(trip.id, "activity:moved");
+    },
+  });
+}
+
+export function useAddCollaborator() {
+  const queryClient = useQueryClient();
+  const token = useAuthStore((s) => s.token);
+
+  return useMutation<Trip, Error, AddCollaboratorInput>({
+    mutationFn: (input) => addCollaborator(token ?? "", input),
+    onSuccess: (trip) => {
+      queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "collaborator:added");
+    },
+  });
+}
+
+export function useRemoveCollaborator() {
+  const queryClient = useQueryClient();
+  const token = useAuthStore((s) => s.token);
+
+  return useMutation<Trip, Error, { tripId: string; collaboratorId: string }>({
+    mutationFn: (input) => removeCollaborator(token ?? "", input),
+    onSuccess: (trip) => {
+      queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "collaborator:removed");
     },
   });
 }

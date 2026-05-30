@@ -281,6 +281,66 @@ export async function moveActivity(token: string, input: MoveActivityInput): Pro
   });
 }
 
+export interface AddCollaboratorInput {
+  tripId: string;
+  name: string;
+  email: string;
+  role?: string;
+  avatar?: string;
+}
+
+export async function addCollaborator(
+  token: string,
+  input: AddCollaboratorInput,
+): Promise<DbTrip> {
+  return fakeRequest(async () => {
+    const { db, userId } = await requireSession(token);
+    const trip = await db.get("trips", input.tripId);
+    const owned = assertOwnership(trip, userId);
+    const name = input.name.trim();
+    const email = input.email.trim().toLowerCase();
+    if (!name) validationError("Name is required");
+    if (!email) validationError("Email is required");
+    const collaborator = {
+      id: `clb-${nanoid(8)}`,
+      name,
+      avatar: input.avatar,
+      role: input.role ?? "Editor",
+    };
+    owned.collaborators = [...(owned.collaborators ?? []), collaborator];
+    owned.recentActivity = [
+      {
+        id: `ra-${nanoid(6)}`,
+        type: "invite",
+        title: "Collaborator invited",
+        subtitle: `${name} (${email}) joined the trip`,
+        time: new Date().toISOString(),
+      },
+      ...(owned.recentActivity ?? []),
+    ].slice(0, 30);
+    owned.updatedAt = todayIso();
+    await db.put("trips", owned);
+    return owned;
+  });
+}
+
+export async function removeCollaborator(
+  token: string,
+  input: { tripId: string; collaboratorId: string },
+): Promise<DbTrip> {
+  return fakeRequest(async () => {
+    const { db, userId } = await requireSession(token);
+    const trip = await db.get("trips", input.tripId);
+    const owned = assertOwnership(trip, userId);
+    owned.collaborators = (owned.collaborators ?? []).filter(
+      (c) => c.id !== input.collaboratorId,
+    );
+    owned.updatedAt = todayIso();
+    await db.put("trips", owned);
+    return owned;
+  });
+}
+
 export interface ReorderDayInput {
   tripId: string;
   dayIndex: number;
