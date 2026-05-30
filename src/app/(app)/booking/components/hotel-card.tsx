@@ -1,19 +1,29 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Star, MapPin } from "lucide-react";
+import { Star, MapPin, CalendarX } from "lucide-react";
 import { FavoriteButton } from "@/components/shared/favorite-button";
 import { formatMoney } from "@/lib/utils/currency";
+import { getNights, getStayTotal, isHotelAvailable, type StayInput } from "@/lib/utils/availability";
 import type { Hotel } from "@/lib/api/hotels";
+import { cn } from "@/lib/utils";
 
 interface HotelCardProps {
   hotel: Hotel;
+  stay?: StayInput;
 }
 
-export default function HotelCard({ hotel }: HotelCardProps) {
+export default function HotelCard({ hotel, stay }: HotelCardProps) {
+  const available = isHotelAvailable(hotel.id, stay?.checkIn, stay?.checkOut);
+  const nights = stay?.checkIn && stay?.checkOut ? getNights(stay.checkIn, stay.checkOut) : 0;
+  const total = nights > 0 ? getStayTotal(hotel.pricePerNight, nights) : 0;
   return (
     <Link
       href={`/booking/${hotel.id}`}
-      className="group block overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      aria-disabled={!available}
+      className={cn(
+        "group block overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+        !available && "opacity-70",
+      )}
     >
       <div className="relative aspect-4/3 overflow-hidden">
         <Image
@@ -24,6 +34,21 @@ export default function HotelCard({ hotel }: HotelCardProps) {
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <FavoriteButton entityType="hotel" entityId={hotel.id} className="absolute top-4 right-4" />
+        {stay?.checkIn && stay?.checkOut && (
+          <span
+            className={cn(
+              "absolute top-4 left-4 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-semibold",
+              available ? "bg-emerald-500/90 text-white" : "bg-rose-500/90 text-white",
+            )}
+          >
+            {available ? "Available" : (
+              <>
+                <CalendarX className="h-3 w-3" />
+                Sold out
+              </>
+            )}
+          </span>
+        )}
         <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
           {hotel.tags.slice(0, 2).map((tag) => (
             <span
@@ -70,6 +95,11 @@ export default function HotelCard({ hotel }: HotelCardProps) {
               {formatMoney(hotel.pricePerNight, hotel.currency)}
             </span>
             <span> / night</span>
+            {nights > 0 && (
+              <p className="text-[11px] font-medium text-text-secondary">
+                {nights} {nights === 1 ? "night" : "nights"} · {formatMoney(total, hotel.currency)} total
+              </p>
+            )}
           </div>
           <span className="text-xs font-semibold text-sky-600 transition-transform group-hover:translate-x-0.5">
             View →

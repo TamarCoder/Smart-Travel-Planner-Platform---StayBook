@@ -7,7 +7,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import HotelCard from "./hotel-card";
 
 export function BookingResults() {
-  const { filters, writeFilters, clearFilters } = useHotelFilters();
+  const { filters, stay, writeFilters, clearFilters } = useHotelFilters();
   const query = useHotels(filters);
 
   if (query.isError) {
@@ -65,7 +65,7 @@ export function BookingResults() {
     <div className="flex flex-col gap-8">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {items.map((hotel) => (
-          <HotelCard key={hotel.id} hotel={hotel} />
+          <HotelCard key={hotel.id} hotel={hotel} stay={stay} />
         ))}
       </div>
 
