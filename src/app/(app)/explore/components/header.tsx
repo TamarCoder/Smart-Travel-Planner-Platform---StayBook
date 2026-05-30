@@ -11,17 +11,17 @@ interface Props {
 
 export default function ExploreHeader({ onMenuToggle }: Props) {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center h-16 px-4 md:px-12 bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm">
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center h-16 px-4 md:px-12 bg-surface-elevated backdrop-blur-xl border-b border-border shadow-sm">
       <div className="flex items-center gap-4 md:gap-6">
         <button
-          className="lg:hidden text-text-secondary hover:text-navy-950 transition-colors"
+          className="lg:hidden text-text-secondary hover:text-text-primary transition-colors"
           onClick={onMenuToggle}
           aria-label="Open menu"
         >
           <Menu className="h-6 w-6" />
         </button>
         <span
-          className="text-xl font-bold tracking-tight text-navy-950"
+          className="text-xl font-bold tracking-tight text-text-primary"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Voyager
@@ -51,7 +51,7 @@ export default function ExploreHeader({ onMenuToggle }: Props) {
         <NotificationBell />
         <Link
           href="/profile"
-          className="hidden sm:block text-text-secondary hover:text-navy-950 transition-colors active:scale-95"
+          className="hidden sm:block text-text-secondary hover:text-text-primary transition-colors active:scale-95"
           aria-label="Settings"
         >
           <Settings className="h-5 w-5" />
