@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Bell, Settings, Share2, Menu } from "lucide-react";
+import Link from "next/link";
+import { Settings, Share2, Menu } from "lucide-react";
 import { getTripById } from "@/lib/api/trips";
+import { NotificationBell } from "@/components/shared/notification-bell";
 
 interface Props {
   onMenuToggle: () => void;
@@ -53,12 +55,14 @@ export default function PlannerHeader({ onMenuToggle }: Props) {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <button className="text-text-secondary hover:text-sky-600 transition-colors">
-            <Bell className="h-5 w-5" />
-          </button>
-          <button className="text-text-secondary hover:text-sky-600 transition-colors">
+          <NotificationBell />
+          <Link
+            href="/profile"
+            className="text-text-secondary hover:text-sky-600 transition-colors"
+            aria-label="Settings"
+          >
             <Settings className="h-5 w-5" />
-          </button>
+          </Link>
           <button className="bg-navy-950 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-all flex items-center gap-2">
             <Share2 className="h-4 w-4" />
             Share

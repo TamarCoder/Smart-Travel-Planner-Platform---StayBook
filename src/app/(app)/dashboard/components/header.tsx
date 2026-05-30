@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Search, Bell, Settings, Menu } from "lucide-react";
+import Link from "next/link";
+import { Search, Settings, Menu } from "lucide-react";
+import { NotificationBell } from "@/components/shared/notification-bell";
 
 interface Props {
   onMenuToggle: () => void;
@@ -35,20 +37,24 @@ export default function DashboardHeader({ onMenuToggle }: Props) {
           />
         </div>
 
-        <div className="flex items-center gap-4">
-          <button className="text-text-secondary hover:text-sky-600 transition-colors">
-            <Bell className="h-5 w-5" />
-          </button>
-          <button className="text-text-secondary hover:text-sky-600 transition-colors">
+        <div className="flex items-center gap-3">
+          <NotificationBell />
+          <Link
+            href="/profile"
+            className="text-text-secondary hover:text-sky-600 transition-colors"
+            aria-label="Settings"
+          >
             <Settings className="h-5 w-5" />
-          </button>
-          <Image
-            src="/assets/travel_dashboard__img_01.png"
-            alt="Alex"
-            width={32}
-            height={32}
-            className="rounded-full object-cover border border-border-strong"
-          />
+          </Link>
+          <Link href="/profile" aria-label="Profile">
+            <Image
+              src="/assets/travel_dashboard__img_01.png"
+              alt="Alex"
+              width={32}
+              height={32}
+              className="rounded-full object-cover border border-border-strong"
+            />
+          </Link>
         </div>
       </div>
     </header>
