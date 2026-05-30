@@ -10,9 +10,10 @@ import { SortableActivity } from "./sortable-activity";
 interface DayColumnProps {
   day: TripDay;
   dayIndex: number;
+  tripId?: string;
 }
 
-export function DayColumn({ day, dayIndex }: DayColumnProps) {
+export function DayColumn({ day, dayIndex, tripId }: DayColumnProps) {
   const { setNodeRef, isOver } = useDroppable({
     id: `day-${dayIndex}`,
     data: { dayIndex, type: "day" },
@@ -50,7 +51,12 @@ export function DayColumn({ day, dayIndex }: DayColumnProps) {
       >
         <div className="flex flex-col gap-3">
           {day.activities.map((activity) => (
-            <SortableActivity key={activity.id} activity={activity} dayIndex={dayIndex} />
+            <SortableActivity
+              key={activity.id}
+              activity={activity}
+              dayIndex={dayIndex}
+              tripId={tripId}
+            />
           ))}
           {day.activities.length === 0 && (
             <div className="rounded-2xl border border-dashed border-border bg-surface px-4 py-8 text-center text-xs text-text-muted">
