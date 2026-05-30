@@ -20,6 +20,7 @@ import { SortableActivity } from "./sortable-activity";
 import { DayColumn } from "./day-column";
 import { CalendarView } from "./calendar-view";
 import { MapView } from "./map-view";
+import { BudgetView } from "./budget-view";
 import { PlannerViewToggle } from "./view-toggle";
 import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/features/trips";
 import { cn } from "@/lib/utils";
@@ -184,6 +185,8 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
               <CalendarView days={trip.itinerary} />
             ) : view === "map" ? (
               <MapView destinationSlug={trip.destination} days={trip.itinerary} />
+            ) : view === "budget" ? (
+              <BudgetView trip={trip} />
             ) : (
               <DndContext
                 sensors={sensors}
