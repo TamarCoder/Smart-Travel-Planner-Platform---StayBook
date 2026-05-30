@@ -41,7 +41,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased">
-        <Providers>{children}</Providers>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-100 focus:rounded-xl focus:bg-navy-950 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to main content
+        </a>
+        <Providers>
+          <div id="main-content">{children}</div>
+        </Providers>
       </body>
     </html>
   );
