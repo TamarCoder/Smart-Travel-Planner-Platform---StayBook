@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthBootstrap } from "@/features/auth";
+import { CommandPalette } from "@/components/shared/command-palette";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -36,6 +37,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <AuthBootstrap />
         <TooltipProvider delayDuration={200}>
           {children}
+          <CommandPalette />
           <Toaster />
         </TooltipProvider>
       </QueryClientProvider>
