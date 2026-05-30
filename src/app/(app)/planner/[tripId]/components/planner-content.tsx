@@ -26,6 +26,7 @@ import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/featu
 import { useTripRealtime } from "@/features/realtime";
 import { PresenceStack } from "./presence-stack";
 import { InviteDialog } from "./invite-dialog";
+import { ActivityFeedDialog } from "./activity-feed-dialog";
 import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -173,7 +174,8 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
             </div>
             <div className="flex flex-col gap-3 text-right md:items-end">
               <PresenceStack tripId={tripId} />
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center justify-end gap-2">
+                <ActivityFeedDialog log={trip.recentActivity ?? []} />
                 <InviteDialog tripId={trip.id} tripTitle={trip.title} />
                 <PlannerViewToggle />
               </div>

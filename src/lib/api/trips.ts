@@ -37,7 +37,24 @@ async function requireSession(token: string) {
   const db = await getDb();
   const session = await db.get("sessions", token);
   if (!session) unauthorized("Session expired");
-  return { db, userId: session.userId };
+  const user = await db.get("users", session.userId);
+  return { db, userId: session.userId, userName: user?.name ?? "Someone" };
+}
+
+function appendActivityLog(
+  trip: DbTrip,
+  entry: { type: string; title: string; subtitle?: string },
+) {
+  trip.recentActivity = [
+    {
+      id: `ra-${nanoid(6)}`,
+      type: entry.type,
+      title: entry.title,
+      subtitle: entry.subtitle,
+      time: new Date().toISOString(),
+    },
+    ...(trip.recentActivity ?? []),
+  ].slice(0, 40);
 }
 
 function assertOwnership(trip: DbTrip | undefined, userId: string): DbTrip {
@@ -183,7 +200,7 @@ export interface AddActivityInput {
 
 export async function addActivity(token: string, input: AddActivityInput): Promise<DbTrip> {
   return fakeRequest(async () => {
-    const { db, userId } = await requireSession(token);
+    const { db, userId, userName } = await requireSession(token);
     const trip = await db.get("trips", input.tripId);
     const owned = assertOwnership(trip, userId);
     const day = owned.itinerary[input.dayIndex];
@@ -202,6 +219,11 @@ export async function addActivity(token: string, input: AddActivityInput): Promi
       currency: input.activity.currency,
     };
     day.activities.push(activity);
+    appendActivityLog(owned, {
+      type: "add",
+      title: `${userName} added an activity`,
+      subtitle: `${activity.title} · ${day.title}`,
+    });
     owned.updatedAt = todayIso();
     await db.put("trips", owned);
     return owned;
@@ -217,7 +239,7 @@ export interface UpdateActivityInput {
 
 export async function updateActivity(token: string, input: UpdateActivityInput): Promise<DbTrip> {
   return fakeRequest(async () => {
-    const { db, userId } = await requireSession(token);
+    const { db, userId, userName } = await requireSession(token);
     const trip = await db.get("trips", input.tripId);
     const owned = assertOwnership(trip, userId);
     const day = owned.itinerary[input.dayIndex];
@@ -225,6 +247,11 @@ export async function updateActivity(token: string, input: UpdateActivityInput):
     const idx = day.activities.findIndex((a) => a.id === input.activityId);
     if (idx < 0) notFound("Activity");
     day.activities[idx] = { ...day.activities[idx], ...input.patch };
+    appendActivityLog(owned, {
+      type: "edit",
+      title: `${userName} edited an activity`,
+      subtitle: day.activities[idx].title,
+    });
     owned.updatedAt = todayIso();
     await db.put("trips", owned);
     return owned;
@@ -242,12 +269,20 @@ export async function deleteActivity(
   input: DeleteActivityInput,
 ): Promise<DbTrip> {
   return fakeRequest(async () => {
-    const { db, userId } = await requireSession(token);
+    const { db, userId, userName } = await requireSession(token);
     const trip = await db.get("trips", input.tripId);
     const owned = assertOwnership(trip, userId);
     const day = owned.itinerary[input.dayIndex];
     if (!day) validationError("Invalid day");
+    const removed = day.activities.find((a) => a.id === input.activityId);
     day.activities = day.activities.filter((a) => a.id !== input.activityId);
+    if (removed) {
+      appendActivityLog(owned, {
+        type: "delete",
+        title: `${userName} removed an activity`,
+        subtitle: removed.title,
+      });
+    }
     owned.updatedAt = todayIso();
     await db.put("trips", owned);
     return owned;
@@ -264,7 +299,7 @@ export interface MoveActivityInput {
 
 export async function moveActivity(token: string, input: MoveActivityInput): Promise<DbTrip> {
   return fakeRequest(async () => {
-    const { db, userId } = await requireSession(token);
+    const { db, userId, userName } = await requireSession(token);
     const trip = await db.get("trips", input.tripId);
     const owned = assertOwnership(trip, userId);
     const from = owned.itinerary[input.fromDay];
@@ -275,6 +310,13 @@ export async function moveActivity(token: string, input: MoveActivityInput): Pro
     const [activity] = from.activities.splice(idx, 1);
     const insertAt = Math.max(0, Math.min(input.toIndex, to.activities.length));
     to.activities.splice(insertAt, 0, activity);
+    if (input.fromDay !== input.toDay) {
+      appendActivityLog(owned, {
+        type: "move",
+        title: `${userName} moved an activity`,
+        subtitle: `${activity.title} · ${from.title} → ${to.title}`,
+      });
+    }
     owned.updatedAt = todayIso();
     await db.put("trips", owned);
     return owned;
