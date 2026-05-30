@@ -24,6 +24,7 @@ import { BudgetView } from "./budget-view";
 import { PlannerViewToggle } from "./view-toggle";
 import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/features/trips";
 import { useTripRealtime } from "@/features/realtime";
+import { PresenceStack } from "./presence-stack";
 import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -170,6 +171,7 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
               </p>
             </div>
             <div className="flex flex-col gap-3 text-right md:items-end">
+              <PresenceStack tripId={tripId} />
               <PlannerViewToggle />
               <div className="inline-flex items-center justify-end gap-2 text-sm text-text-secondary">
                 <Wallet className="h-4 w-4 text-sky-600" />
