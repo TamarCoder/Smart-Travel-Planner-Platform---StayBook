@@ -18,7 +18,10 @@ import { toast } from "sonner";
 import PlannerShell from "../../components/shell";
 import { SortableActivity } from "./sortable-activity";
 import { DayColumn } from "./day-column";
-import { useMoveActivity, useReorderDay, useTrip } from "@/features/trips";
+import { CalendarView } from "./calendar-view";
+import { PlannerViewToggle } from "./view-toggle";
+import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/features/trips";
+import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";
 import { EmptyState } from "@/components/ui/empty-state";
 import type { TripActivity } from "@/lib/api/trips";
@@ -31,6 +34,7 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
   const { data: trip, isPending, isError, refetch } = useTrip(tripId);
   const reorderDay = useReorderDay();
   const moveActivity = useMoveActivity();
+  const { view } = usePlannerView();
   const [activeActivity, setActiveActivity] = useState<{ activity: TripActivity; dayIndex: number } | null>(null);
 
   const sensors = useSensors(
@@ -161,7 +165,8 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
                 {formatRange(trip.startDate, trip.endDate)} · {trip.nights} nights
               </p>
             </div>
-            <div className="flex flex-col gap-2 text-right">
+            <div className="flex flex-col gap-3 text-right md:items-end">
+              <PlannerViewToggle />
               <div className="inline-flex items-center justify-end gap-2 text-sm text-text-secondary">
                 <Wallet className="h-4 w-4 text-sky-600" />
                 {formatCurrency(trip.spent)} of {formatCurrency(trip.totalBudget)}
@@ -174,29 +179,40 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
           </header>
 
           <div className="mt-8">
-            <DndContext
-              sensors={sensors}
-              collisionDetection={closestCorners}
-              onDragStart={handleDragStart}
-              onDragEnd={handleDragEnd}
-              onDragCancel={() => setActiveActivity(null)}
-            >
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
-                {trip.itinerary.map((day, idx) => (
-                  <DayColumn key={day.day} day={day} dayIndex={idx} />
-                ))}
-              </div>
+            {view === "calendar" ? (
+              <CalendarView days={trip.itinerary} />
+            ) : (
+              <DndContext
+                sensors={sensors}
+                collisionDetection={closestCorners}
+                onDragStart={handleDragStart}
+                onDragEnd={handleDragEnd}
+                onDragCancel={() => setActiveActivity(null)}
+              >
+                <div
+                  className={cn(
+                    "grid gap-6",
+                    view === "timeline"
+                      ? "grid-cols-1 mx-auto max-w-3xl"
+                      : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3",
+                  )}
+                >
+                  {trip.itinerary.map((day, idx) => (
+                    <DayColumn key={day.day} day={day} dayIndex={idx} />
+                  ))}
+                </div>
 
-              <DragOverlay>
-                {activeActivity ? (
-                  <SortableActivity
-                    activity={activeActivity.activity}
-                    dayIndex={activeActivity.dayIndex}
-                    overlay
-                  />
-                ) : null}
-              </DragOverlay>
-            </DndContext>
+                <DragOverlay>
+                  {activeActivity ? (
+                    <SortableActivity
+                      activity={activeActivity.activity}
+                      dayIndex={activeActivity.dayIndex}
+                      overlay
+                    />
+                  ) : null}
+                </DragOverlay>
+              </DndContext>
+            )}
           </div>
         </div>
       </main>
