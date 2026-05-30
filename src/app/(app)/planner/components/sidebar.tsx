@@ -48,18 +48,18 @@ export default function PlannerSidebar({ isOpen, onClose }: Props) {
         />
       )}
       <aside
-        className={`flex flex-col w-64 fixed left-0 top-0 bottom-0 z-40 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-lg pb-6 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+        className={`flex flex-col w-64 fixed left-0 top-0 bottom-0 z-40 bg-surface-elevated backdrop-blur-xl border-r border-border shadow-lg pb-6 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between px-6 h-16 border-b border-white/10 lg:hidden">
           <span
-            className="text-xl font-bold tracking-tight text-navy-950"
+            className="text-xl font-bold tracking-tight text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Voyager
           </span>
-          <button onClick={onClose} className="text-text-secondary hover:text-navy-950 transition-colors">
+          <button onClick={onClose} className="text-text-secondary hover:text-text-primary transition-colors">
             <X className="h-5 w-5" />
           </button>
         </div>
@@ -71,7 +71,7 @@ export default function PlannerSidebar({ isOpen, onClose }: Props) {
             </div>
             <div>
               <p
-                className="text-sm font-semibold text-navy-950"
+                className="text-sm font-semibold text-text-primary"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 Voyager
