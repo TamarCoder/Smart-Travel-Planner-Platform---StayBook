@@ -248,3 +248,4 @@ export async function resetDb(): Promise<void> {
 }
 
 export type { StayBookDb };
+export type { IDBPDatabase } from "idb";
