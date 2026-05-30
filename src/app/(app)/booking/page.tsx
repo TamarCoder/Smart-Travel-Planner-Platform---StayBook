@@ -1,84 +1,75 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { useHotelFilters, useHotels } from "@/features/hotels";
 import BookingShell from "./components/shell";
-import BookingIntro from "./components/intro";
-import BookingSearchBar from "./components/search-bar";
-import BookingFilters from "./components/filters";
-import HotelList from "./components/hotel-list";
-import ConfirmStay from "./components/confirm-stay";
-import BookingFooter from "./components/footer";
+import { BookingToolbar } from "./components/booking-toolbar";
+import { BookingFiltersPanel } from "./components/booking-filters-panel";
+import { BookingResults } from "./components/booking-results";
+import { DestinationTabs } from "./components/destination-tabs";
 
 export default function BookingPage() {
+  const { filters } = useHotelFilters();
+  const query = useHotels(filters);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
+  const activeFilterCount = useMemo(() => {
+    let n = 0;
+    if (filters.neighborhoods?.length) n += filters.neighborhoods.length;
+    if (filters.amenities?.length) n += filters.amenities.length;
+    if (filters.propertyTypes?.length) n += filters.propertyTypes.length;
+    if (filters.minPrice !== undefined) n += 1;
+    if (filters.maxPrice !== undefined) n += 1;
+    if (filters.minRating !== undefined) n += 1;
+    if (filters.destinationId) n += 1;
+    return n;
+  }, [filters]);
+
   return (
     <div>
       <BookingShell />
-      <main className="lg:ml-64 pt-16 px-4 md:px-12 pb-12">
-        <BookingIntro
-          heading="Find your sanctuary."
-          location="Santorini, Greece"
-          resultCount={428}
-        />
-        <BookingSearchBar
-          destination="Santorini, Greece"
-          dates="Jun 12 - Jun 18, 2024"
-          guests="2 Adults, 1 Child"
-        />
-        <BookingFilters
-          priceMin="$200"
-          priceMax="$1,200+"
-          rating={4}
-          amenities={[
-            { label: "Infinity Pool", checked: true },
-            { label: "Ocean View", checked: false },
-            { label: "Private Butler", checked: true },
-            { label: "Spa & Wellness", checked: false },
-          ]}
-          neighborhoods={[
-            { label: "Oia Village", selected: true },
-            { label: "Imerovigli", selected: false },
-            { label: "Fira Center", selected: false },
-          ]}
-        />
-        <HotelList
-          hotels={[
-            {
-              id: "h1",
-              image: "/assets/accommodation_booking__img_02.png",
-              name: "Astra Suites Oia",
-              location: "Oia, Santorini",
-              rating: 4.92,
-              reviews: 128,
-              price: "$840",
-              priceNote: "Includes taxes & fees",
-              tags: ["Infinity Pool", "Ocean View"],
-            },
-            {
-              id: "h2",
-              image: "/assets/accommodation_booking__img_03.png",
-              name: "Grace Santoni Villa",
-              location: "Imerovigli, Santorini",
-              rating: 4.88,
-              reviews: 94,
-              price: "$1,250",
-              priceNote: "Excludes resort fees",
-              tags: ["Private Hot Tub"],
-            },
-          ]}
-        />
-        <ConfirmStay
-          image="/assets/accommodation_booking__img_04.png"
-          hotelName="Astra Suites Oia"
-          roomType="Superior Suite with Ocean View"
-          stayDates="Jun 12 - Jun 18 (6 Nights)"
-          breakdown={[
-            { label: "Base Price ($840 x 6 nights)", amount: "$5,040.00" },
-            { label: "Cleaning fee", amount: "$120.00" },
-            { label: "Occupancy taxes", amount: "$452.12" },
-          ]}
-          total="$5,612.12"
-          cardLast4="4242"
-          protectionNote="Your reservation is protected by Voyager Premium Guarantee. Free cancellation before June 1st."
-        />
+      <main className="pt-20 pb-16 lg:pl-64">
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-10">
+          <header className="mb-6 flex flex-col gap-2">
+            <p className="text-sm font-medium text-sky-600">Booking</p>
+            <h1
+              className="text-3xl font-bold text-text-primary md:text-4xl"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Find your sanctuary
+            </h1>
+            <p className="max-w-2xl text-sm text-text-secondary">
+              Curated stays from the world&rsquo;s most coveted destinations.
+            </p>
+          </header>
+
+          <div className="mb-6">
+            <DestinationTabs />
+          </div>
+
+          <div className="mb-8">
+            <BookingToolbar
+              total={query.data?.total ?? 0}
+              onToggleFilters={() => setFiltersOpen(true)}
+              activeFilterCount={activeFilterCount}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr]">
+            <div className="hidden lg:block">
+              <div className="sticky top-24">
+                <BookingFiltersPanel open={false} onClose={() => setFiltersOpen(false)} />
+              </div>
+            </div>
+
+            <div className="lg:hidden">
+              <BookingFiltersPanel open={filtersOpen} onClose={() => setFiltersOpen(false)} />
+            </div>
+
+            <BookingResults />
+          </div>
+        </div>
       </main>
-      <BookingFooter />
     </div>
   );
 }
