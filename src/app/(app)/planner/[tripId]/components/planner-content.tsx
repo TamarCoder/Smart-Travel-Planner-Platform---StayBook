@@ -19,6 +19,7 @@ import PlannerShell from "../../components/shell";
 import { SortableActivity } from "./sortable-activity";
 import { DayColumn } from "./day-column";
 import { CalendarView } from "./calendar-view";
+import { MapView } from "./map-view";
 import { PlannerViewToggle } from "./view-toggle";
 import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/features/trips";
 import { cn } from "@/lib/utils";
@@ -181,6 +182,8 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
           <div className="mt-8">
             {view === "calendar" ? (
               <CalendarView days={trip.itinerary} />
+            ) : view === "map" ? (
+              <MapView destinationSlug={trip.destination} days={trip.itinerary} />
             ) : (
               <DndContext
                 sensors={sensors}

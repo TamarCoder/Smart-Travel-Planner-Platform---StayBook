@@ -3,10 +3,10 @@
 import { useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export type PlannerView = "kanban" | "timeline" | "calendar";
+export type PlannerView = "kanban" | "timeline" | "calendar" | "map";
 
 const PARAM = "view";
-const ALLOWED: PlannerView[] = ["kanban", "timeline", "calendar"];
+const ALLOWED: PlannerView[] = ["kanban", "timeline", "calendar", "map"];
 
 export function usePlannerView() {
   const router = useRouter();
