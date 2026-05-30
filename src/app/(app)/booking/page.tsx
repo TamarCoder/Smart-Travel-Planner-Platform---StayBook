@@ -7,6 +7,7 @@ import { BookingToolbar } from "./components/booking-toolbar";
 import { BookingFiltersPanel } from "./components/booking-filters-panel";
 import { BookingResults } from "./components/booking-results";
 import { DestinationTabs } from "./components/destination-tabs";
+import { StayForm } from "./components/stay-form";
 
 export default function BookingPage() {
   const { filters } = useHotelFilters();
@@ -45,6 +46,10 @@ export default function BookingPage() {
 
           <div className="mb-6">
             <DestinationTabs />
+          </div>
+
+          <div className="mb-6">
+            <StayForm />
           </div>
 
           <div className="mb-8">
