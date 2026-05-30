@@ -30,7 +30,7 @@ export function InviteDialog({ tripId, tripTitle }: InviteDialogProps) {
   const [copied, setCopied] = useState(false);
   const addCollaborator = useAddCollaborator();
 
-  const inviteToken = useMemo(() => nanoid(16), [tripId]);
+  const inviteToken = useMemo(() => nanoid(16), []);
   const inviteLink = `${typeof window !== "undefined" ? window.location.origin : ""}/invite/${tripId}?token=${inviteToken}`;
 
   const {
