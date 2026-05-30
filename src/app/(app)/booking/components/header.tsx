@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Search, Bell, Settings, Menu } from "lucide-react";
+import Link from "next/link";
+import { Search, Settings, Menu } from "lucide-react";
+import { NotificationBell } from "@/components/shared/notification-bell";
 
 interface Props {
   onMenuToggle: () => void;
@@ -52,12 +54,14 @@ export default function BookingHeader({ onMenuToggle }: Props) {
             className="bg-transparent border-none outline-none text-sm w-48 text-text-primary placeholder:text-text-muted"
           />
         </div>
-        <button className="text-text-secondary hover:text-sky-600 transition-colors active:scale-95">
-          <Bell className="h-5 w-5" />
-        </button>
-        <button className="text-text-secondary hover:text-sky-600 transition-colors active:scale-95">
+        <NotificationBell />
+        <Link
+          href="/profile"
+          className="text-text-secondary hover:text-sky-600 transition-colors active:scale-95"
+          aria-label="Settings"
+        >
           <Settings className="h-5 w-5" />
-        </button>
+        </Link>
         <div className="w-8 h-8 rounded-full overflow-hidden border border-border-strong shrink-0">
           <Image
             src="/assets/travel_dashboard__img_01.png"
