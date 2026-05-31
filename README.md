@@ -1,4 +1,5 @@
 
+
 # StayBook — Smart Travel Planner Platform
 
 A frontend-only travel planning platform inspired by Airbnb, Google Maps, Tripadvisor, and Notion. Browse destinations, build day-by-day itineraries with drag-and-drop, manage budgets and bookings, and collaborate with friends in real time — all powered by a mocked backend that lives entirely in the browser.
