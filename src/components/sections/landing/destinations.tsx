@@ -16,7 +16,7 @@ export function DestinationsSection() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 md:mb-14 gap-4">
           <div>
             <h2
-              className="font-bold text-navy-950 mb-2 md:mb-3"
+              className="font-bold text-text-primary mb-2 md:mb-3"
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "clamp(1.375rem, 3vw, 2rem)",
@@ -90,12 +90,12 @@ export function DestinationsSection() {
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-white/80 backdrop-blur-xl border border-white/20 px-3 py-1.5 rounded-full text-xs font-semibold text-text-primary shadow-sm">
+                  <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-surface-elevated backdrop-blur-xl border border-border px-3 py-1.5 rounded-full text-xs font-semibold text-text-primary shadow-sm">
                     from {formatPrice(d.pricePerNight, d.currency)}/night
                   </div>
                 </div>
                 <h3
-                  className="font-semibold text-navy-950 mb-1"
+                  className="font-semibold text-text-primary mb-1"
                   style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1rem, 2vw, 1.125rem)" }}
                 >
                   {d.name}

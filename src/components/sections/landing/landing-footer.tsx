@@ -11,7 +11,7 @@ export function LandingFooter() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col items-center md:items-start gap-1">
           <span
-            className="text-lg font-bold text-navy-950"
+            className="text-lg font-bold text-text-primary"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Voyager
