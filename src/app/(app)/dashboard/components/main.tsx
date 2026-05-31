@@ -8,6 +8,7 @@ import { useAuthStore } from "@/stores";
 import { SkeletonCard, SkeletonText } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
 import { CreateTripDialog } from "./create-trip-dialog";
+import { PicksForYou } from "./picks-for-you";
 import type { TripActivityLog } from "@/lib/api/db";
 
 function getActivityIcon(type: string) {
@@ -297,6 +298,8 @@ function DashboardContent({ trips }: DashboardContentProps) {
           </div>
         )}
       </section>
+
+      <PicksForYou />
 
       {nextTrip && nextTrip.collaborators && nextTrip.collaborators.length > 0 && (
         <section className="md:col-span-12 flex items-center gap-4 rounded-2xl border border-border bg-surface-elevated px-6 py-4">
