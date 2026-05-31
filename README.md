@@ -139,12 +139,14 @@ To experience it, open the same trip in two tabs.
 | `/dashboard/bookings` | Upcoming / past / cancelled tabs |
 | `/dashboard/saved` | Favorited destinations and hotels |
 | `/explore?view=map` | Destination discovery, switch between grid and Leaflet map |
-| `/explore/[slug]` | Destination details, gallery, attractions map |
+| `/explore/[slug]` | Destination details, gallery, attractions map, reviews |
 | `/booking` | Hotel search + filters + availability |
-| `/booking/[hotelId]` | Hotel detail + reserve dialog |
+| `/booking/[hotelId]` | Hotel detail + reserve dialog + guest reviews |
 | `/planner` | Trip picker (redirects to first trip when present) |
-| `/planner/[tripId]` | Itinerary board with drag-and-drop, four view modes, comments, presence, invite |
-| `/profile` | Edit profile, change avatar, currency preference |
+| `/planner/[tripId]` | Itinerary board with drag-and-drop, six view modes (board / timeline / calendar / map / budget / album), comments, presence, invite, AI fill |
+| `/feed` | Public travel feed with like + follow |
+| `/people` | Traveler directory with follow toggle |
+| `/profile` | Edit profile, change avatar, currency, push permissions |
 
 ## Constraints Honoured
 
@@ -158,6 +160,18 @@ To experience it, open the same trip in two tabs.
 ## Deployment
 
 Any platform that supports Next.js 16 will work — Vercel, Netlify, Cloudflare, Fly, or self-host. The app is fully client-side after the initial HTML response; there are no environment variables required because the backend lives in the browser.
+
+### Vercel (recommended)
+
+A `vercel.json` is included with sensible headers for the service worker, manifest, and icons.
+
+```bash
+npx vercel deploy --prod
+```
+
+Or import the GitHub repository at [vercel.com/new](https://vercel.com/new) — Vercel auto-detects the framework, runs `npm run build`, and ships a public URL.
+
+### Self-host
 
 ```bash
 npm run build
