@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import { Providers } from "./providers";
+import { PwaRegister } from "@/components/shared/pwa-register";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -27,6 +28,24 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "StayBook — Smart Travel Planner",
   description: "Plan your perfect trip with StayBook",
+  manifest: "/manifest.webmanifest",
+  applicationName: "StayBook",
+  appleWebApp: {
+    title: "StayBook",
+    capable: true,
+    statusBarStyle: "default",
+  },
+  icons: {
+    icon: [{ url: "/icons/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/icons/icon.svg", type: "image/svg+xml" }],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f9fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#020617" },
+  ],
 };
 
 export default function RootLayout({
@@ -50,6 +69,7 @@ export default function RootLayout({
         <Providers>
           <div id="main-content">{children}</div>
         </Providers>
+        <PwaRegister />
       </body>
     </html>
   );

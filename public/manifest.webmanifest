@@ -1,0 +1,31 @@
+{
+  "name": "StayBook — Smart Travel Planner",
+  "short_name": "StayBook",
+  "description": "Plan, budget and book luxury trips with collaborators.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f9fb",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "categories": ["travel", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Dashboard", "url": "/dashboard" },
+    { "name": "Explore", "url": "/explore" },
+    { "name": "Planner", "url": "/planner" }
+  ]
+}
