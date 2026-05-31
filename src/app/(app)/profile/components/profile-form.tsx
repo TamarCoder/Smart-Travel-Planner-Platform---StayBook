@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LogOut } from "lucide-react";
+import { Bell, LogOut } from "lucide-react";
 import { toast } from "sonner";
+import { useBrowserNotify } from "@/features/notifications";
 import { useLogout, useUpdateProfile } from "@/features/auth";
 import { useAuthStore } from "@/stores";
 import { profileSchema, type ProfileInput } from "@/lib/validations/auth";
@@ -30,6 +31,7 @@ export function ProfileForm() {
   const user = useAuthStore((s) => s.user);
   const updateProfile = useUpdateProfile();
   const logout = useLogout();
+  const browserNotify = useBrowserNotify(user?.preferences?.notifications ?? false);
 
   const {
     register,
@@ -218,7 +220,7 @@ export function ProfileForm() {
                     className="mt-1 h-4 w-4 accent-sky-600"
                   />
                   <span className="text-sm">
-                    <span className="block font-medium text-text-primary">Email & in-app notifications</span>
+                    <span className="block font-medium text-text-primary">In-app notifications</span>
                     <span className="block text-text-secondary">
                       Trip reminders, collaboration updates, and price alerts.
                     </span>
@@ -226,6 +228,43 @@ export function ProfileForm() {
                 </label>
               )}
             />
+
+            <div className="rounded-xl border border-border bg-surface-muted px-4 py-3">
+              <div className="flex items-start gap-3">
+                <Bell className="mt-0.5 h-4 w-4 shrink-0 text-sky-600" />
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-text-primary">Browser notifications</p>
+                  <p className="text-xs text-text-secondary">
+                    {browserNotify.permission === "unsupported"
+                      ? "Your browser does not support native notifications."
+                      : browserNotify.permission === "granted"
+                        ? "Enabled — new alerts will pop out of the browser."
+                        : browserNotify.permission === "denied"
+                          ? "Denied — adjust in your browser settings to re-enable."
+                          : "Allow native popups when something needs your attention."}
+                  </p>
+                </div>
+                {browserNotify.permission === "default" && (
+                  <button
+                    type="button"
+                    onClick={() => browserNotify.request()}
+                    className="rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-medium text-text-primary hover:bg-surface-hover"
+                  >
+                    Allow
+                  </button>
+                )}
+                {browserNotify.permission === "granted" && (
+                  <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
+                    On
+                  </span>
+                )}
+                {browserNotify.permission === "denied" && (
+                  <span className="rounded-full bg-rose-500/15 px-2 py-0.5 text-[10px] font-semibold text-rose-700">
+                    Blocked
+                  </span>
+                )}
+              </div>
+            </div>
           </div>
         </section>
 
