@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { nanoid } from "nanoid";
 import { Bot, MessageSquare, Send, Sparkles, X } from "lucide-react";
 import { useAuthStore } from "@/stores";
 import { answer, type ChatResponse } from "@/lib/ai/chatbot";
@@ -38,7 +39,7 @@ export function ChatbotWidget() {
   function send(text: string) {
     const value = text.trim();
     if (!value) return;
-    const id = `m-${Date.now()}`;
+    const id = `m-${nanoid(6)}`;
     setMessages((prev) => [...prev, { id, author: "you", text: value }]);
     setDraft("");
     setTyping(true);
@@ -75,7 +76,7 @@ export function ChatbotWidget() {
         <div
           role="dialog"
           aria-label="Travel assistant"
-          className="fixed bottom-20 right-5 z-40 flex h-[60vh] max-h-[560px] w-[360px] max-w-[calc(100vw-24px)] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl"
+          className="fixed bottom-20 right-5 z-40 flex h-[60vh] max-h-140 w-90 max-w-[calc(100vw-24px)] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl"
         >
           <header className="flex items-center gap-3 border-b border-border bg-linear-to-r from-sky-500 to-violet-500 px-4 py-3 text-white">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
