@@ -7,6 +7,8 @@ import {
   Wallet,
   Bookmark,
   User2,
+  Users2,
+  Newspaper,
   type LucideIcon,
 } from "lucide-react";
 
@@ -27,5 +29,7 @@ export const SECONDARY_NAV: NavItem[] = [
   { label: "Bookings", href: "/dashboard/bookings", icon: BedDouble },
   { label: "Budget", href: "/dashboard/budget", icon: Wallet },
   { label: "Saved", href: "/dashboard/saved", icon: Bookmark },
+  { label: "Feed", href: "/feed", icon: Newspaper },
+  { label: "Travelers", href: "/people", icon: Users2 },
   { label: "Profile", href: "/profile", icon: User2 },
 ];
