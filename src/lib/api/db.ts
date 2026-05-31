@@ -43,6 +43,15 @@ export type ActivityType =
 
 export type ActivityStatus = "pending" | "confirmed" | "cancelled";
 
+export interface TripAttachment {
+  id: string;
+  name: string;
+  mimeType: string;
+  size: number;
+  dataUrl: string;
+  uploadedAt: string;
+}
+
 export interface TripActivity {
   id: string;
   time?: string;
@@ -55,6 +64,7 @@ export interface TripActivity {
   notes?: string;
   cost?: number;
   currency?: string;
+  attachments?: TripAttachment[];
 }
 
 export interface TripDay {

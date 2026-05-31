@@ -7,6 +7,7 @@ import type { TripActivity } from "@/lib/api/trips";
 import { useTripComments } from "@/features/comments";
 import { cn } from "@/lib/utils";
 import { CommentPopover } from "./comment-popover";
+import { AttachmentDialog } from "./attachment-dialog";
 
 const ICONS: Record<TripActivity["type"], typeof Plane> = {
   flight: Plane,
@@ -103,13 +104,14 @@ export function SortableActivity({ activity, dayIndex, tripId, overlay }: Sortab
           <p className="mt-0.5 truncate text-xs text-text-secondary">{activity.detail}</p>
         )}
         {tripId && !overlay && (
-          <div className="mt-2">
+          <div className="mt-2 flex flex-wrap items-center gap-2">
             <CommentPopover
               tripId={tripId}
               activityId={activity.id}
               activityTitle={activity.title}
               count={activityComments.length}
             />
+            <AttachmentDialog tripId={tripId} dayIndex={dayIndex} activity={activity} />
           </div>
         )}
       </div>
