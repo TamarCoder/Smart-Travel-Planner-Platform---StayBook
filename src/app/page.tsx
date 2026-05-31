@@ -5,6 +5,7 @@ import { DestinationsSection } from "@/components/sections/landing/destinations"
 import { TestimonialsSection } from "@/components/sections/landing/testimonials";
 import { CTASection } from "@/components/sections/landing/cta";
 import { LandingFooter } from "@/components/sections/landing/landing-footer";
+import { GlobeSection } from "@/components/sections/landing/globe";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
         <HeroSection />
         <StatsSection />
         <div id="destinations"><DestinationsSection /></div>
+        <GlobeSection />
         <div id="testimonials"><TestimonialsSection /></div>
         <div id="pricing"><CTASection /></div>
       </main>
