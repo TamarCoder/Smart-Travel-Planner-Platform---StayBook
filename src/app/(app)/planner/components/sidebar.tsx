@@ -2,27 +2,9 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  LayoutDashboard,
-  CalendarDays,
-  Plane,
-  Compass,
-  Bookmark,
-  HelpCircle,
-  LogOut,
-  Plus,
-  PlaneTakeoff,
-  X,
-} from "lucide-react";
+import { HelpCircle, LogOut, PlaneTakeoff, X } from "lucide-react";
 import { useLogout } from "@/features/auth";
-
-const navItems = [
-  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Planner", href: "/planner", icon: CalendarDays },
-  { label: "Trips", href: "/dashboard/trips", icon: Plane },
-  { label: "Explore", href: "/explore", icon: Compass },
-  { label: "Saved", href: "/dashboard/saved", icon: Bookmark },
-];
+import { PRIMARY_NAV, SECONDARY_NAV } from "@/constants/nav";
 
 interface Props {
   isOpen: boolean;
@@ -81,8 +63,29 @@ export default function PlannerSidebar({ isOpen, onClose }: Props) {
           </div>
         </div>
 
-        <nav className="flex-1 flex flex-col gap-1 px-4">
-          {navItems.map(({ label, href, icon: Icon }) => {
+        <nav className="flex-1 flex flex-col gap-1 px-4 overflow-y-auto">
+          {PRIMARY_NAV.map(({ label, href, icon: Icon }) => {
+            const active = pathname === href || pathname.startsWith(`${href}/`);
+            return (
+              <Link
+                key={label}
+                href={href}
+                onClick={onClose}
+                className={
+                  active
+                    ? "flex items-center gap-4 px-6 py-3 rounded-xl bg-sky-600/10 text-sky-600 border-r-2 border-sky-600 text-sm font-medium"
+                    : "flex items-center gap-4 px-6 py-3 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all duration-200 hover:translate-x-1 text-sm font-medium"
+                }
+              >
+                <Icon className="h-5 w-5" />
+                {label}
+              </Link>
+            );
+          })}
+
+          <div className="my-3 border-t border-border" />
+
+          {SECONDARY_NAV.map(({ label, href, icon: Icon }) => {
             const active = pathname === href;
             return (
               <Link
@@ -91,8 +94,8 @@ export default function PlannerSidebar({ isOpen, onClose }: Props) {
                 onClick={onClose}
                 className={
                   active
-                    ? "flex items-center gap-4 px-6 py-4 rounded-xl bg-sky-600/10 text-sky-600 border-r-2 border-sky-600 text-sm font-medium"
-                    : "flex items-center gap-4 px-6 py-4 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all duration-200 hover:translate-x-1 text-sm font-medium"
+                    ? "flex items-center gap-4 px-6 py-3 rounded-xl bg-sky-600/10 text-sky-600 border-r-2 border-sky-600 text-sm font-medium"
+                    : "flex items-center gap-4 px-6 py-3 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all duration-200 hover:translate-x-1 text-sm font-medium"
                 }
               >
                 <Icon className="h-5 w-5" />
@@ -103,11 +106,6 @@ export default function PlannerSidebar({ isOpen, onClose }: Props) {
         </nav>
 
         <div className="mt-auto px-4 flex flex-col gap-1">
-          <button className="w-full bg-sky-100 text-sky-600 py-3 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold hover:bg-sky-200 transition-all active:scale-95 mb-2">
-            <Plus className="h-5 w-5" />
-            New Trip
-          </button>
-          <div className="h-px bg-border-strong/20 my-1" />
           <Link
             href="#"
             className="flex items-center gap-4 px-6 py-4 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all text-sm font-medium"
