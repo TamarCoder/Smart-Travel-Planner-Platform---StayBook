@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthBootstrap } from "@/features/auth";
 import { CommandPaletteLoader } from "@/components/shared/command-palette-loader";
 import { BrowserNotificationsBridge } from "@/components/shared/browser-notifications-bridge";
+import { ChatbotWidget } from "@/components/shared/chatbot-widget";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -39,6 +40,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <BrowserNotificationsBridge />
         <TooltipProvider delayDuration={200}>
           {children}
+          <ChatbotWidget />
           <CommandPaletteLoader />
           <Toaster />
         </TooltipProvider>
