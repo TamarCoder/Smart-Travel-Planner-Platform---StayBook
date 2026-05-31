@@ -10,6 +10,7 @@ import { HeroGallery } from "./hero-gallery";
 import { AttractionsSection } from "./attractions-section";
 import { RelatedSection } from "./related-section";
 import { DestinationMap } from "./destination-map";
+import { ReviewsSection } from "@/components/shared/reviews-section";
 
 interface DestinationDetailProps {
   slug: string;
@@ -148,6 +149,18 @@ export function DestinationDetail({ slug }: DestinationDetailProps) {
               </section>
 
               <DestinationMap destination={data} />
+
+              <section className="flex flex-col gap-5">
+                <header>
+                  <h3
+                    className="text-2xl font-bold text-text-primary"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    Traveler reviews
+                  </h3>
+                </header>
+                <ReviewsSection entityType="destination" entityId={data.id} />
+              </section>
 
               <section className="flex flex-col gap-5">
                 <header>
