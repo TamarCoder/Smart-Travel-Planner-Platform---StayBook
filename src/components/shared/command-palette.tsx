@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Command } from "cmdk";
 import {
@@ -40,25 +39,11 @@ export function CommandPalette() {
   const router = useRouter();
   const open = useUiStore((s) => s.commandPaletteOpen);
   const setOpen = useUiStore((s) => s.setCommandPaletteOpen);
-  const toggle = useUiStore((s) => s.toggleCommandPalette);
 
   const logout = useLogout();
   const destinations = useDestinations({ pageSize: 12 });
   const hotels = useHotels({ pageSize: 12 });
   const trips = useTrips();
-
-  useEffect(() => {
-    function onKey(event: KeyboardEvent) {
-      const isMac = navigator.platform.toUpperCase().includes("MAC");
-      const meta = isMac ? event.metaKey : event.ctrlKey;
-      if (meta && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        toggle();
-      }
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [toggle]);
 
   function go(href: string) {
     router.push(href);
