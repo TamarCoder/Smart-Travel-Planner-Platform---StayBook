@@ -12,6 +12,7 @@ import { LeafletMap, type LatLng, type MapMarker } from "@/components/maps";
 import { formatMoney } from "@/lib/utils/currency";
 import BookingShell from "../../components/shell";
 import { ReserveDialog } from "./reserve-dialog";
+import { ReviewsSection } from "@/components/shared/reviews-section";
 
 interface HotelDetailProps {
   hotelId: string;
@@ -180,6 +181,18 @@ export function HotelDetail({ hotelId }: HotelDetailProps) {
                 Free cancellation within 48 hours
               </p>
             </aside>
+          </section>
+
+          <section className="mt-12 flex flex-col gap-5">
+            <header>
+              <h3
+                className="text-2xl font-bold text-text-primary"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Guest reviews
+              </h3>
+            </header>
+            <ReviewsSection entityType="hotel" entityId={hotel.id} />
           </section>
         </div>
       </main>
