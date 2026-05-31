@@ -34,7 +34,7 @@ export function TestimonialsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-14">
           <h2
-            className="font-bold text-navy-950 mb-2 md:mb-3"
+            className="font-bold text-text-primary mb-2 md:mb-3"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(1.375rem, 3vw, 2rem)",
@@ -52,7 +52,7 @@ export function TestimonialsSection() {
           {testimonials.map(({ id, quote, name, title, avatar }) => (
             <div
               key={id}
-              className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-10 shadow-sm flex flex-col"
+              className="bg-surface-elevated backdrop-blur-xl border border-border rounded-2xl p-6 md:p-10 shadow-sm flex flex-col"
             >
               <div className="flex gap-0.5 mb-5">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -73,7 +73,7 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-navy-950" style={{ letterSpacing: "0.01em" }}>
+                  <p className="text-sm font-medium text-text-primary" style={{ letterSpacing: "0.01em" }}>
                     {name}
                   </p>
                   <p className="text-xs text-text-secondary mt-0.5">{title}</p>

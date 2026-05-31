@@ -12,7 +12,7 @@ export function StatsSection() {
         {stats.map(({ value, label }) => (
           <div key={label} className="text-center">
             <div
-              className="font-bold text-navy-950 mb-1 tracking-tight"
+              className="font-bold text-text-primary mb-1 tracking-tight"
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "clamp(1.75rem, 5vw, 3rem)",
