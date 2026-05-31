@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   addActivity,
   addCollaborator,
+  addPhoto,
   createTrip,
   deleteActivity,
   deleteTrip,
@@ -11,11 +12,13 @@ import {
   listTrips,
   moveActivity,
   removeCollaborator,
+  removePhoto,
   reorderDayActivities,
   updateActivity,
   updateTrip,
   type AddActivityInput,
   type AddCollaboratorInput,
+  type AddPhotoInput,
   type CreateTripInput,
   type DeleteActivityInput,
   type MoveActivityInput,
@@ -289,6 +292,32 @@ export function useRemoveCollaborator() {
     onSuccess: (trip) => {
       queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
       emitTripEvent(trip.id, "collaborator:removed");
+    },
+  });
+}
+
+export function useAddPhoto() {
+  const queryClient = useQueryClient();
+  const token = useAuthStore((s) => s.token);
+
+  return useMutation<Trip, Error, AddPhotoInput>({
+    mutationFn: (input) => addPhoto(token ?? "", input),
+    onSuccess: (trip) => {
+      queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "photo:added");
+    },
+  });
+}
+
+export function useRemovePhoto() {
+  const queryClient = useQueryClient();
+  const token = useAuthStore((s) => s.token);
+
+  return useMutation<Trip, Error, { tripId: string; photoId: string }>({
+    mutationFn: (input) => removePhoto(token ?? "", input),
+    onSuccess: (trip) => {
+      queryClient.setQueryData(tripsKeys.detail(trip.id), trip);
+      emitTripEvent(trip.id, "photo:removed");
     },
   });
 }

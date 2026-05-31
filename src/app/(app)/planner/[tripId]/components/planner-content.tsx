@@ -21,6 +21,7 @@ import { DayColumn } from "./day-column";
 import { CalendarView } from "./calendar-view";
 import { MapView } from "./map-view";
 import { BudgetView } from "./budget-view";
+import { AlbumView } from "./album-view";
 import { PlannerViewToggle } from "./view-toggle";
 import { useMoveActivity, usePlannerView, useReorderDay, useTrip } from "@/features/trips";
 import { useTripRealtime } from "@/features/realtime";
@@ -199,6 +200,8 @@ export function PlannerContent({ tripId }: PlannerContentProps) {
               <MapView destinationSlug={trip.destination} days={trip.itinerary} />
             ) : view === "budget" ? (
               <BudgetView trip={trip} />
+            ) : view === "album" ? (
+              <AlbumView trip={trip} />
             ) : (
               <DndContext
                 sensors={sensors}

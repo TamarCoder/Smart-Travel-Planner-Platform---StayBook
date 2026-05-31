@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutGrid, ListOrdered, CalendarDays, Map, Wallet } from "lucide-react";
+import { LayoutGrid, ListOrdered, CalendarDays, Map, Wallet, Camera } from "lucide-react";
 import { usePlannerView, type PlannerView } from "@/features/trips";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +10,7 @@ const OPTIONS: { value: PlannerView; label: string; icon: typeof LayoutGrid }[] 
   { value: "calendar", label: "Calendar", icon: CalendarDays },
   { value: "map", label: "Map", icon: Map },
   { value: "budget", label: "Budget", icon: Wallet },
+  { value: "album", label: "Album", icon: Camera },
 ];
 
 export function PlannerViewToggle() {

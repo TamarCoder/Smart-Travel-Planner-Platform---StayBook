@@ -89,6 +89,17 @@ export interface TripActivityLog {
   time: string;
 }
 
+export interface TripPhoto {
+  id: string;
+  name: string;
+  dataUrl: string;
+  size: number;
+  caption?: string;
+  uploadedAt: string;
+  uploaderId: string;
+  uploaderName: string;
+}
+
 export interface DbTrip {
   id: string;
   userId: string;
@@ -109,6 +120,7 @@ export interface DbTrip {
   itinerary: TripDay[];
   collaborators?: TripCollaborator[];
   recentActivity?: TripActivityLog[];
+  album?: TripPhoto[];
   createdAt: string;
   updatedAt: string;
 }
