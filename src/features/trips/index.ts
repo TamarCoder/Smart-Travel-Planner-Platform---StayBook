@@ -12,6 +12,8 @@ export {
   useReorderDay,
   useAddCollaborator,
   useRemoveCollaborator,
+  useAddPhoto,
+  useRemovePhoto,
 } from "./hooks";
 export { tripsKeys } from "./keys";
 export { usePlannerView } from "./use-planner-view";

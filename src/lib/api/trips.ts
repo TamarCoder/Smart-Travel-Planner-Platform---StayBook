@@ -383,6 +383,56 @@ export async function removeCollaborator(
   });
 }
 
+export interface AddPhotoInput {
+  tripId: string;
+  name: string;
+  dataUrl: string;
+  size: number;
+  caption?: string;
+}
+
+export async function addPhoto(token: string, input: AddPhotoInput): Promise<DbTrip> {
+  return fakeRequest(async () => {
+    const { db, userId, userName } = await requireSession(token);
+    const trip = await db.get("trips", input.tripId);
+    const owned = assertOwnership(trip, userId);
+    const photo = {
+      id: `pho-${nanoid(8)}`,
+      name: input.name,
+      dataUrl: input.dataUrl,
+      size: input.size,
+      caption: input.caption?.trim() || undefined,
+      uploadedAt: new Date().toISOString(),
+      uploaderId: userId,
+      uploaderName: userName,
+    };
+    owned.album = [photo, ...(owned.album ?? [])];
+    appendActivityLog(owned, {
+      type: "edit",
+      title: `${userName} shared a photo`,
+      subtitle: input.caption ?? input.name,
+    });
+    owned.updatedAt = todayIso();
+    await db.put("trips", owned);
+    return owned;
+  });
+}
+
+export async function removePhoto(
+  token: string,
+  input: { tripId: string; photoId: string },
+): Promise<DbTrip> {
+  return fakeRequest(async () => {
+    const { db, userId } = await requireSession(token);
+    const trip = await db.get("trips", input.tripId);
+    const owned = assertOwnership(trip, userId);
+    owned.album = (owned.album ?? []).filter((p) => p.id !== input.photoId);
+    owned.updatedAt = todayIso();
+    await db.put("trips", owned);
+    return owned;
+  });
+}
+
 export interface ReorderDayInput {
   tripId: string;
   dayIndex: number;
