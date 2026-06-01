@@ -4,11 +4,13 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   cancelBooking,
   createBooking,
+  createItemBooking,
   deleteBooking,
   getBookingById,
   listBookings,
   type Booking,
   type CreateBookingInput,
+  type CreateItemBookingInput,
 } from "@/lib/api/bookings";
 import { useAuthStore } from "@/stores";
 import { bookingsKeys } from "./keys";
@@ -40,6 +42,20 @@ export function useCreateBooking() {
 
   return useMutation<Booking, Error, CreateBookingInput>({
     mutationFn: (input) => createBooking(token ?? "", input),
+    onSuccess: (booking) => {
+      queryClient.setQueryData(bookingsKeys.detail(booking.id), booking);
+      queryClient.invalidateQueries({ queryKey: bookingsKeys.list(userId) });
+    },
+  });
+}
+
+export function useCreateItemBooking() {
+  const queryClient = useQueryClient();
+  const token = useAuthStore((s) => s.token);
+  const userId = useAuthStore((s) => s.user?.id);
+
+  return useMutation<Booking, Error, CreateItemBookingInput>({
+    mutationFn: (input) => createItemBooking(token ?? "", input),
     onSuccess: (booking) => {
       queryClient.setQueryData(bookingsKeys.detail(booking.id), booking);
       queryClient.invalidateQueries({ queryKey: bookingsKeys.list(userId) });

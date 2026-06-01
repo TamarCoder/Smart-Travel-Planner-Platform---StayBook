@@ -35,7 +35,9 @@ export function BookingsList() {
 
   const hotelIds = useMemo(() => {
     const ids = new Set<string>();
-    (bookings.data ?? []).forEach((b) => ids.add(b.hotelId));
+    (bookings.data ?? []).forEach((b) => {
+      if (b.hotelId) ids.add(b.hotelId);
+    });
     return Array.from(ids).sort();
   }, [bookings.data]);
 
@@ -102,13 +104,13 @@ export function BookingsList() {
       <EmptyState
         icon={<BedDouble className="h-6 w-6 text-sky-600" />}
         title="No bookings yet"
-        description="Find a stay you love and reserve it to see it here."
+        description="Find a stay, experience or transfer you love and reserve it to see it here."
         action={
           <Link
             href="/booking"
             className="rounded-xl bg-navy-950 px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-800"
           >
-            Browse stays
+            Browse booking
           </Link>
         }
       />
@@ -119,7 +121,7 @@ export function BookingsList() {
     <div className="flex flex-col gap-6">
       {bookingsKeys.all && hotels.isPending && (
         <div className="inline-flex w-fit items-center gap-2 text-xs text-text-secondary">
-          <Spinner className="h-3.5 w-3.5 text-sky-500" /> Loading hotel info…
+          <Spinner className="h-3.5 w-3.5 text-sky-500" /> Loading booking info…
         </div>
       )}
 
@@ -141,72 +143,87 @@ export function BookingsList() {
           title={`No ${tab} bookings`}
           description={
             tab === "upcoming"
-              ? "When you book a stay, it shows up here."
+              ? "When you book a stay, experience or transfer, it shows up here."
               : "Nothing to show in this tab."
           }
         />
       ) : (
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {visible.map((booking) => {
-            const hotel = hotelMap.get(booking.hotelId);
+            const isHotel = booking.kind !== "experience" && booking.kind !== "transport";
+            const hotel = booking.hotelId ? hotelMap.get(booking.hotelId) : undefined;
             const nights = getNights(booking.checkIn, booking.checkOut);
             const highlight = highlightId === booking.id;
+
+            const title = isHotel ? hotel?.name ?? "Hotel" : booking.itemName ?? "Booking";
+            const image = isHotel ? hotel?.image : booking.itemImage;
+            const category = isHotel
+              ? hotel?.propertyType ?? "Stay"
+              : booking.kind === "transport"
+                ? "Transport"
+                : "Experience";
+            const href = isHotel && booking.hotelId ? `/booking/${booking.hotelId}` : "/booking";
+
             return (
               <li
                 key={booking.id}
                 className={cn(
                   "group overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-colors",
-                  highlight && "border-sky-600 ring-2 ring-sky-500/30",
+                  highlight && "border-secondary ring-2 ring-secondary/30",
                 )}
               >
                 <div className="flex flex-col sm:flex-row">
                   <Link
-                    href={`/booking/${booking.hotelId}`}
-                    className="relative aspect-4/3 w-full sm:aspect-auto sm:h-auto sm:w-48"
+                    href={href}
+                    className="relative aspect-4/3 w-full bg-surface-muted sm:aspect-auto sm:h-auto sm:w-48"
                   >
-                    {hotel?.image && (
-                      <Image
-                        src={hotel.image}
-                        alt={hotel.name}
-                        fill
-                        sizes="200px"
-                        className="object-cover"
-                      />
+                    {image && (
+                      <Image src={image} alt={title} fill sizes="200px" className="object-cover" />
                     )}
                   </Link>
                   <div className="flex flex-1 flex-col gap-2 p-4">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
-                        <p className="text-[10px] font-semibold uppercase tracking-wider text-sky-600">
-                          {hotel?.propertyType ?? "Stay"}
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-secondary">
+                          {category}
                         </p>
                         <Link
-                          href={`/booking/${booking.hotelId}`}
+                          href={href}
                           className="mt-0.5 block truncate text-base font-semibold text-text-primary hover:underline"
                           style={{ fontFamily: "var(--font-display)" }}
                         >
-                          {hotel?.name ?? "Hotel"}
+                          {title}
                         </Link>
-                        <p className="inline-flex items-center gap-1 text-xs text-text-secondary">
-                          <MapPin className="h-3.5 w-3.5 text-sky-600" />
-                          {hotel?.neighborhood ?? "Location"}
-                        </p>
+                        {isHotel && (
+                          <p className="inline-flex items-center gap-1 text-xs text-text-secondary">
+                            <MapPin className="h-3.5 w-3.5 text-secondary" />
+                            {hotel?.neighborhood ?? "Location"}
+                          </p>
+                        )}
                       </div>
                       <StatusBadge status={booking.status} />
                     </div>
 
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-text-secondary">
                       <span className="inline-flex items-center gap-1">
-                        <CalendarRange className="h-3.5 w-3.5 text-sky-600" />
-                        {booking.checkIn} → {booking.checkOut}
+                        <CalendarRange className="h-3.5 w-3.5 text-secondary" />
+                        {isHotel ? `${booking.checkIn} → ${booking.checkOut}` : booking.date}
                       </span>
-                      <span>{nights} {nights === 1 ? "night" : "nights"}</span>
-                      <span>{booking.guests} guests · {booking.rooms} rooms</span>
+                      {isHotel ? (
+                        <>
+                          <span>{nights} {nights === 1 ? "night" : "nights"}</span>
+                          <span>{booking.guests} guests · {booking.rooms} rooms</span>
+                        </>
+                      ) : (
+                        <span>
+                          {booking.quantity} {booking.kind === "transport" ? "units" : "guests"}
+                        </span>
+                      )}
                     </div>
 
                     <div className="mt-auto flex items-center justify-between border-t border-border pt-3">
-                      <div className="text-xs text-text-secondary inline-flex items-center gap-1">
-                        {hotel && (
+                      <div className="inline-flex items-center gap-1 text-xs text-text-secondary">
+                        {isHotel && hotel && (
                           <>
                             <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                             {hotel.rating.toFixed(2)}
@@ -280,7 +297,7 @@ function TabButton({
       className={cn(
         "relative -mb-px inline-flex items-center gap-2 border-b-2 px-3 py-3 text-sm font-medium transition-colors",
         active
-          ? "border-sky-600 text-text-primary"
+          ? "border-secondary text-text-primary"
           : "border-transparent text-text-secondary hover:text-text-primary",
       )}
     >

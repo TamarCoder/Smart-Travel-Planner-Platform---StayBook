@@ -2,6 +2,7 @@ export {
   useBookings,
   useBooking,
   useCreateBooking,
+  useCreateItemBooking,
   useCancelBooking,
   useDeleteBooking,
 } from "./hooks";

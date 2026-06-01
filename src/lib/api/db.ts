@@ -130,7 +130,13 @@ export interface DbBooking {
   id: string;
   userId: string;
   tripId?: string;
-  hotelId: string;
+  kind?: "hotel" | "experience" | "transport";
+  hotelId?: string;
+  itemId?: string;
+  itemName?: string;
+  itemImage?: string;
+  date?: string;
+  quantity?: number;
   checkIn: string;
   checkOut: string;
   guests: number;
