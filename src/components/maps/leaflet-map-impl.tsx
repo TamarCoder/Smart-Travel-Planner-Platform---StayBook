@@ -107,11 +107,11 @@ function FitBounds({
     ];
     if (points.length === 0) return;
     if (points.length === 1) {
-      map.setView(points[0], Math.max(map.getZoom(), 6));
+      map.flyTo(points[0], Math.max(map.getZoom(), 6), { duration: 0.8 });
       return;
     }
     const bounds: LatLngBoundsLiteral = points;
-    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+    map.flyToBounds(bounds, { padding: [40, 40], maxZoom: 12, duration: 0.8 });
   }, [enabled, markers, routes, map]);
 
   return null;
