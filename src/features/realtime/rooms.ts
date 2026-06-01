@@ -10,6 +10,10 @@ export function commentsRoom(tripId: string) {
   return `trip:${tripId}:comments`;
 }
 
+export function userRoom(userId: string) {
+  return `user:${userId}`;
+}
+
 export type TripEventType =
   | "trip:updated"
   | "activity:added"
