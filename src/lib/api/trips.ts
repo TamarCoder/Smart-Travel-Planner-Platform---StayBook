@@ -138,6 +138,7 @@ export async function createTrip(token: string, input: CreateTripInput): Promise
       userId,
       title,
       destination: input.destination,
+      destinations: [input.destination],
       coverImage: input.coverImage,
       startDate: input.startDate,
       endDate: input.endDate,
