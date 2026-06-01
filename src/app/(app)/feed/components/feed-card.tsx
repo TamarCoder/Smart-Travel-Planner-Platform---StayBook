@@ -37,7 +37,7 @@ export function FeedCard({ post }: FeedCardProps) {
             "inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-medium transition-colors",
             following
               ? "border-border bg-surface text-text-secondary"
-              : "border-sky-600 bg-sky-600 text-white hover:bg-sky-700",
+              : "border-navy-950 bg-navy-950 text-white hover:bg-navy-800",
           )}
         >
           {following ? <UserMinus className="h-3 w-3" /> : <UserPlus className="h-3 w-3" />}
