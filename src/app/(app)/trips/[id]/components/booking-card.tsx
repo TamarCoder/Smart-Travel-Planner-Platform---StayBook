@@ -51,7 +51,7 @@ export default function BookingCard() {
       <div className="space-y-3">
         <Link
           href="/booking"
-          className="block w-full text-center bg-navy-950 hover:bg-navy-800 text-white py-4 rounded-xl text-base font-semibold active:scale-95 transition-all"
+          className="block w-full text-center bg-secondary hover:bg-on-secondary-container text-white py-4 rounded-xl text-base font-semibold active:scale-95 transition-all"
         >
           Book This Journey
         </Link>

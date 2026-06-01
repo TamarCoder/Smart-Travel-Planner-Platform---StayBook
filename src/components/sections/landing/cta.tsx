@@ -27,7 +27,7 @@ export function CTASection() {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
           <Link
             href={isAuthenticated ? "/dashboard" : "/register"}
-            className="w-full sm:w-auto px-8 py-4 bg-navy-950 hover:bg-navy-800 text-white rounded-full text-sm font-semibold transition-all hover:scale-105 text-center"
+            className="w-full sm:w-auto px-8 py-4 bg-secondary hover:bg-on-secondary-container text-white rounded-full text-sm font-semibold transition-all hover:scale-105 text-center"
           >
             {isAuthenticated ? "Open dashboard" : "Create your first plan"}
           </Link>

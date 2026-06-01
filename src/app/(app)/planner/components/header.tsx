@@ -63,7 +63,7 @@ export default function PlannerHeader({ onMenuToggle }: Props) {
           >
             <Settings className="h-5 w-5" />
           </Link>
-          <button className="bg-navy-950 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+          <button className="bg-secondary text-white px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-all flex items-center gap-2">
             <Share2 className="h-4 w-4" />
             Share
           </button>

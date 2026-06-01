@@ -129,7 +129,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={busy}
-          className="mt-2 w-full py-3 rounded-xl bg-navy-950 hover:bg-navy-800 text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+          className="mt-2 w-full py-3 rounded-xl bg-secondary hover:bg-on-secondary-container text-white text-sm font-semibold transition-all hover:-translate-y-px hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
         >
           {busy ? "Creating account…" : "Create account"}
         </button>

@@ -50,7 +50,7 @@ export default function ExploreSidebar({ isOpen, onClose }: Props) {
         <div className="px-6 py-6">
           <CreateTripDialog
             trigger={
-              <button className="w-full bg-primary-container hover:bg-primary text-white py-3 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
+              <button className="w-full bg-secondary hover:bg-on-secondary-container text-white py-3 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
                 <Plus className="h-5 w-5" />
                 New Trip
               </button>

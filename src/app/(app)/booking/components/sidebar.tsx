@@ -54,7 +54,7 @@ export default function BookingSidebar({ isOpen, onClose }: Props) {
         <div className="px-6 py-6">
           <CreateTripDialog
             trigger={
-              <button className="w-full flex items-center justify-center gap-2 bg-primary-container hover:bg-primary text-white py-3 rounded-xl text-sm font-semibold transition-all active:scale-95 shadow-md">
+              <button className="w-full flex items-center justify-center gap-2 bg-secondary hover:bg-on-secondary-container text-white py-3 rounded-xl text-sm font-semibold transition-all active:scale-95 shadow-md">
                 <Plus className="h-5 w-5" />
                 New Trip
               </button>

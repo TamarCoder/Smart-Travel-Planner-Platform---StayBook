@@ -60,7 +60,7 @@ export function LandingHeader() {
         )}
         <Link
           href={ctaHref}
-          className="hidden md:block text-sm font-semibold px-5 py-2 bg-navy-950 hover:bg-navy-800 text-white rounded-full transition-all"
+          className="hidden md:block text-sm font-semibold px-5 py-2 bg-secondary hover:bg-on-secondary-container text-white rounded-full transition-all"
         >
           {ctaLabel}
         </Link>
@@ -106,7 +106,7 @@ export function LandingHeader() {
             <Link
               href={ctaHref}
               onClick={() => setMobileOpen(false)}
-              className="text-sm font-semibold text-center py-2.5 bg-navy-950 text-white rounded-full"
+              className="text-sm font-semibold text-center py-2.5 bg-secondary text-white rounded-full"
             >
               {ctaLabel}
             </Link>

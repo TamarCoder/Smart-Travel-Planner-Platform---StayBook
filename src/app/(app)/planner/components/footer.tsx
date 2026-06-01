@@ -14,7 +14,7 @@ export default function PlannerFooter() {
           <span className="text-[10px] font-bold">Planner</span>
         </Link>
         <div className="relative -top-4">
-          <button className="w-14 h-14 rounded-full bg-navy-950 flex items-center justify-center text-white shadow-lg ring-4 ring-background cursor-pointer">
+          <button className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-white shadow-lg ring-4 ring-background cursor-pointer">
             <Plus className="h-6 w-6" />
           </button>
         </div>
