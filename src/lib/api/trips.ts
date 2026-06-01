@@ -85,7 +85,17 @@ export async function getTrip(token: string, id: string): Promise<DbTrip> {
   return fakeRequest(async () => {
     const { db, userId } = await requireSession(token);
     const trip = await db.get("trips", id);
-    return assertOwnership(trip, userId);
+    const owned = assertOwnership(trip, userId);
+    if (!owned.itinerary || owned.itinerary.length === 0) {
+      const healed: DbTrip = {
+        ...owned,
+        itinerary: buildEmptyDays(owned.startDate, owned.endDate),
+        updatedAt: todayIso(),
+      };
+      await db.put("trips", healed);
+      return healed;
+    }
+    return owned;
   });
 }
 
