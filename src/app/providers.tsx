@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthBootstrap } from "@/features/auth";
 import { CommandPaletteLoader } from "@/components/shared/command-palette-loader";
 import { BrowserNotificationsBridge } from "@/components/shared/browser-notifications-bridge";
+import { TripRemindersBridge } from "@/components/shared/trip-reminders-bridge";
 import { ChatbotWidget } from "@/components/shared/chatbot-widget";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -38,6 +39,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <QueryClientProvider client={queryClient}>
         <AuthBootstrap />
         <BrowserNotificationsBridge />
+        <TripRemindersBridge />
         <TooltipProvider delayDuration={200}>
           {children}
           <ChatbotWidget />
