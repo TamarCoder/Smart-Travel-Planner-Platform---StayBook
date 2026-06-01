@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { UserPlus, DollarSign, PlaneTakeoff, Leaf, Pencil, Ticket, Users, MoreHorizontal, CalendarRange } from "lucide-react";
+import { UserPlus, DollarSign, PlaneTakeoff, Leaf, Pencil, Ticket, Users, MoreHorizontal, CalendarRange, Share2 } from "lucide-react";
 import { useTrips } from "@/features/trips";
 import { useAuthStore } from "@/stores";
 import { SkeletonCard, SkeletonText } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
+import { Avatar } from "@/components/ui/avatar";
 import { CreateTripDialog } from "./create-trip-dialog";
 import { PicksForYou } from "./picks-for-you";
 import type { TripActivityLog } from "@/lib/api/db";
@@ -25,6 +26,9 @@ function daysUntil(date: string) {
 export default function DashboardMain() {
   const user = useAuthStore((s) => s.user);
   const trips = useTrips();
+  const nextTrip = trips.data
+    ? trips.data.find((t) => t.status === "upcoming") ?? trips.data[0]
+    : undefined;
 
   return (
     <main className="lg:ml-64 pt-24 pb-16 min-h-screen bg-background px-4 md:px-12">
@@ -48,7 +52,35 @@ export default function DashboardMain() {
                   : "Start planning your next adventure."}
             </p>
           </div>
-          <CreateTripDialog />
+          {nextTrip && (
+            <div className="flex items-center gap-4">
+              {nextTrip.collaborators && nextTrip.collaborators.length > 0 && (
+                <div className="flex -space-x-3">
+                  {nextTrip.collaborators.slice(0, 3).map((c) => (
+                    <Avatar
+                      key={c.id}
+                      src={c.avatar}
+                      fallback={c.name}
+                      size="md"
+                      className="ring-2 ring-background"
+                    />
+                  ))}
+                  {nextTrip.collaborators.length > 3 && (
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-muted text-xs font-semibold text-text-secondary ring-2 ring-background">
+                      +{nextTrip.collaborators.length - 3}
+                    </span>
+                  )}
+                </div>
+              )}
+              <Link
+                href={`/planner/${nextTrip.id}`}
+                className="inline-flex items-center gap-2 rounded-xl bg-secondary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-on-secondary-container"
+              >
+                <Share2 className="h-4 w-4" />
+                Share Trip
+              </Link>
+            </div>
+          )}
         </header>
 
         {trips.isPending ? (
