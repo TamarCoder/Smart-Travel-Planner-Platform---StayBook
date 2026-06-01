@@ -89,7 +89,7 @@ export function HeroGallery({ destination }: HeroGalleryProps) {
         <div className="mt-3 flex items-center gap-2">
           {gallery.map((src, i) => (
             <button
-              key={src}
+              key={`${src}-${i}`}
               type="button"
               onClick={() => setIndex(i)}
               className={cn(
