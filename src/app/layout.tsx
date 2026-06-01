@@ -25,7 +25,10 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Voyager — Smart Travel Planner",
   description: "Plan your perfect trip with Voyager",
   manifest: "/manifest.webmanifest",

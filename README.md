@@ -4,6 +4,10 @@
 
 A frontend-only travel planning platform inspired by Airbnb, Google Maps, Tripadvisor, and Notion. Browse destinations, build day-by-day itineraries with drag-and-drop, manage budgets and bookings, and collaborate with friends in real time — all powered by a mocked backend that lives entirely in the browser.
 
+**Live demo:** _add your deployment URL here once published_ &nbsp;·&nbsp; [Deploy your own ▲](https://vercel.com/new/clone?repository-url=https://github.com/TamarCoder/Smart-Travel-Planner-Platform---StayBook)
+
+> Replace the placeholder above with your live URL after running `npx vercel deploy --prod` (see [Deployment](#deployment)).
+
 ## Highlights
 
 - **Mocked backend**, but it feels real: IndexedDB persistence, simulated network latency, randomised errors, and seeded catalogue data.
@@ -42,6 +46,24 @@ Password: voyager2024
 ```
 
 These auto-fill on the login form. You can also register a new account; it will be persisted in IndexedDB.
+
+## Environment Configuration
+
+The backend lives entirely in the browser (IndexedDB + an in-browser mock API), so **the app runs with zero required environment variables** — `npm install && npm run dev` is enough.
+
+A few optional variables let you tune the demo. Copy the template and edit as needed:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | `http://localhost:3000` | Canonical URL used for metadata and share links. |
+| `NEXT_PUBLIC_MOCK_LATENCY_MS` | `200-600` | Simulated network latency range for the mock API. |
+| `NEXT_PUBLIC_MOCK_ERROR_RATE` | `0.03` | Fraction of mock requests that randomly fail, to exercise error states. |
+
+All variables are `NEXT_PUBLIC_*` (read on the client) and are safe to commit defaults for — there are no secrets, API keys, or database URLs because there is no server.
 
 ## Available Scripts
 
@@ -177,6 +199,16 @@ Or import the GitHub repository at [vercel.com/new](https://vercel.com/new) — 
 npm run build
 npm run start
 ```
+
+## Known Limitations
+
+Because this is a frontend-only build with a mocked, in-browser backend, a few features are intentionally simulated rather than wired to a real server:
+
+- **Real-time collaboration is cross-tab, not cross-device.** Presence, live updates, and notification broadcasts travel over the browser `BroadcastChannel`, so they sync between tabs/windows of the same browser — not between different users on different machines. A real deployment would swap `src/lib/realtime/channel.ts` for a WebSocket/Socket.io transport without touching the calling code.
+- **Currency conversion uses fixed reference rates.** `src/lib/utils/currency.ts` ships a static USD-based rate table instead of calling a live FX API, so conversions are deterministic and offline-friendly. Swap in a rates endpoint to make them live.
+- **Email notifications are out of scope.** With no server to send mail, all notifications are delivered in-app (toasts + the notification center) and as foreground browser notifications.
+- **Push notifications are foreground-only.** The service worker caches static assets, but true server-pushed notifications require a backend push service.
+- **Sessions are mocked.** Auth tokens are random IDs persisted in IndexedDB with a 14-day expiry; there is no JWT signing server.
 
 ## License
 
