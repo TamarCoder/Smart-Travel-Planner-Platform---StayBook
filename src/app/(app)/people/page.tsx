@@ -6,6 +6,7 @@ import DashboardShell from "../dashboard/components/shell";
 import { Avatar } from "@/components/ui/avatar";
 import { SkeletonCard } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
+import { FadeInList } from "@/components/shared/fade-in";
 import { listPeople } from "@/lib/api/people";
 import { useSocialStore } from "@/stores";
 import { cn } from "@/lib/utils";
@@ -59,11 +60,11 @@ export default function PeoplePage() {
           )}
 
           {people.data && people.data.length > 0 && (
-            <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <FadeInList as="ul" className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {people.data.map((person) => (
                 <PersonCard key={person.id} person={person} />
               ))}
-            </ul>
+            </FadeInList>
           )}
         </div>
       </main>

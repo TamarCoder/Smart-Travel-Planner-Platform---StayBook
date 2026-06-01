@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, RotateCw, Compass } from "lucide-react";
 import { useDestinations, useDestinationFilters } from "@/features/destinations";
 import { SkeletonCard } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
+import { FadeInList } from "@/components/shared/fade-in";
 import { DestinationCard } from "./destination-card";
 
 export function ExploreResults() {
@@ -63,11 +64,11 @@ export function ExploreResults() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <FadeInList className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {items.map((destination) => (
           <DestinationCard key={destination.id} destination={destination} />
         ))}
-      </div>
+      </FadeInList>
 
       {pages > 1 && (
         <nav className="flex items-center justify-center gap-2" aria-label="Pagination">
