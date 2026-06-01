@@ -207,7 +207,7 @@ Because this is a frontend-only build with a mocked, in-browser backend, a few f
 - **Real-time collaboration is cross-tab, not cross-device.** Presence, live updates, and notification broadcasts travel over the browser `BroadcastChannel`, so they sync between tabs/windows of the same browser — not between different users on different machines. A real deployment would swap `src/lib/realtime/channel.ts` for a WebSocket/Socket.io transport without touching the calling code.
 - **Currency conversion uses fixed reference rates.** `src/lib/utils/currency.ts` ships a static USD-based rate table instead of calling a live FX API, so conversions are deterministic and offline-friendly. Swap in a rates endpoint to make them live.
 - **Email notifications are simulated.** With no mail server, collaboration invites and notification emails are written to an in-browser outbox (`localStorage` + console, see `src/lib/api/email.ts`) and surfaced with a toast, rather than actually leaving the browser.
-- **Push notifications are foreground-only.** The service worker caches static assets, but true server-pushed notifications require a backend push service.
+- **Push notifications are foreground-only.** The service worker precaches the shell, serves visited pages from cache, and shows a branded offline page when a route can't be reached — but true server-pushed notifications require a backend push service. Because trips live in IndexedDB, already-opened itineraries remain readable offline.
 - **Sessions are mocked.** Auth tokens are random IDs persisted in IndexedDB with a 14-day expiry; there is no JWT signing server.
 
 ## License

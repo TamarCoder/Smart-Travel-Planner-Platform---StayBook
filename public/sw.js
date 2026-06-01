@@ -1,5 +1,12 @@
-const CACHE_VERSION = "staybook-v1";
-const STATIC_ASSETS = ["/", "/manifest.webmanifest", "/icons/icon.svg", "/icons/icon-maskable.svg"];
+const CACHE_VERSION = "staybook-v2";
+const OFFLINE_URL = "/offline.html";
+const STATIC_ASSETS = [
+  "/",
+  "/offline.html",
+  "/manifest.webmanifest",
+  "/icons/icon.svg",
+  "/icons/icon-maskable.svg",
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -57,6 +64,8 @@ async function networkFirst(request) {
   } catch (error) {
     const cached = await cache.match(request);
     if (cached) return cached;
+    const offline = await cache.match(OFFLINE_URL);
+    if (offline) return offline;
     throw error;
   }
 }
