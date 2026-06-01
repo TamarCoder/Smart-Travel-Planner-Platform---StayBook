@@ -61,7 +61,7 @@ export function HeroSection() {
               className="bg-transparent border-none outline-none w-full text-sm text-text-primary placeholder:text-text-secondary/60"
             />
           </div>
-          <button className="w-full flex items-center justify-center gap-2 py-3.5 bg-sky-600 hover:bg-sky-700 text-white rounded-2xl text-sm font-semibold transition-all">
+          <button className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary-container hover:bg-primary text-white rounded-2xl text-sm font-semibold transition-all">
             <Search className="h-4 w-4" />
             Search
           </button>
@@ -88,7 +88,7 @@ export function HeroSection() {
               className="bg-transparent border-none outline-none w-full text-sm text-text-primary placeholder:text-text-secondary/60"
             />
           </div>
-          <button className="flex items-center gap-2 px-7 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-px whitespace-nowrap">
+          <button className="flex items-center gap-2 px-7 py-3 bg-primary-container hover:bg-primary text-white rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-px whitespace-nowrap">
             <Search className="h-4 w-4" />
             Search
           </button>
