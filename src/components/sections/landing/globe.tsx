@@ -39,8 +39,8 @@ export function GlobeSection() {
       mapSamples: 16_000,
       mapBrightness: dark ? 6 : 4,
       baseColor: dark ? [0.1, 0.15, 0.25] : [0.95, 0.96, 0.98],
-      markerColor: [0.06, 0.66, 0.94],
-      glowColor: dark ? [0.2, 0.4, 0.7] : [0.85, 0.95, 1],
+      markerColor: [0, 0.4, 0.54],
+      glowColor: dark ? [0.1, 0.3, 0.42] : [0.8, 0.92, 0.96],
       markers,
       onRender: ((state: Record<string, number>) => {
         state.phi = phiRef.current;
