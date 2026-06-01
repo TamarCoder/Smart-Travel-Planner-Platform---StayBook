@@ -1,3 +1,3 @@
-export { useReviews, reviewsKeys } from "./hooks";
+export { useReviews, useCreateReview, reviewsKeys } from "./hooks";
 export { summariseReviews } from "@/lib/api/reviews";
-export type { Review, ReviewEntityType } from "@/lib/api/reviews";
+export type { Review, ReviewEntityType, CreateReviewInput } from "@/lib/api/reviews";
