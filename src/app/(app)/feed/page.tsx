@@ -1,19 +1,49 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { Compass } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { Compass, Loader2 } from "lucide-react";
 import DashboardShell from "../dashboard/components/shell";
 import { SkeletonCard } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
-import { listFeed } from "@/lib/api/feed";
+import { Button } from "@/components/ui/button";
+import { listFeedPage } from "@/lib/api/feed";
 import { FeedCard } from "./components/feed-card";
 
 export default function FeedPage() {
-  const feed = useQuery({
-    queryKey: ["feed"],
-    queryFn: () => listFeed(),
+  const {
+    data,
+    isPending,
+    isError,
+    refetch,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["feed", "infinite"],
+    queryFn: ({ pageParam }) => listFeedPage(pageParam, 3),
+    initialPageParam: 0,
+    getNextPageParam: (last) => last.nextPage,
     staleTime: 60_000,
   });
+
+  const posts = data?.pages.flatMap((page) => page.items) ?? [];
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
+        }
+      },
+      { rootMargin: "240px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
 
   return (
     <div>
@@ -33,7 +63,7 @@ export default function FeedPage() {
             </p>
           </header>
 
-          {feed.isPending && (
+          {isPending && (
             <div className="flex flex-col gap-6">
               {Array.from({ length: 3 }).map((_, i) => (
                 <SkeletonCard key={i} className="h-96" />
@@ -41,13 +71,13 @@ export default function FeedPage() {
             </div>
           )}
 
-          {feed.isError && (
+          {isError && (
             <EmptyState
               title="Could not load the feed"
               action={
                 <button
                   type="button"
-                  onClick={() => feed.refetch()}
+                  onClick={() => refetch()}
                   className="rounded-xl bg-navy-950 px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-800"
                 >
                   Retry
@@ -56,7 +86,7 @@ export default function FeedPage() {
             />
           )}
 
-          {feed.data && feed.data.length === 0 && (
+          {!isPending && !isError && posts.length === 0 && (
             <EmptyState
               icon={<Compass className="h-6 w-6 text-sky-600" />}
               title="No posts yet"
@@ -64,12 +94,34 @@ export default function FeedPage() {
             />
           )}
 
-          {feed.data && feed.data.length > 0 && (
+          {posts.length > 0 && (
             <div className="flex flex-col gap-6">
-              {feed.data.map((post) => (
+              {posts.map((post) => (
                 <FeedCard key={post.id} post={post} />
               ))}
             </div>
+          )}
+
+          <div ref={sentinelRef} className="h-px" />
+
+          {isFetchingNextPage && (
+            <div className="flex justify-center py-6">
+              <Loader2 className="h-5 w-5 animate-spin text-text-muted" />
+            </div>
+          )}
+
+          {hasNextPage && !isFetchingNextPage && posts.length > 0 && (
+            <div className="flex justify-center py-6">
+              <Button variant="secondary" size="sm" onClick={() => fetchNextPage()}>
+                Load more
+              </Button>
+            </div>
+          )}
+
+          {!hasNextPage && posts.length > 0 && (
+            <p className="py-8 text-center text-xs text-text-muted">
+              You&apos;re all caught up.
+            </p>
           )}
         </div>
       </main>
