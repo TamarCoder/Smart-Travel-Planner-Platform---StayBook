@@ -26,7 +26,7 @@ export const PRIMARY_NAV: NavItem[] = [
 ];
 
 export const SECONDARY_NAV: NavItem[] = [
-  { label: "Bookings", href: "/dashboard/bookings", icon: BedDouble },
+  { label: "Reservations", href: "/dashboard/bookings", icon: BedDouble },
   { label: "Budget", href: "/dashboard/budget", icon: Wallet },
   { label: "Saved", href: "/dashboard/saved", icon: Bookmark },
   { label: "Feed", href: "/feed", icon: Newspaper },
