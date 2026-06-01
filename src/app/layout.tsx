@@ -26,12 +26,12 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StayBook — Smart Travel Planner",
-  description: "Plan your perfect trip with StayBook",
+  title: "Voyager — Smart Travel Planner",
+  description: "Plan your perfect trip with Voyager",
   manifest: "/manifest.webmanifest",
-  applicationName: "StayBook",
+  applicationName: "Voyager",
   appleWebApp: {
-    title: "StayBook",
+    title: "Voyager",
     capable: true,
     statusBarStyle: "default",
   },

@@ -18,7 +18,7 @@ export default function BookingsPage() {
               My bookings
             </h1>
             <p className="mt-2 max-w-2xl text-sm text-text-secondary">
-              Everything you have reserved across StayBook. Cancel within 48 hours for free.
+              Everything you have reserved across Voyager. Cancel within 48 hours for free.
             </p>
           </header>
           <Suspense fallback={<div className="flex h-32 items-center justify-center"><Spinner className="h-6 w-6 text-sky-500" /></div>}>
