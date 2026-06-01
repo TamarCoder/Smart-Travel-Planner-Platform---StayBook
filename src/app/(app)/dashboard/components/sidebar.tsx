@@ -53,7 +53,7 @@ export default function DashboardSidebar({ isOpen, onClose }: Props) {
         <div className="px-6 mt-6 lg:mt-10 mb-10">
           <CreateTripDialog
             trigger={
-              <button className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
+              <button className="w-full bg-primary-container hover:bg-primary text-white py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all active:scale-95 shadow-md">
                 <Plus className="h-5 w-5" />
                 New Trip
               </button>

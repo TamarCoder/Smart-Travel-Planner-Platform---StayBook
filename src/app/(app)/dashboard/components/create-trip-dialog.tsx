@@ -109,7 +109,7 @@ export function CreateTripDialog({ trigger }: CreateTripDialogProps) {
         {trigger ?? (
           <button
             type="button"
-            className="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary-container px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-primary hover:-translate-y-0.5"
           >
             <Plus className="h-4 w-4" /> New trip
           </button>
