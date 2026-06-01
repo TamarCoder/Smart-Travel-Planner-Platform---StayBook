@@ -78,6 +78,7 @@ export async function createBooking(
     const booking: DbBooking = {
       id: `bkg-${nanoid(10)}`,
       userId,
+      kind: "hotel",
       tripId: input.tripId,
       hotelId: hotel.id,
       checkIn: input.checkIn,
@@ -86,6 +87,51 @@ export async function createBooking(
       rooms: input.rooms,
       totalPrice,
       currency: hotel.currency,
+      status: "confirmed",
+      createdAt: new Date().toISOString(),
+    };
+    await db.put("bookings", booking);
+    return booking;
+  });
+}
+
+export interface CreateItemBookingInput {
+  kind: "experience" | "transport";
+  itemId: string;
+  itemName: string;
+  itemImage?: string;
+  date: string;
+  quantity: number;
+  price: number;
+  currency: string;
+  tripId?: string;
+}
+
+export async function createItemBooking(
+  token: string,
+  input: CreateItemBookingInput,
+): Promise<DbBooking> {
+  return fakeRequest(async () => {
+    const { db, userId } = await requireSession(token);
+    if (!input.itemId || !input.itemName) validationError("Item is required");
+    if (!input.date) validationError("Pick a date");
+    const quantity = Math.max(1, input.quantity);
+    const booking: DbBooking = {
+      id: `bkg-${nanoid(10)}`,
+      userId,
+      kind: input.kind,
+      tripId: input.tripId,
+      itemId: input.itemId,
+      itemName: input.itemName,
+      itemImage: input.itemImage,
+      date: input.date,
+      quantity,
+      checkIn: input.date,
+      checkOut: input.date,
+      guests: quantity,
+      rooms: 1,
+      totalPrice: input.price * quantity,
+      currency: input.currency,
       status: "confirmed",
       createdAt: new Date().toISOString(),
     };
