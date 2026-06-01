@@ -7,6 +7,8 @@ import {
 } from "./client";
 import { ensureSeeded } from "./seed";
 import { getDb, type DbNotification } from "./db";
+import { broadcast } from "@/lib/realtime/channel";
+import { userRoom } from "@/features/realtime/rooms";
 
 export type Notification = DbNotification;
 
@@ -52,6 +54,12 @@ export async function createNotification(
       createdAt: new Date().toISOString(),
     };
     await db.put("notifications", notification);
+    broadcast(userRoom(userId), "notification:new", {
+      id: notification.id,
+      title: notification.title,
+      body: notification.body,
+      link: notification.link,
+    });
     return notification;
   });
 }
