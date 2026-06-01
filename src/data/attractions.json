@@ -9,8 +9,11 @@
     "duration": "2h",
     "priceFrom": 0,
     "currency": "USD",
-    "image": "/assets/destination_santorini_greece__img_01.png",
-    "coordinates": { "lat": 36.4609, "lng": 25.3759 },
+    "image": "/assets/interactive_world_map__img_03.png",
+    "coordinates": {
+      "lat": 36.4609,
+      "lng": 25.3759
+    },
     "description": "Cobblestone alleys descend through Oia to the castle ruins — the world's most photographed sunset spot."
   },
   {
@@ -24,7 +27,10 @@
     "priceFrom": 12,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_02.png",
-    "coordinates": { "lat": 36.3514, "lng": 25.4039 },
+    "coordinates": {
+      "lat": 36.3514,
+      "lng": 25.4039
+    },
     "description": "A Bronze Age city preserved under volcanic ash, often called the 'Greek Pompeii'."
   },
   {
@@ -38,7 +44,10 @@
     "priceFrom": 35,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_03.png",
-    "coordinates": { "lat": 36.3795, "lng": 25.4310 },
+    "coordinates": {
+      "lat": 36.3795,
+      "lng": 25.431
+    },
     "description": "Caldera-edge tasting room sampling Assyrtiko and Vinsanto from volcanic vineyards."
   },
   {
@@ -52,7 +61,10 @@
     "priceFrom": 0,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_04.png",
-    "coordinates": { "lat": 4.1840, "lng": 73.5230 },
+    "coordinates": {
+      "lat": 4.184,
+      "lng": 73.523
+    },
     "description": "Resort-front reefs teeming with reef sharks, rays and turtles."
   },
   {
@@ -66,7 +78,10 @@
     "priceFrom": 480,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_05.png",
-    "coordinates": { "lat": 4.2010, "lng": 73.4990 },
+    "coordinates": {
+      "lat": 4.201,
+      "lng": 73.499
+    },
     "description": "Speedboat transfer to a deserted sandbank with chilled champagne and chef-prepared lunch."
   },
   {
@@ -80,7 +95,10 @@
     "priceFrom": 0,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_06.png",
-    "coordinates": { "lat": 34.9671, "lng": 135.7727 },
+    "coordinates": {
+      "lat": 34.9671,
+      "lng": 135.7727
+    },
     "description": "Thousands of vermillion torii gates climbing Mount Inari — most magical at dawn."
   },
   {
@@ -94,7 +112,10 @@
     "priceFrom": 0,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_07.png",
-    "coordinates": { "lat": 35.0170, "lng": 135.6717 },
+    "coordinates": {
+      "lat": 35.017,
+      "lng": 135.6717
+    },
     "description": "Filtered green light through towering bamboo — best visited just after sunrise."
   },
   {
@@ -107,8 +128,11 @@
     "duration": "2h",
     "priceFrom": 0,
     "currency": "USD",
-    "image": "/assets/destination_santorini_greece__img_08.png",
-    "coordinates": { "lat": 35.0036, "lng": 135.7780 },
+    "image": "/assets/luxury_travel_planner_landing_page__img_02.png",
+    "coordinates": {
+      "lat": 35.0036,
+      "lng": 135.778
+    },
     "description": "Wooden machiya houses, lantern-lit teahouses, and the occasional glimpse of a geiko at dusk."
   },
   {
@@ -122,7 +146,10 @@
     "priceFrom": 0,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_09.png",
-    "coordinates": { "lat": 40.6210, "lng": 14.5060 },
+    "coordinates": {
+      "lat": 40.621,
+      "lng": 14.506
+    },
     "description": "Cliffside trail from Bomerano to Nocelle with sweeping views over Positano."
   },
   {
@@ -136,7 +163,10 @@
     "priceFrom": 1200,
     "currency": "USD",
     "image": "/assets/destination_santorini_greece__img_10.png",
-    "coordinates": { "lat": 40.5500, "lng": 14.2500 },
+    "coordinates": {
+      "lat": 40.55,
+      "lng": 14.25
+    },
     "description": "Aperitivos on the water, Blue Grotto stop, lunch at Da Paolino in lemon groves."
   },
   {
@@ -149,8 +179,11 @@
     "duration": "Half day",
     "priceFrom": 0,
     "currency": "USD",
-    "image": "/assets/interactive_world_map__img_01.png",
-    "coordinates": { "lat": -1.9100, "lng": 34.8000 },
+    "image": "/assets/destination_santorini_greece__img_05.png",
+    "coordinates": {
+      "lat": -1.91,
+      "lng": 34.8
+    },
     "description": "Witness wildebeest plunging through crocodile-laden waters — the Great Migration's signature scene."
   },
   {
@@ -164,7 +197,10 @@
     "priceFrom": 620,
     "currency": "USD",
     "image": "/assets/interactive_world_map__img_02.png",
-    "coordinates": { "lat": -2.4100, "lng": 34.8200 },
+    "coordinates": {
+      "lat": -2.41,
+      "lng": 34.82
+    },
     "description": "Sunrise drift over the Serengeti plains followed by champagne breakfast in the bush."
   },
   {
@@ -178,7 +214,10 @@
     "priceFrom": 0,
     "currency": "USD",
     "image": "/assets/interactive_world_map__img_03.png",
-    "coordinates": { "lat": -8.4319, "lng": 115.2784 },
+    "coordinates": {
+      "lat": -8.4319,
+      "lng": 115.2784
+    },
     "description": "Tiered emerald rice terraces with hidden swings and coconut-shaded coffee stops."
   },
   {
@@ -192,7 +231,10 @@
     "priceFrom": 5,
     "currency": "USD",
     "image": "/assets/interactive_world_map__img_04.png",
-    "coordinates": { "lat": -8.4156, "lng": 115.3155 },
+    "coordinates": {
+      "lat": -8.4156,
+      "lng": 115.3155
+    },
     "description": "A 10th-century purification temple where worshippers bathe in spring-fed pools."
   },
   {
@@ -205,8 +247,11 @@
     "duration": "1h 30m",
     "priceFrom": 110,
     "currency": "USD",
-    "image": "/assets/interactive_world_map__img_05.png",
-    "coordinates": { "lat": 51.4254, "lng": -116.1773 },
+    "image": "/assets/accommodation_booking__img_02.png",
+    "coordinates": {
+      "lat": 51.4254,
+      "lng": -116.1773
+    },
     "description": "Glacial-milk turquoise waters framed by the Victoria Glacier."
   },
   {
@@ -219,8 +264,11 @@
     "duration": "2h",
     "priceFrom": 64,
     "currency": "USD",
-    "image": "/assets/interactive_world_map__img_06.png",
-    "coordinates": { "lat": 51.1485, "lng": -115.5618 },
+    "image": "/assets/smart_trip_planner__img_03.png",
+    "coordinates": {
+      "lat": 51.1485,
+      "lng": -115.5618
+    },
     "description": "Eight-minute ride up Sulphur Mountain to a ridge boardwalk with six-peak views."
   },
   {
@@ -234,7 +282,10 @@
     "priceFrom": 380,
     "currency": "USD",
     "image": "/assets/luxury_travel_planner_landing_page__img_06.png",
-    "coordinates": { "lat": 64.0500, "lng": -21.0000 },
+    "coordinates": {
+      "lat": 64.05,
+      "lng": -21
+    },
     "description": "Private guide tracks clear skies, with thermos of hot chocolate and aurora photography help."
   },
   {
@@ -248,7 +299,10 @@
     "priceFrom": 220,
     "currency": "USD",
     "image": "/assets/luxury_travel_planner_landing_page__img_07.png",
-    "coordinates": { "lat": 64.3271, "lng": -20.1199 },
+    "coordinates": {
+      "lat": 64.3271,
+      "lng": -20.1199
+    },
     "description": "Thingvellir rift, Gullfoss waterfall and the geysers of Haukadalur in a single guided loop."
   },
   {
@@ -262,7 +316,10 @@
     "priceFrom": 22,
     "currency": "USD",
     "image": "/assets/luxury_travel_planner_landing_page__img_08.png",
-    "coordinates": { "lat": -33.9628, "lng": 18.4098 },
+    "coordinates": {
+      "lat": -33.9628,
+      "lng": 18.4098
+    },
     "description": "Rotating cable car ascent followed by a plateau walk with the Atlantic on one side and city on the other."
   },
   {
@@ -275,8 +332,11 @@
     "duration": "1h 30m",
     "priceFrom": 12,
     "currency": "USD",
-    "image": "/assets/smart_trip_planner__img_07.png",
-    "coordinates": { "lat": -34.1972, "lng": 18.4516 },
+    "image": "/assets/destination_santorini_greece__img_02.png",
+    "coordinates": {
+      "lat": -34.1972,
+      "lng": 18.4516
+    },
     "description": "Boardwalks through a colony of African penguins waddling between granite boulders."
   },
   {
@@ -289,8 +349,11 @@
     "duration": "Full day",
     "priceFrom": 320,
     "currency": "USD",
-    "image": "/assets/smart_trip_planner__img_01.png",
-    "coordinates": { "lat": -50.4967, "lng": -73.0376 },
+    "image": "/assets/accommodation_booking__img_03.png",
+    "coordinates": {
+      "lat": -50.4967,
+      "lng": -73.0376
+    },
     "description": "Crampons strapped on, walk the ice itself and finish with whisky chilled by 1,000-year-old glacier ice."
   },
   {
@@ -303,8 +366,11 @@
     "duration": "9h",
     "priceFrom": 0,
     "currency": "USD",
-    "image": "/assets/smart_trip_planner__img_02.png",
-    "coordinates": { "lat": -49.2768, "lng": -73.0419 },
+    "image": "/assets/destination_santorini_greece__img_07.png",
+    "coordinates": {
+      "lat": -49.2768,
+      "lng": -73.0419
+    },
     "description": "21km classic Patagonian trek to the cobalt lagoon mirroring Fitz Roy."
   },
   {
@@ -318,7 +384,10 @@
     "priceFrom": 17,
     "currency": "USD",
     "image": "/assets/smart_trip_planner__img_03.png",
-    "coordinates": { "lat": 31.6420, "lng": -8.0033 },
+    "coordinates": {
+      "lat": 31.642,
+      "lng": -8.0033
+    },
     "description": "Yves Saint Laurent's cobalt-blue garden refuge inside the New City."
   },
   {
@@ -331,8 +400,11 @@
     "duration": "8h",
     "priceFrom": 180,
     "currency": "USD",
-    "image": "/assets/smart_trip_planner__img_04.png",
-    "coordinates": { "lat": 31.0500, "lng": -7.9100 },
+    "image": "/assets/interactive_world_map__img_04.png",
+    "coordinates": {
+      "lat": 31.05,
+      "lng": -7.91
+    },
     "description": "Private guide leads you through Berber villages, almond groves and a traditional tagine lunch."
   },
   {
@@ -346,7 +418,10 @@
     "priceFrom": 110,
     "currency": "USD",
     "image": "/assets/smart_trip_planner__img_05.png",
-    "coordinates": { "lat": -44.9988, "lng": 168.7012 },
+    "coordinates": {
+      "lat": -44.9988,
+      "lng": 168.7012
+    },
     "description": "Jet boat spins down the Shotover Canyon at 90km/h, centimetres from sheer rock walls."
   },
   {
@@ -359,8 +434,11 @@
     "duration": "Full day",
     "priceFrom": 220,
     "currency": "USD",
-    "image": "/assets/smart_trip_planner__img_06.png",
-    "coordinates": { "lat": -44.6710, "lng": 167.9242 },
+    "image": "/assets/luxury_travel_planner_landing_page__img_06.png",
+    "coordinates": {
+      "lat": -44.671,
+      "lng": 167.9242
+    },
     "description": "A fjord cruise beneath Mitre Peak and waterfalls cascading straight from glacier-cut walls."
   }
 ]

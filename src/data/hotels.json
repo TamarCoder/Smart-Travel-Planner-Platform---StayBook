@@ -4,10 +4,10 @@
     "destinationId": "santorini-greece",
     "name": "Astra Suites",
     "neighborhood": "Imerovigli",
-    "image": "/assets/accommodation_booking__img_01.png",
+    "image": "/assets/destination_santorini_greece__img_09.png",
     "gallery": [
-      "/assets/accommodation_booking__img_01.png",
-      "/assets/destination_santorini_greece__img_01.png",
+      "/assets/destination_santorini_greece__img_04.png",
+      "/assets/travel_dashboard__img_05.png",
       "/assets/destination_santorini_greece__img_02.png"
     ],
     "rating": 4.92,
@@ -15,11 +15,28 @@
     "pricePerNight": 1080,
     "currency": "USD",
     "propertyType": "Boutique Suite",
-    "tags": ["Caldera View", "Adults Only", "Romantic"],
-    "amenities": ["Infinity Pool", "Caldera View", "Spa", "Private Butler", "Breakfast Included"],
-    "coordinates": { "lat": 36.4192, "lng": 25.4290 },
+    "tags": [
+      "Caldera View",
+      "Adults Only",
+      "Romantic"
+    ],
+    "amenities": [
+      "Infinity Pool",
+      "Caldera View",
+      "Spa",
+      "Private Butler",
+      "Breakfast Included"
+    ],
+    "coordinates": {
+      "lat": 36.4192,
+      "lng": 25.429
+    },
     "description": "Astra Suites cling to the Imerovigli cliff edge with the most coveted caldera views on Santorini. Each suite is hand-finished in volcanic stone and white marble.",
-    "highlights": ["Private terrace", "Sunset cocktails", "Curated wine list"]
+    "highlights": [
+      "Private terrace",
+      "Sunset cocktails",
+      "Curated wine list"
+    ]
   },
   {
     "id": "htl-002",
@@ -36,11 +53,28 @@
     "pricePerNight": 1450,
     "currency": "USD",
     "propertyType": "Cliffside Villa",
-    "tags": ["Ocean View", "Private Pool", "Honeymoon"],
-    "amenities": ["Private Pool", "Ocean View", "Spa", "Concierge", "Gym"],
-    "coordinates": { "lat": 36.4609, "lng": 25.3759 },
+    "tags": [
+      "Ocean View",
+      "Private Pool",
+      "Honeymoon"
+    ],
+    "amenities": [
+      "Private Pool",
+      "Ocean View",
+      "Spa",
+      "Concierge",
+      "Gym"
+    ],
+    "coordinates": {
+      "lat": 36.4609,
+      "lng": 25.3759
+    },
     "description": "Canaves Oia Epitome offers private-pool villas overlooking the Aegean, a Michelin-recommended kitchen and a residents-only spa.",
-    "highlights": ["Heated private pools", "Michelin chef", "Yacht charters"]
+    "highlights": [
+      "Heated private pools",
+      "Michelin chef",
+      "Yacht charters"
+    ]
   },
   {
     "id": "htl-003",
@@ -48,17 +82,35 @@
     "name": "Mystique Cave Hotel",
     "neighborhood": "Oia Village",
     "image": "/assets/accommodation_booking__img_03.png",
-    "gallery": ["/assets/accommodation_booking__img_03.png"],
+    "gallery": [
+      "/assets/accommodation_booking__img_03.png"
+    ],
     "rating": 4.79,
     "reviewCount": 521,
     "pricePerNight": 760,
     "currency": "USD",
     "propertyType": "Cave Suite",
-    "tags": ["Ocean View", "Cave Design", "Romantic"],
-    "amenities": ["Cave Suites", "Ocean View", "Spa", "Restaurant"],
-    "coordinates": { "lat": 36.4602, "lng": 25.3754 },
+    "tags": [
+      "Ocean View",
+      "Cave Design",
+      "Romantic"
+    ],
+    "amenities": [
+      "Cave Suites",
+      "Ocean View",
+      "Spa",
+      "Restaurant"
+    ],
+    "coordinates": {
+      "lat": 36.4602,
+      "lng": 25.3754
+    },
     "description": "Hand-sculpted cave dwellings line the Oia cliff, all opening directly onto the Aegean with whitewashed terraces and plunge pools.",
-    "highlights": ["Cave architecture", "Aura Bar", "Wine cave tastings"]
+    "highlights": [
+      "Cave architecture",
+      "Aura Bar",
+      "Wine cave tastings"
+    ]
   },
   {
     "id": "htl-004",
@@ -75,11 +127,28 @@
     "pricePerNight": 3200,
     "currency": "USD",
     "propertyType": "Overwater Villa",
-    "tags": ["Overwater", "Slide to Lagoon", "Honeymoon"],
-    "amenities": ["Private Slide", "Overwater", "Butler", "Observatory", "Private Chef"],
-    "coordinates": { "lat": 5.7986, "lng": 73.3520 },
+    "tags": [
+      "Overwater",
+      "Slide to Lagoon",
+      "Honeymoon"
+    ],
+    "amenities": [
+      "Private Slide",
+      "Overwater",
+      "Butler",
+      "Observatory",
+      "Private Chef"
+    ],
+    "coordinates": {
+      "lat": 5.7986,
+      "lng": 73.352
+    },
     "description": "A 5.6km lagoon hosts Soneva Jani's overwater villas. Retractable roofs reveal star-blanketed skies above your bed.",
-    "highlights": ["Retractable bedroom roof", "Water slide", "Resident astronomer"]
+    "highlights": [
+      "Retractable bedroom roof",
+      "Water slide",
+      "Resident astronomer"
+    ]
   },
   {
     "id": "htl-005",
@@ -87,17 +156,36 @@
     "name": "Cheval Blanc Randheli",
     "neighborhood": "Noonu Atoll",
     "image": "/assets/destination_santorini_greece__img_05.png",
-    "gallery": ["/assets/destination_santorini_greece__img_05.png"],
+    "gallery": [
+      "/assets/destination_santorini_greece__img_05.png"
+    ],
     "rating": 4.95,
     "reviewCount": 167,
     "pricePerNight": 2850,
     "currency": "USD",
     "propertyType": "Overwater Villa",
-    "tags": ["Overwater", "LVMH", "Couture Service"],
-    "amenities": ["Overwater", "Spa", "Yacht", "Private Pool", "Chef"],
-    "coordinates": { "lat": 5.7780, "lng": 73.3700 },
+    "tags": [
+      "Overwater",
+      "LVMH",
+      "Couture Service"
+    ],
+    "amenities": [
+      "Overwater",
+      "Spa",
+      "Yacht",
+      "Private Pool",
+      "Chef"
+    ],
+    "coordinates": {
+      "lat": 5.778,
+      "lng": 73.37
+    },
     "description": "An LVMH retreat with Karl Fournier and Olivier Marty interiors, ferrying guests by seaplane to suites the size of small palaces.",
-    "highlights": ["Couture service", "Guerlain spa", "Private island dining"]
+    "highlights": [
+      "Couture service",
+      "Guerlain spa",
+      "Private island dining"
+    ]
   },
   {
     "id": "htl-006",
@@ -105,17 +193,35 @@
     "name": "Niyama Private Islands",
     "neighborhood": "Dhaalu Atoll",
     "image": "/assets/destination_santorini_greece__img_06.png",
-    "gallery": ["/assets/destination_santorini_greece__img_06.png"],
+    "gallery": [
+      "/assets/destination_santorini_greece__img_06.png"
+    ],
     "rating": 4.85,
     "reviewCount": 298,
     "pricePerNight": 1980,
     "currency": "USD",
     "propertyType": "Beach Villa",
-    "tags": ["Family", "Diving", "Surfing"],
-    "amenities": ["Pool", "Diving", "Kids Club", "Underwater Restaurant"],
-    "coordinates": { "lat": 2.8400, "lng": 72.9100 },
+    "tags": [
+      "Family",
+      "Diving",
+      "Surfing"
+    ],
+    "amenities": [
+      "Pool",
+      "Diving",
+      "Kids Club",
+      "Underwater Restaurant"
+    ],
+    "coordinates": {
+      "lat": 2.84,
+      "lng": 72.91
+    },
     "description": "Two islands joined by a footbridge — one playful, one chill. Niyama is famed for Subsix, its underwater restaurant.",
-    "highlights": ["Subsix nightclub", "House reef", "Surf coaching"]
+    "highlights": [
+      "Subsix nightclub",
+      "House reef",
+      "Surf coaching"
+    ]
   },
   {
     "id": "htl-007",
@@ -123,35 +229,71 @@
     "name": "Hoshinoya Kyoto",
     "neighborhood": "Arashiyama",
     "image": "/assets/destination_santorini_greece__img_07.png",
-    "gallery": ["/assets/destination_santorini_greece__img_07.png"],
+    "gallery": [
+      "/assets/destination_santorini_greece__img_07.png"
+    ],
     "rating": 4.9,
     "reviewCount": 218,
     "pricePerNight": 1050,
     "currency": "USD",
     "propertyType": "Riverside Ryokan",
-    "tags": ["Ryokan", "River View", "Quiet"],
-    "amenities": ["Onsen", "Kaiseki", "River Boat Arrival", "Library"],
-    "coordinates": { "lat": 35.0143, "lng": 135.6750 },
+    "tags": [
+      "Ryokan",
+      "River View",
+      "Quiet"
+    ],
+    "amenities": [
+      "Onsen",
+      "Kaiseki",
+      "River Boat Arrival",
+      "Library"
+    ],
+    "coordinates": {
+      "lat": 35.0143,
+      "lng": 135.675
+    },
     "description": "Accessed only by private boat down the Oi River, Hoshinoya Kyoto is a 100-year-old ryokan reborn as a meditative riverside retreat.",
-    "highlights": ["River boat arrival", "Tea ceremony", "Moon-viewing terrace"]
+    "highlights": [
+      "River boat arrival",
+      "Tea ceremony",
+      "Moon-viewing terrace"
+    ]
   },
   {
     "id": "htl-008",
     "destinationId": "kyoto-serenity",
     "name": "The Ritz-Carlton Kyoto",
     "neighborhood": "Nijo",
-    "image": "/assets/destination_santorini_greece__img_08.png",
-    "gallery": ["/assets/destination_santorini_greece__img_08.png"],
+    "image": "/assets/interactive_world_map__img_02.png",
+    "gallery": [
+      "/assets/destination_santorini_greece__img_03.png"
+    ],
     "rating": 4.86,
     "reviewCount": 342,
     "pricePerNight": 980,
     "currency": "USD",
     "propertyType": "City Hotel",
-    "tags": ["Central", "River", "Michelin"],
-    "amenities": ["Spa", "Pool", "Michelin Dining", "River View"],
-    "coordinates": { "lat": 35.0148, "lng": 135.7711 },
+    "tags": [
+      "Central",
+      "River",
+      "Michelin"
+    ],
+    "amenities": [
+      "Spa",
+      "Pool",
+      "Michelin Dining",
+      "River View"
+    ],
+    "coordinates": {
+      "lat": 35.0148,
+      "lng": 135.7711
+    },
     "description": "On the banks of the Kamogawa river with a Michelin-starred kaiseki kitchen and a sumptuous subterranean spa.",
-    "highlights": ["Kaiseki Mizuki", "Kobori spa", "Riverside walks"]
+    "highlights": [
+      "Kaiseki Mizuki",
+      "Kobori spa",
+      "Riverside walks"
+    ]
   },
   {
     "id": "htl-009",
@@ -159,17 +301,35 @@
     "name": "Le Sirenuse",
     "neighborhood": "Positano",
     "image": "/assets/destination_santorini_greece__img_09.png",
-    "gallery": ["/assets/destination_santorini_greece__img_09.png"],
+    "gallery": [
+      "/assets/destination_santorini_greece__img_09.png"
+    ],
     "rating": 4.91,
     "reviewCount": 263,
     "pricePerNight": 1620,
     "currency": "USD",
     "propertyType": "Cliffside Hotel",
-    "tags": ["Iconic", "Pool", "Sea View"],
-    "amenities": ["Pool", "Sea View", "Champagne Bar", "Spa"],
-    "coordinates": { "lat": 40.6280, "lng": 14.4828 },
+    "tags": [
+      "Iconic",
+      "Pool",
+      "Sea View"
+    ],
+    "amenities": [
+      "Pool",
+      "Sea View",
+      "Champagne Bar",
+      "Spa"
+    ],
+    "coordinates": {
+      "lat": 40.628,
+      "lng": 14.4828
+    },
     "description": "The Sersale family's eighteenth-century home, transformed into Positano's most storied address with citrus-scented terraces and a Franco's Bar that defines the cliff at dusk.",
-    "highlights": ["Champagne Bar", "Aldo's restaurant", "Eau de Sirenuse perfumery"]
+    "highlights": [
+      "Champagne Bar",
+      "Aldo's restaurant",
+      "Eau de Sirenuse perfumery"
+    ]
   },
   {
     "id": "htl-010",
@@ -177,35 +337,71 @@
     "name": "Monastero Santa Rosa",
     "neighborhood": "Conca dei Marini",
     "image": "/assets/destination_santorini_greece__img_10.png",
-    "gallery": ["/assets/destination_santorini_greece__img_10.png"],
+    "gallery": [
+      "/assets/destination_santorini_greece__img_10.png"
+    ],
     "rating": 4.94,
     "reviewCount": 189,
     "pricePerNight": 1380,
     "currency": "USD",
     "propertyType": "Restored Monastery",
-    "tags": ["Adults Only", "Pool", "Quiet"],
-    "amenities": ["Infinity Pool", "Spa", "Sea View", "Library"],
-    "coordinates": { "lat": 40.6101, "lng": 14.5510 },
+    "tags": [
+      "Adults Only",
+      "Pool",
+      "Quiet"
+    ],
+    "amenities": [
+      "Infinity Pool",
+      "Spa",
+      "Sea View",
+      "Library"
+    ],
+    "coordinates": {
+      "lat": 40.6101,
+      "lng": 14.551
+    },
     "description": "A 17th-century cliffside monastery turned hideaway. Its tiered gardens and 25m infinity pool seem to float above the Tyrrhenian.",
-    "highlights": ["Infinity pool", "Tiered gardens", "Sfogliatella Santa Rosa"]
+    "highlights": [
+      "Infinity pool",
+      "Tiered gardens",
+      "Sfogliatella Santa Rosa"
+    ]
   },
   {
     "id": "htl-011",
     "destinationId": "safari-serengeti",
     "name": "Singita Mara River Tented Camp",
     "neighborhood": "Lamai Triangle",
-    "image": "/assets/interactive_world_map__img_01.png",
-    "gallery": ["/assets/interactive_world_map__img_01.png"],
+    "image": "/assets/interactive_world_map__img_03.png",
+    "gallery": [
+      "/assets/luxury_travel_planner_landing_page__img_02.png"
+    ],
     "rating": 4.96,
     "reviewCount": 112,
     "pricePerNight": 2400,
     "currency": "USD",
     "propertyType": "Tented Camp",
-    "tags": ["Migration", "Game Drives", "Eco"],
-    "amenities": ["Game Drives", "All-Inclusive", "Guide", "Wifi"],
-    "coordinates": { "lat": -1.9180, "lng": 34.7950 },
+    "tags": [
+      "Migration",
+      "Game Drives",
+      "Eco"
+    ],
+    "amenities": [
+      "Game Drives",
+      "All-Inclusive",
+      "Guide",
+      "Wifi"
+    ],
+    "coordinates": {
+      "lat": -1.918,
+      "lng": 34.795
+    },
     "description": "Front-row seats to the Mara River crossings: six tented suites perched above the riverbank, guided by Singita's renowned trackers.",
-    "highlights": ["River crossing views", "Sundowner deck", "Stargazing platform"]
+    "highlights": [
+      "River crossing views",
+      "Sundowner deck",
+      "Stargazing platform"
+    ]
   },
   {
     "id": "htl-012",
@@ -213,17 +409,35 @@
     "name": "Four Seasons Safari Lodge",
     "neighborhood": "Central Serengeti",
     "image": "/assets/interactive_world_map__img_02.png",
-    "gallery": ["/assets/interactive_world_map__img_02.png"],
+    "gallery": [
+      "/assets/interactive_world_map__img_02.png"
+    ],
     "rating": 4.84,
     "reviewCount": 196,
     "pricePerNight": 1620,
     "currency": "USD",
     "propertyType": "Safari Lodge",
-    "tags": ["Family", "Pool", "Watering Hole"],
-    "amenities": ["Pool", "Game Drives", "Kids Club", "Spa"],
-    "coordinates": { "lat": -2.4170, "lng": 34.8290 },
+    "tags": [
+      "Family",
+      "Pool",
+      "Watering Hole"
+    ],
+    "amenities": [
+      "Pool",
+      "Game Drives",
+      "Kids Club",
+      "Spa"
+    ],
+    "coordinates": {
+      "lat": -2.417,
+      "lng": 34.829
+    },
     "description": "Overlooking a watering hole that draws elephants and giraffes to the lodge edge. Refined safari, perfectly comfortable for families.",
-    "highlights": ["Watering hole views", "Discovery Center", "Pool deck"]
+    "highlights": [
+      "Watering hole views",
+      "Discovery Center",
+      "Pool deck"
+    ]
   },
   {
     "id": "htl-013",
@@ -231,17 +445,35 @@
     "name": "Four Seasons Sayan",
     "neighborhood": "Sayan",
     "image": "/assets/interactive_world_map__img_03.png",
-    "gallery": ["/assets/interactive_world_map__img_03.png"],
+    "gallery": [
+      "/assets/interactive_world_map__img_03.png"
+    ],
     "rating": 4.89,
     "reviewCount": 348,
     "pricePerNight": 980,
     "currency": "USD",
     "propertyType": "Jungle Villa",
-    "tags": ["Jungle", "River", "Spa"],
-    "amenities": ["River Pools", "Spa", "Yoga", "Restaurant"],
-    "coordinates": { "lat": -8.5000, "lng": 115.2440 },
+    "tags": [
+      "Jungle",
+      "River",
+      "Spa"
+    ],
+    "amenities": [
+      "River Pools",
+      "Spa",
+      "Yoga",
+      "Restaurant"
+    ],
+    "coordinates": {
+      "lat": -8.5,
+      "lng": 115.244
+    },
     "description": "Suspended above the Ayung River, each villa is its own riverside sanctuary with a private plunge pool and rice-field views.",
-    "highlights": ["Sound healing", "River rafting", "Cooking school"]
+    "highlights": [
+      "Sound healing",
+      "River rafting",
+      "Cooking school"
+    ]
   },
   {
     "id": "htl-014",
@@ -249,53 +481,107 @@
     "name": "Como Shambhala Estate",
     "neighborhood": "Begawan",
     "image": "/assets/interactive_world_map__img_04.png",
-    "gallery": ["/assets/interactive_world_map__img_04.png"],
+    "gallery": [
+      "/assets/interactive_world_map__img_04.png"
+    ],
     "rating": 4.91,
     "reviewCount": 256,
     "pricePerNight": 1180,
     "currency": "USD",
     "propertyType": "Wellness Estate",
-    "tags": ["Wellness", "Yoga", "Detox"],
-    "amenities": ["Wellness Program", "Yoga", "Nutrition", "Spa"],
-    "coordinates": { "lat": -8.4910, "lng": 115.2710 },
+    "tags": [
+      "Wellness",
+      "Yoga",
+      "Detox"
+    ],
+    "amenities": [
+      "Wellness Program",
+      "Yoga",
+      "Nutrition",
+      "Spa"
+    ],
+    "coordinates": {
+      "lat": -8.491,
+      "lng": 115.271
+    },
     "description": "A retreat for the body and mind. Resident doctors, ayurvedic specialists and yoga masters tailor multi-day programs.",
-    "highlights": ["Personalised wellness plan", "Glow restaurant", "Sacred river rituals"]
+    "highlights": [
+      "Personalised wellness plan",
+      "Glow restaurant",
+      "Sacred river rituals"
+    ]
   },
   {
     "id": "htl-015",
     "destinationId": "banff-canada",
     "name": "Fairmont Banff Springs",
     "neighborhood": "Banff Town",
-    "image": "/assets/interactive_world_map__img_05.png",
-    "gallery": ["/assets/interactive_world_map__img_05.png"],
+    "image": "/assets/destination_santorini_greece__img_05.png",
+    "gallery": [
+      "/assets/accommodation_booking__img_02.png"
+    ],
     "rating": 4.78,
     "reviewCount": 612,
     "pricePerNight": 720,
     "currency": "USD",
     "propertyType": "Historic Château",
-    "tags": ["Iconic", "Mountain View", "Spa"],
-    "amenities": ["Spa", "Golf", "Pool", "Mountain View"],
-    "coordinates": { "lat": 51.1644, "lng": -115.5614 },
+    "tags": [
+      "Iconic",
+      "Mountain View",
+      "Spa"
+    ],
+    "amenities": [
+      "Spa",
+      "Golf",
+      "Pool",
+      "Mountain View"
+    ],
+    "coordinates": {
+      "lat": 51.1644,
+      "lng": -115.5614
+    },
     "description": "The Castle in the Rockies — a Scottish baronial landmark with 700+ rooms, a 27-hole golf course, and a Willow Stream Spa wing.",
-    "highlights": ["Willow Stream Spa", "Castle architecture", "Stanley Thompson golf"]
+    "highlights": [
+      "Willow Stream Spa",
+      "Castle architecture",
+      "Stanley Thompson golf"
+    ]
   },
   {
     "id": "htl-016",
     "destinationId": "banff-canada",
     "name": "Post Hotel & Spa",
     "neighborhood": "Lake Louise",
-    "image": "/assets/interactive_world_map__img_06.png",
-    "gallery": ["/assets/interactive_world_map__img_06.png"],
+    "image": "/assets/smart_trip_planner__img_03.png",
+    "gallery": [
+      "/assets/destination_santorini_greece__img_02.png"
+    ],
     "rating": 4.86,
     "reviewCount": 318,
     "pricePerNight": 640,
     "currency": "USD",
     "propertyType": "Mountain Lodge",
-    "tags": ["Quiet", "Wine", "Trails"],
-    "amenities": ["Spa", "Pool", "Wine Cellar", "Hiking"],
-    "coordinates": { "lat": 51.4253, "lng": -116.1773 },
+    "tags": [
+      "Quiet",
+      "Wine",
+      "Trails"
+    ],
+    "amenities": [
+      "Spa",
+      "Pool",
+      "Wine Cellar",
+      "Hiking"
+    ],
+    "coordinates": {
+      "lat": 51.4253,
+      "lng": -116.1773
+    },
     "description": "A Relais & Châteaux mountain retreat trailside in Lake Louise, hiding one of North America's most celebrated wine cellars.",
-    "highlights": ["Wine cellar dinners", "Trail access", "Outdoor pool"]
+    "highlights": [
+      "Wine cellar dinners",
+      "Trail access",
+      "Outdoor pool"
+    ]
   },
   {
     "id": "htl-017",
@@ -303,17 +589,35 @@
     "name": "The Retreat at Blue Lagoon",
     "neighborhood": "Grindavík",
     "image": "/assets/luxury_travel_planner_landing_page__img_06.png",
-    "gallery": ["/assets/luxury_travel_planner_landing_page__img_06.png"],
+    "gallery": [
+      "/assets/luxury_travel_planner_landing_page__img_06.png"
+    ],
     "rating": 4.88,
     "reviewCount": 274,
     "pricePerNight": 1480,
     "currency": "USD",
     "propertyType": "Geothermal Retreat",
-    "tags": ["Geothermal", "Spa", "Volcanic"],
-    "amenities": ["Private Lagoon Access", "Spa", "Restaurant", "In-Water Treatments"],
-    "coordinates": { "lat": 63.8804, "lng": -22.4495 },
+    "tags": [
+      "Geothermal",
+      "Spa",
+      "Volcanic"
+    ],
+    "amenities": [
+      "Private Lagoon Access",
+      "Spa",
+      "Restaurant",
+      "In-Water Treatments"
+    ],
+    "coordinates": {
+      "lat": 63.8804,
+      "lng": -22.4495
+    },
     "description": "Carved into an 800-year-old lava field with private lagoon access and Iceland's most acclaimed underground spa.",
-    "highlights": ["Private lagoon", "Lava walls", "Moss restaurant"]
+    "highlights": [
+      "Private lagoon",
+      "Lava walls",
+      "Moss restaurant"
+    ]
   },
   {
     "id": "htl-018",
@@ -321,17 +625,35 @@
     "name": "Deplar Farm",
     "neighborhood": "Troll Peninsula",
     "image": "/assets/luxury_travel_planner_landing_page__img_07.png",
-    "gallery": ["/assets/luxury_travel_planner_landing_page__img_07.png"],
+    "gallery": [
+      "/assets/luxury_travel_planner_landing_page__img_07.png"
+    ],
     "rating": 4.93,
     "reviewCount": 96,
     "pricePerNight": 2950,
     "currency": "USD",
     "propertyType": "Eleven Lodge",
-    "tags": ["All-Inclusive", "Heli-skiing", "Aurora"],
-    "amenities": ["Heli-skiing", "Geothermal Pool", "Guides", "All-Inclusive"],
-    "coordinates": { "lat": 65.9000, "lng": -19.4500 },
+    "tags": [
+      "All-Inclusive",
+      "Heli-skiing",
+      "Aurora"
+    ],
+    "amenities": [
+      "Heli-skiing",
+      "Geothermal Pool",
+      "Guides",
+      "All-Inclusive"
+    ],
+    "coordinates": {
+      "lat": 65.9,
+      "lng": -19.45
+    },
     "description": "An Eleven retreat in remote north Iceland — heli-skiing, fly fishing, and Northern Lights pool gazing depending on the season.",
-    "highlights": ["Heli-skiing", "Geothermal pool", "Private aurora deck"]
+    "highlights": [
+      "Heli-skiing",
+      "Geothermal pool",
+      "Private aurora deck"
+    ]
   },
   {
     "id": "htl-019",
@@ -339,125 +661,251 @@
     "name": "Ellerman House",
     "neighborhood": "Bantry Bay",
     "image": "/assets/luxury_travel_planner_landing_page__img_08.png",
-    "gallery": ["/assets/luxury_travel_planner_landing_page__img_08.png"],
+    "gallery": [
+      "/assets/luxury_travel_planner_landing_page__img_08.png"
+    ],
     "rating": 4.93,
     "reviewCount": 184,
     "pricePerNight": 1380,
     "currency": "USD",
     "propertyType": "Private Mansion",
-    "tags": ["Ocean View", "Art", "Wine"],
-    "amenities": ["Pool", "Wine Gallery", "Spa", "Private Chef"],
-    "coordinates": { "lat": -33.9395, "lng": 18.3787 },
+    "tags": [
+      "Ocean View",
+      "Art",
+      "Wine"
+    ],
+    "amenities": [
+      "Pool",
+      "Wine Gallery",
+      "Spa",
+      "Private Chef"
+    ],
+    "coordinates": {
+      "lat": -33.9395,
+      "lng": 18.3787
+    },
     "description": "An Edwardian-era home overlooking the Atlantic, with one of the world's finest South African wine galleries.",
-    "highlights": ["Private wine gallery", "South African art", "Cliffside pool"]
+    "highlights": [
+      "Private wine gallery",
+      "South African art",
+      "Cliffside pool"
+    ]
   },
   {
     "id": "htl-020",
     "destinationId": "cape-town-sa",
     "name": "La Residence Franschhoek",
     "neighborhood": "Franschhoek",
-    "image": "/assets/smart_trip_planner__img_07.png",
-    "gallery": ["/assets/smart_trip_planner__img_07.png"],
+    "image": "/assets/accommodation_booking__img_03.png",
+    "gallery": [
+      "/assets/destination_santorini_greece__img_07.png"
+    ],
     "rating": 4.87,
     "reviewCount": 156,
     "pricePerNight": 950,
     "currency": "USD",
     "propertyType": "Wine Estate",
-    "tags": ["Vineyards", "Pool", "Romantic"],
-    "amenities": ["Pool", "Vineyard", "Spa", "Restaurant"],
-    "coordinates": { "lat": -33.9133, "lng": 19.1228 },
+    "tags": [
+      "Vineyards",
+      "Pool",
+      "Romantic"
+    ],
+    "amenities": [
+      "Pool",
+      "Vineyard",
+      "Spa",
+      "Restaurant"
+    ],
+    "coordinates": {
+      "lat": -33.9133,
+      "lng": 19.1228
+    },
     "description": "An eccentric, plum-coloured Royal Portfolio estate set among Franschhoek vineyards, with eleven suites and two villas.",
-    "highlights": ["Vineyard walks", "Royal Portfolio service", "Antique-filled suites"]
+    "highlights": [
+      "Vineyard walks",
+      "Royal Portfolio service",
+      "Antique-filled suites"
+    ]
   },
   {
     "id": "htl-021",
     "destinationId": "patagonia-argentina",
     "name": "EOLO Patagonia's Spirit",
     "neighborhood": "El Calafate",
-    "image": "/assets/smart_trip_planner__img_08.png",
-    "gallery": ["/assets/smart_trip_planner__img_08.png"],
+    "image": "/assets/interactive_world_map__img_04.png",
+    "gallery": [
+      "/assets/luxury_travel_planner_landing_page__img_06.png"
+    ],
     "rating": 4.84,
     "reviewCount": 142,
     "pricePerNight": 1280,
     "currency": "USD",
     "propertyType": "Estancia",
-    "tags": ["Quiet", "All-Inclusive", "Glacier"],
-    "amenities": ["All-Inclusive", "Guides", "Pool", "Spa"],
-    "coordinates": { "lat": -50.3375, "lng": -72.5000 },
+    "tags": [
+      "Quiet",
+      "All-Inclusive",
+      "Glacier"
+    ],
+    "amenities": [
+      "All-Inclusive",
+      "Guides",
+      "Pool",
+      "Spa"
+    ],
+    "coordinates": {
+      "lat": -50.3375,
+      "lng": -72.5
+    },
     "description": "A solitary estancia on the Patagonian steppe — seventeen rooms, mountain horizons, and curated daily excursions.",
-    "highlights": ["Glacier excursions", "Estancia rides", "All-inclusive cuisine"]
+    "highlights": [
+      "Glacier excursions",
+      "Estancia rides",
+      "All-inclusive cuisine"
+    ]
   },
   {
     "id": "htl-022",
     "destinationId": "patagonia-argentina",
     "name": "Explora El Chaltén",
     "neighborhood": "El Chaltén",
-    "image": "/assets/travel_dashboard__img_01.png",
-    "gallery": ["/assets/travel_dashboard__img_01.png"],
+    "image": "/assets/smart_trip_planner__img_05.png",
+    "gallery": [
+      "/assets/destination_santorini_greece__img_06.png"
+    ],
     "rating": 4.91,
     "reviewCount": 88,
     "pricePerNight": 1540,
     "currency": "USD",
     "propertyType": "Adventure Lodge",
-    "tags": ["Trekking", "Guided", "Eco"],
-    "amenities": ["Guided Treks", "Spa", "Restaurant", "All-Inclusive"],
-    "coordinates": { "lat": -49.3268, "lng": -72.8855 },
+    "tags": [
+      "Trekking",
+      "Guided",
+      "Eco"
+    ],
+    "amenities": [
+      "Guided Treks",
+      "Spa",
+      "Restaurant",
+      "All-Inclusive"
+    ],
+    "coordinates": {
+      "lat": -49.3268,
+      "lng": -72.8855
+    },
     "description": "Trailhead lodge at the base of Fitz Roy, with on-foot, on-horseback and on-rope explorations led by Explora's guides.",
-    "highlights": ["Fitz Roy access", "Guided expeditions", "Massage cabin"]
+    "highlights": [
+      "Fitz Roy access",
+      "Guided expeditions",
+      "Massage cabin"
+    ]
   },
   {
     "id": "htl-023",
     "destinationId": "marrakech-morocco",
     "name": "Royal Mansour",
     "neighborhood": "Medina",
-    "image": "/assets/travel_dashboard__img_02.png",
-    "gallery": ["/assets/travel_dashboard__img_02.png"],
+    "image": "/assets/accommodation_booking__img_04.png",
+    "gallery": [
+      "/assets/destination_santorini_greece__img_09.png"
+    ],
     "rating": 4.95,
     "reviewCount": 268,
     "pricePerNight": 1850,
     "currency": "USD",
     "propertyType": "Private Riad",
-    "tags": ["Riad", "Spa", "Michelin"],
-    "amenities": ["Private Riads", "Spa", "Michelin Dining", "Hammam"],
-    "coordinates": { "lat": 31.6256, "lng": -7.9892 },
+    "tags": [
+      "Riad",
+      "Spa",
+      "Michelin"
+    ],
+    "amenities": [
+      "Private Riads",
+      "Spa",
+      "Michelin Dining",
+      "Hammam"
+    ],
+    "coordinates": {
+      "lat": 31.6256,
+      "lng": -7.9892
+    },
     "description": "Each guest gets a private three-story riad inside the king's own Medina hotel. Service arrives via underground tunnels.",
-    "highlights": ["Three-storey riads", "Spa cathedral", "La Grande Table"]
+    "highlights": [
+      "Three-storey riads",
+      "Spa cathedral",
+      "La Grande Table"
+    ]
   },
   {
     "id": "htl-024",
     "destinationId": "marrakech-morocco",
     "name": "La Mamounia",
     "neighborhood": "Hivernage",
-    "image": "/assets/travel_dashboard__img_03.png",
-    "gallery": ["/assets/travel_dashboard__img_03.png"],
+    "image": "/assets/destination_santorini_greece__img_04.png",
+    "gallery": [
+      "/assets/travel_dashboard__img_05.png"
+    ],
     "rating": 4.88,
     "reviewCount": 412,
     "pricePerNight": 820,
     "currency": "USD",
     "propertyType": "Palace Hotel",
-    "tags": ["Gardens", "Pool", "Historic"],
-    "amenities": ["Pool", "Spa", "Gardens", "Multiple Restaurants"],
-    "coordinates": { "lat": 31.6225, "lng": -7.9989 },
+    "tags": [
+      "Gardens",
+      "Pool",
+      "Historic"
+    ],
+    "amenities": [
+      "Pool",
+      "Spa",
+      "Gardens",
+      "Multiple Restaurants"
+    ],
+    "coordinates": {
+      "lat": 31.6225,
+      "lng": -7.9989
+    },
     "description": "A century-old palace inside walled gardens of olive and citrus trees, a stone's throw from Jemaa el-Fnaa.",
-    "highlights": ["Gardens of olive and orange", "Jacques Garcia interiors", "Le Marocain restaurant"]
+    "highlights": [
+      "Gardens of olive and orange",
+      "Jacques Garcia interiors",
+      "Le Marocain restaurant"
+    ]
   },
   {
     "id": "htl-025",
     "destinationId": "queenstown-nz",
     "name": "Matakauri Lodge",
     "neighborhood": "Lake Wakatipu",
-    "image": "/assets/travel_dashboard__img_04.png",
-    "gallery": ["/assets/travel_dashboard__img_04.png"],
+    "image": "/assets/interactive_world_map__img_02.png",
+    "gallery": [
+      "/assets/destination_santorini_greece__img_03.png"
+    ],
     "rating": 4.92,
     "reviewCount": 142,
     "pricePerNight": 1650,
     "currency": "USD",
     "propertyType": "Lake Lodge",
-    "tags": ["Lake View", "Spa", "Quiet"],
-    "amenities": ["Lake View", "Spa", "Pool", "All-Inclusive Meals"],
-    "coordinates": { "lat": -45.0445, "lng": 168.6160 },
+    "tags": [
+      "Lake View",
+      "Spa",
+      "Quiet"
+    ],
+    "amenities": [
+      "Lake View",
+      "Spa",
+      "Pool",
+      "All-Inclusive Meals"
+    ],
+    "coordinates": {
+      "lat": -45.0445,
+      "lng": 168.616
+    },
     "description": "A Robertson Lodge above Lake Wakatipu with eleven suites, a wraparound pool and views straight to the Remarkables.",
-    "highlights": ["Robertson Lodge service", "Lake-edge pool", "Private chef dinners"]
+    "highlights": [
+      "Robertson Lodge service",
+      "Lake-edge pool",
+      "Private chef dinners"
+    ]
   },
   {
     "id": "htl-026",
@@ -465,16 +913,34 @@
     "name": "Eichardt's Private Hotel",
     "neighborhood": "Queenstown Bay",
     "image": "/assets/travel_dashboard__img_05.png",
-    "gallery": ["/assets/travel_dashboard__img_05.png"],
+    "gallery": [
+      "/assets/travel_dashboard__img_05.png"
+    ],
     "rating": 4.81,
     "reviewCount": 198,
     "pricePerNight": 920,
     "currency": "USD",
     "propertyType": "Historic Hotel",
-    "tags": ["Lakefront", "Boutique", "Central"],
-    "amenities": ["Lake View", "Restaurant", "Spa", "Concierge"],
-    "coordinates": { "lat": -45.0312, "lng": 168.6608 },
+    "tags": [
+      "Lakefront",
+      "Boutique",
+      "Central"
+    ],
+    "amenities": [
+      "Lake View",
+      "Restaurant",
+      "Spa",
+      "Concierge"
+    ],
+    "coordinates": {
+      "lat": -45.0312,
+      "lng": 168.6608
+    },
     "description": "Right on Queenstown Bay, a heritage gold-rush lodge reborn into a thirteen-suite Imperium Collection retreat.",
-    "highlights": ["Lakefront suites", "Eichardt's Bar", "Steamer Wharf access"]
+    "highlights": [
+      "Lakefront suites",
+      "Eichardt's Bar",
+      "Steamer Wharf access"
+    ]
   }
 ]

@@ -10,23 +10,45 @@
     "image": "/assets/luxury_travel_planner_landing_page__img_03.png",
     "gallery": [
       "/assets/luxury_travel_planner_landing_page__img_03.png",
-      "/assets/destination_santorini_greece__img_01.png",
+      "/assets/destination_santorini_greece__img_03.png",
       "/assets/destination_santorini_greece__img_02.png",
       "/assets/destination_santorini_greece__img_03.png"
     ],
-    "coordinates": { "lat": 36.3932, "lng": 25.4615 },
+    "coordinates": {
+      "lat": 36.3932,
+      "lng": 25.4615
+    },
     "pricePerNight": 1200,
     "currency": "USD",
     "rating": 4.9,
     "reviewCount": 348,
     "category": "Beach & Islands",
-    "tags": ["Romantic", "Luxury", "Scenic", "Wine"],
-    "activities": ["Wine tasting", "Sunset cruise", "Caldera hike", "Spa"],
+    "tags": [
+      "Romantic",
+      "Luxury",
+      "Scenic",
+      "Wine"
+    ],
+    "activities": [
+      "Wine tasting",
+      "Sunset cruise",
+      "Caldera hike",
+      "Spa"
+    ],
     "duration": "5-8 days",
-    "weather": { "temp": 24, "unit": "C", "condition": "Sunny" },
+    "weather": {
+      "temp": 24,
+      "unit": "C",
+      "condition": "Sunny"
+    },
     "flightTime": "3h 45m from London",
     "bestSeason": "May – October",
-    "highlights": ["Caldera views", "Cave suites", "Volcanic beach", "Fine dining"],
+    "highlights": [
+      "Caldera views",
+      "Cave suites",
+      "Volcanic beach",
+      "Fine dining"
+    ],
     "featured": true
   },
   {
@@ -43,19 +65,41 @@
       "/assets/destination_santorini_greece__img_04.png",
       "/assets/destination_santorini_greece__img_05.png"
     ],
-    "coordinates": { "lat": 4.1755, "lng": 73.5093 },
+    "coordinates": {
+      "lat": 4.1755,
+      "lng": 73.5093
+    },
     "pricePerNight": 2450,
     "currency": "USD",
     "rating": 4.95,
     "reviewCount": 212,
     "category": "Beach & Islands",
-    "tags": ["Overwater", "Snorkeling", "Honeymoon", "Seclusion"],
-    "activities": ["Snorkeling", "Diving", "Spa", "Sunset dinner"],
+    "tags": [
+      "Overwater",
+      "Snorkeling",
+      "Honeymoon",
+      "Seclusion"
+    ],
+    "activities": [
+      "Snorkeling",
+      "Diving",
+      "Spa",
+      "Sunset dinner"
+    ],
     "duration": "5-10 days",
-    "weather": { "temp": 29, "unit": "C", "condition": "Sunny" },
+    "weather": {
+      "temp": 29,
+      "unit": "C",
+      "condition": "Sunny"
+    },
     "flightTime": "10h from London",
     "bestSeason": "November – April",
-    "highlights": ["Overwater villas", "House reef", "Whale shark dives", "Spa island"],
+    "highlights": [
+      "Overwater villas",
+      "House reef",
+      "Whale shark dives",
+      "Spa island"
+    ],
     "featured": true
   },
   {
@@ -71,19 +115,41 @@
       "/assets/luxury_travel_planner_landing_page__img_05.png",
       "/assets/destination_santorini_greece__img_06.png"
     ],
-    "coordinates": { "lat": 35.0116, "lng": 135.7681 },
+    "coordinates": {
+      "lat": 35.0116,
+      "lng": 135.7681
+    },
     "pricePerNight": 890,
     "currency": "USD",
     "rating": 4.85,
     "reviewCount": 427,
     "category": "Cultural",
-    "tags": ["Culture", "Temples", "Food", "Ryokan"],
-    "activities": ["Temple tour", "Tea ceremony", "Bamboo forest", "Geisha district"],
+    "tags": [
+      "Culture",
+      "Temples",
+      "Food",
+      "Ryokan"
+    ],
+    "activities": [
+      "Temple tour",
+      "Tea ceremony",
+      "Bamboo forest",
+      "Geisha district"
+    ],
     "duration": "4-7 days",
-    "weather": { "temp": 18, "unit": "C", "condition": "Mild" },
+    "weather": {
+      "temp": 18,
+      "unit": "C",
+      "condition": "Mild"
+    },
     "flightTime": "12h from London",
     "bestSeason": "March – May, Oct – Nov",
-    "highlights": ["Private temple visit", "Kaiseki dinner", "Bamboo forest", "Geisha district"],
+    "highlights": [
+      "Private temple visit",
+      "Kaiseki dinner",
+      "Bamboo forest",
+      "Geisha district"
+    ],
     "featured": true
   },
   {
@@ -94,24 +160,46 @@
     "region": "Mediterranean",
     "tagline": "Dramatic cliffs, lemon groves and la dolce vita",
     "description": "The Amalfi Coast stretches along southern Italy's Sorrentine Peninsula with vertiginous roads, pastel villages, and crystalline waters. Private boat tours, cliff-top dining and boutique stays define the experience.",
-    "image": "/assets/destination_santorini_greece__img_01.png",
+    "image": "/assets/interactive_world_map__img_03.png",
     "gallery": [
-      "/assets/destination_santorini_greece__img_01.png",
+      "/assets/luxury_travel_planner_landing_page__img_02.png",
       "/assets/destination_santorini_greece__img_07.png"
     ],
-    "coordinates": { "lat": 40.6340, "lng": 14.6027 },
+    "coordinates": {
+      "lat": 40.634,
+      "lng": 14.6027
+    },
     "pricePerNight": 1150,
     "currency": "USD",
     "rating": 4.8,
     "reviewCount": 289,
     "category": "Beach & Islands",
-    "tags": ["Coastal", "Food", "Romantic", "History"],
-    "activities": ["Boat tour", "Cooking class", "Cliff hike", "Wine tasting"],
+    "tags": [
+      "Coastal",
+      "Food",
+      "Romantic",
+      "History"
+    ],
+    "activities": [
+      "Boat tour",
+      "Cooking class",
+      "Cliff hike",
+      "Wine tasting"
+    ],
     "duration": "5-8 days",
-    "weather": { "temp": 26, "unit": "C", "condition": "Sunny" },
+    "weather": {
+      "temp": 26,
+      "unit": "C",
+      "condition": "Sunny"
+    },
     "flightTime": "2h 30m from London",
     "bestSeason": "May – September",
-    "highlights": ["Positano stroll", "Private yacht", "Limoncello tasting", "Ravello gardens"],
+    "highlights": [
+      "Positano stroll",
+      "Private yacht",
+      "Limoncello tasting",
+      "Ravello gardens"
+    ],
     "featured": false
   },
   {
@@ -125,21 +213,43 @@
     "image": "/assets/destination_santorini_greece__img_02.png",
     "gallery": [
       "/assets/destination_santorini_greece__img_02.png",
-      "/assets/destination_santorini_greece__img_08.png"
+      "/assets/destination_santorini_greece__img_05.png"
     ],
-    "coordinates": { "lat": -2.3333, "lng": 34.8333 },
+    "coordinates": {
+      "lat": -2.3333,
+      "lng": 34.8333
+    },
     "pricePerNight": 1800,
     "currency": "USD",
     "rating": 4.92,
     "reviewCount": 176,
     "category": "Safari & Nature",
-    "tags": ["Wildlife", "Safari", "Adventure", "Photography"],
-    "activities": ["Game drive", "Hot air balloon", "Bush dinner", "Cultural visit"],
+    "tags": [
+      "Wildlife",
+      "Safari",
+      "Adventure",
+      "Photography"
+    ],
+    "activities": [
+      "Game drive",
+      "Hot air balloon",
+      "Bush dinner",
+      "Cultural visit"
+    ],
     "duration": "7-10 days",
-    "weather": { "temp": 22, "unit": "C", "condition": "Dry" },
+    "weather": {
+      "temp": 22,
+      "unit": "C",
+      "condition": "Dry"
+    },
     "flightTime": "9h from London",
     "bestSeason": "June – October",
-    "highlights": ["Great Migration", "Big Five", "Bush dinner", "Hot air balloon"],
+    "highlights": [
+      "Great Migration",
+      "Big Five",
+      "Bush dinner",
+      "Hot air balloon"
+    ],
     "featured": false
   },
   {
@@ -155,19 +265,41 @@
       "/assets/destination_santorini_greece__img_03.png",
       "/assets/destination_santorini_greece__img_09.png"
     ],
-    "coordinates": { "lat": -8.5069, "lng": 115.2625 },
+    "coordinates": {
+      "lat": -8.5069,
+      "lng": 115.2625
+    },
     "pricePerNight": 650,
     "currency": "USD",
     "rating": 4.75,
     "reviewCount": 512,
     "category": "Wellness & Spa",
-    "tags": ["Wellness", "Culture", "Nature", "Yoga"],
-    "activities": ["Yoga", "Rice terrace trek", "Healing ceremony", "Cooking class"],
+    "tags": [
+      "Wellness",
+      "Culture",
+      "Nature",
+      "Yoga"
+    ],
+    "activities": [
+      "Yoga",
+      "Rice terrace trek",
+      "Healing ceremony",
+      "Cooking class"
+    ],
     "duration": "7-14 days",
-    "weather": { "temp": 27, "unit": "C", "condition": "Tropical" },
+    "weather": {
+      "temp": 27,
+      "unit": "C",
+      "condition": "Tropical"
+    },
     "flightTime": "15h from London",
     "bestSeason": "April – October",
-    "highlights": ["Rice terrace trek", "Healing ceremony", "Jungle pool villa", "Cooking class"],
+    "highlights": [
+      "Rice terrace trek",
+      "Healing ceremony",
+      "Jungle pool villa",
+      "Cooking class"
+    ],
     "featured": false
   },
   {
@@ -178,24 +310,46 @@
     "region": "North America",
     "tagline": "Turquoise lakes ringed by jagged peaks",
     "description": "Banff is the Canadian Rockies at their most photogenic. Glacier-fed lakes, alpine wildlife, and grand château hotels make every season a postcard.",
-    "image": "/assets/interactive_world_map__img_01.png",
+    "image": "/assets/accommodation_booking__img_02.png",
     "gallery": [
-      "/assets/interactive_world_map__img_01.png",
+      "/assets/smart_trip_planner__img_03.png",
       "/assets/interactive_world_map__img_02.png"
     ],
-    "coordinates": { "lat": 51.4968, "lng": -115.9281 },
+    "coordinates": {
+      "lat": 51.4968,
+      "lng": -115.9281
+    },
     "pricePerNight": 780,
     "currency": "USD",
     "rating": 4.82,
     "reviewCount": 394,
     "category": "Mountains",
-    "tags": ["Mountains", "Hiking", "Wildlife", "Photography"],
-    "activities": ["Hiking", "Canoeing", "Wildlife spotting", "Hot springs"],
+    "tags": [
+      "Mountains",
+      "Hiking",
+      "Wildlife",
+      "Photography"
+    ],
+    "activities": [
+      "Hiking",
+      "Canoeing",
+      "Wildlife spotting",
+      "Hot springs"
+    ],
     "duration": "4-7 days",
-    "weather": { "temp": 14, "unit": "C", "condition": "Cool" },
+    "weather": {
+      "temp": 14,
+      "unit": "C",
+      "condition": "Cool"
+    },
     "flightTime": "9h from London",
     "bestSeason": "June – September",
-    "highlights": ["Lake Louise", "Moraine Lake", "Sulphur Mountain", "Banff Springs"],
+    "highlights": [
+      "Lake Louise",
+      "Moraine Lake",
+      "Sulphur Mountain",
+      "Banff Springs"
+    ],
     "featured": true
   },
   {
@@ -211,19 +365,41 @@
       "/assets/interactive_world_map__img_03.png",
       "/assets/interactive_world_map__img_04.png"
     ],
-    "coordinates": { "lat": 64.1466, "lng": -21.9426 },
+    "coordinates": {
+      "lat": 64.1466,
+      "lng": -21.9426
+    },
     "pricePerNight": 920,
     "currency": "USD",
     "rating": 4.78,
     "reviewCount": 268,
     "category": "Mountains",
-    "tags": ["Aurora", "Glacier", "Geothermal", "Adventure"],
-    "activities": ["Aurora hunt", "Glacier hike", "Blue Lagoon", "Whale watching"],
+    "tags": [
+      "Aurora",
+      "Glacier",
+      "Geothermal",
+      "Adventure"
+    ],
+    "activities": [
+      "Aurora hunt",
+      "Glacier hike",
+      "Blue Lagoon",
+      "Whale watching"
+    ],
     "duration": "5-8 days",
-    "weather": { "temp": 3, "unit": "C", "condition": "Cold" },
+    "weather": {
+      "temp": 3,
+      "unit": "C",
+      "condition": "Cold"
+    },
     "flightTime": "3h from London",
     "bestSeason": "September – March",
-    "highlights": ["Northern Lights", "Blue Lagoon", "Golden Circle", "Glacier hike"],
+    "highlights": [
+      "Northern Lights",
+      "Blue Lagoon",
+      "Golden Circle",
+      "Glacier hike"
+    ],
     "featured": false
   },
   {
@@ -234,24 +410,46 @@
     "region": "Southern Africa",
     "tagline": "Where two oceans meet beneath Table Mountain",
     "description": "Cape Town pairs cosmopolitan city life with wild coastlines, penguin beaches, and the storied vineyards of Stellenbosch and Franschhoek.",
-    "image": "/assets/interactive_world_map__img_05.png",
+    "image": "/assets/destination_santorini_greece__img_02.png",
     "gallery": [
-      "/assets/interactive_world_map__img_05.png",
-      "/assets/interactive_world_map__img_06.png"
+      "/assets/accommodation_booking__img_03.png",
+      "/assets/destination_santorini_greece__img_07.png"
     ],
-    "coordinates": { "lat": -33.9249, "lng": 18.4241 },
+    "coordinates": {
+      "lat": -33.9249,
+      "lng": 18.4241
+    },
     "pricePerNight": 540,
     "currency": "USD",
     "rating": 4.7,
     "reviewCount": 318,
     "category": "Cultural",
-    "tags": ["Wine", "Coastal", "Wildlife", "City"],
-    "activities": ["Table Mountain", "Wine tour", "Penguin beach", "Cape Point"],
+    "tags": [
+      "Wine",
+      "Coastal",
+      "Wildlife",
+      "City"
+    ],
+    "activities": [
+      "Table Mountain",
+      "Wine tour",
+      "Penguin beach",
+      "Cape Point"
+    ],
     "duration": "6-10 days",
-    "weather": { "temp": 21, "unit": "C", "condition": "Mild" },
+    "weather": {
+      "temp": 21,
+      "unit": "C",
+      "condition": "Mild"
+    },
     "flightTime": "11h from London",
     "bestSeason": "November – March",
-    "highlights": ["Table Mountain", "Stellenbosch wineries", "Boulders Beach", "Cape Point"],
+    "highlights": [
+      "Table Mountain",
+      "Stellenbosch wineries",
+      "Boulders Beach",
+      "Cape Point"
+    ],
     "featured": false
   },
   {
@@ -262,24 +460,46 @@
     "region": "South America",
     "tagline": "Glaciers, granite spires, and end-of-world skies",
     "description": "Patagonia is raw and immense. Estancias and eco-lodges put you at the doorstep of Perito Moreno's calving glaciers and the towers of Fitz Roy.",
-    "image": "/assets/smart_trip_planner__img_01.png",
+    "image": "/assets/interactive_world_map__img_04.png",
     "gallery": [
-      "/assets/smart_trip_planner__img_01.png",
-      "/assets/smart_trip_planner__img_02.png"
+      "/assets/luxury_travel_planner_landing_page__img_06.png",
+      "/assets/smart_trip_planner__img_05.png"
     ],
-    "coordinates": { "lat": -50.3375, "lng": -72.2647 },
+    "coordinates": {
+      "lat": -50.3375,
+      "lng": -72.2647
+    },
     "pricePerNight": 1100,
     "currency": "USD",
     "rating": 4.88,
     "reviewCount": 142,
     "category": "Safari & Nature",
-    "tags": ["Adventure", "Glaciers", "Trekking", "Photography"],
-    "activities": ["Glacier trek", "Horseback", "Trekking", "Photography"],
+    "tags": [
+      "Adventure",
+      "Glaciers",
+      "Trekking",
+      "Photography"
+    ],
+    "activities": [
+      "Glacier trek",
+      "Horseback",
+      "Trekking",
+      "Photography"
+    ],
     "duration": "7-12 days",
-    "weather": { "temp": 10, "unit": "C", "condition": "Variable" },
+    "weather": {
+      "temp": 10,
+      "unit": "C",
+      "condition": "Variable"
+    },
     "flightTime": "16h from London",
     "bestSeason": "November – March",
-    "highlights": ["Perito Moreno", "Fitz Roy trek", "Estancia stay", "El Chaltén"],
+    "highlights": [
+      "Perito Moreno",
+      "Fitz Roy trek",
+      "Estancia stay",
+      "El Chaltén"
+    ],
     "featured": true
   },
   {
@@ -293,21 +513,43 @@
     "image": "/assets/smart_trip_planner__img_03.png",
     "gallery": [
       "/assets/smart_trip_planner__img_03.png",
-      "/assets/smart_trip_planner__img_04.png"
+      "/assets/destination_santorini_greece__img_06.png"
     ],
-    "coordinates": { "lat": 31.6295, "lng": -7.9811 },
+    "coordinates": {
+      "lat": 31.6295,
+      "lng": -7.9811
+    },
     "pricePerNight": 480,
     "currency": "USD",
     "rating": 4.72,
     "reviewCount": 401,
     "category": "Cultural",
-    "tags": ["Culture", "Souks", "Desert", "Riad"],
-    "activities": ["Souk tour", "Atlas trip", "Hammam", "Cooking class"],
+    "tags": [
+      "Culture",
+      "Souks",
+      "Desert",
+      "Riad"
+    ],
+    "activities": [
+      "Souk tour",
+      "Atlas trip",
+      "Hammam",
+      "Cooking class"
+    ],
     "duration": "4-7 days",
-    "weather": { "temp": 25, "unit": "C", "condition": "Sunny" },
+    "weather": {
+      "temp": 25,
+      "unit": "C",
+      "condition": "Sunny"
+    },
     "flightTime": "3h 30m from London",
     "bestSeason": "March – May, Sep – Nov",
-    "highlights": ["Jemaa el-Fnaa", "Majorelle Garden", "Atlas day trip", "Riad hammam"],
+    "highlights": [
+      "Jemaa el-Fnaa",
+      "Majorelle Garden",
+      "Atlas day trip",
+      "Riad hammam"
+    ],
     "featured": false
   },
   {
@@ -321,21 +563,43 @@
     "image": "/assets/smart_trip_planner__img_05.png",
     "gallery": [
       "/assets/smart_trip_planner__img_05.png",
-      "/assets/smart_trip_planner__img_06.png"
+      "/assets/accommodation_booking__img_04.png"
     ],
-    "coordinates": { "lat": -45.0312, "lng": 168.6626 },
+    "coordinates": {
+      "lat": -45.0312,
+      "lng": 168.6626
+    },
     "pricePerNight": 720,
     "currency": "USD",
     "rating": 4.81,
     "reviewCount": 357,
     "category": "Mountains",
-    "tags": ["Adventure", "Mountains", "Wine", "Lakes"],
-    "activities": ["Bungee", "Jet boat", "Heli-ski", "Wine tour"],
+    "tags": [
+      "Adventure",
+      "Mountains",
+      "Wine",
+      "Lakes"
+    ],
+    "activities": [
+      "Bungee",
+      "Jet boat",
+      "Heli-ski",
+      "Wine tour"
+    ],
     "duration": "5-9 days",
-    "weather": { "temp": 12, "unit": "C", "condition": "Crisp" },
+    "weather": {
+      "temp": 12,
+      "unit": "C",
+      "condition": "Crisp"
+    },
     "flightTime": "24h from London",
     "bestSeason": "December – February, June – August",
-    "highlights": ["Skippers Canyon", "Milford Sound day trip", "Gibbston wineries", "Coronet Peak"],
+    "highlights": [
+      "Skippers Canyon",
+      "Milford Sound day trip",
+      "Gibbston wineries",
+      "Coronet Peak"
+    ],
     "featured": false
   }
 ]
