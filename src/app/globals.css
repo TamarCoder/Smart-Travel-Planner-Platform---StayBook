@@ -128,7 +128,7 @@
   width: 36px;
   height: 36px;
   border-radius: 9999px;
-  background: var(--accent, #0ea5e9);
+  background: var(--accent, #00668a);
   color: #ffffff;
   font-size: 12px;
   font-weight: 600;
@@ -144,7 +144,7 @@
   bottom: -8px;
   width: 14px;
   height: 14px;
-  background: var(--accent, #0ea5e9);
+  background: var(--accent, #00668a);
   transform: translate(-50%, -50%) rotate(45deg);
   border-bottom-right-radius: 4px;
   z-index: -1;

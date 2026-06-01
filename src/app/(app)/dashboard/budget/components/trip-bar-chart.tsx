@@ -43,7 +43,7 @@ export function TripBarChart({ data, currency }: TripBarChartProps) {
           <Bar dataKey="spent" radius={[6, 6, 0, 0]}>
             {data.map((d) => {
               const pct = d.budget > 0 ? d.spent / d.budget : 0;
-              const color = pct >= 1 ? "#ef4444" : pct >= 0.8 ? "#f97316" : "#0ea5e9";
+              const color = pct >= 1 ? "#ba1a1a" : pct >= 0.8 ? "#f59e0b" : "#00668a";
               return <Cell key={d.trip} fill={color} />;
             })}
           </Bar>

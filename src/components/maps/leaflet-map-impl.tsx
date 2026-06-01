@@ -42,7 +42,7 @@ const ACCENT_HEX: Record<MarkerAccent, string> = {
   amber: "#f59e0b",
   rose: "#f43f5e",
   navy: "#131b2e",
-  violet: "#8b5cf6",
+  violet: "#565e74",
 };
 
 function buildIcon(marker: MapMarker) {
@@ -191,7 +191,7 @@ export function LeafletMapImpl({
           key={route.id}
           positions={route.positions}
           pathOptions={{
-            color: route.color ?? "#0ea5e9",
+            color: route.color ?? "#00668a",
             weight: 4,
             opacity: 0.9,
             dashArray: route.dashed ? "8 8" : undefined,

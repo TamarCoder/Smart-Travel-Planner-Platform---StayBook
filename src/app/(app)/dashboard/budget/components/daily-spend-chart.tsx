@@ -37,8 +37,8 @@ export function DailySpendChart({ data, currency }: DailySpendChartProps) {
         <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="spendGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.45} />
-              <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
+              <stop offset="0%" stopColor="#00668a" stopOpacity={0.45} />
+              <stop offset="100%" stopColor="#00668a" stopOpacity={0} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 6" stroke="var(--border)" />
@@ -71,7 +71,7 @@ export function DailySpendChart({ data, currency }: DailySpendChartProps) {
           <Area
             type="monotone"
             dataKey="cumulative"
-            stroke="#0ea5e9"
+            stroke="#00668a"
             strokeWidth={2}
             fill="url(#spendGradient)"
             name="Cumulative"
@@ -79,7 +79,7 @@ export function DailySpendChart({ data, currency }: DailySpendChartProps) {
           <Area
             type="monotone"
             dataKey="daily"
-            stroke="#f97316"
+            stroke="#131b2e"
             strokeWidth={1.5}
             fill="transparent"
             name="Daily"
