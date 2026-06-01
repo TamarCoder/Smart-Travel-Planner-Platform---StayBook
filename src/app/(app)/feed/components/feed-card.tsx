@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Heart, MapPin, MessageCircle, Share2, UserPlus, UserMinus } from "lucide-react";
+import { toast } from "sonner";
 import { Avatar } from "@/components/ui/avatar";
 import { useSocialStore } from "@/stores";
 import type { FeedPost } from "@/lib/api/feed";
@@ -18,6 +19,20 @@ export function FeedCard({ post }: FeedCardProps) {
   const toggleFollow = useSocialStore((s) => s.toggleFollow);
 
   const likeCount = post.likes + (liked ? 1 : 0);
+
+  async function sharePost() {
+    const url = `${window.location.origin}/feed#${post.id}`;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: post.location, text: post.caption, url });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      toast.success("Post link copied");
+    } catch {
+      return;
+    }
+  }
 
   return (
     <article className="overflow-hidden rounded-3xl border border-border bg-surface-elevated shadow-sm">
@@ -73,6 +88,7 @@ export function FeedCard({ post }: FeedCardProps) {
         </span>
         <button
           type="button"
+          onClick={sharePost}
           aria-label="Share"
           className="ml-auto inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary"
         >

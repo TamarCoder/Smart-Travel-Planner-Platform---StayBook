@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/shared/fade-in";
 import { listFeedPage } from "@/lib/api/feed";
 import { FeedCard } from "./components/feed-card";
+import { FeedComposer } from "./components/feed-composer";
 
 export default function FeedPage() {
   const {
@@ -62,6 +63,9 @@ export default function FeedPage() {
             <p className="mt-2 text-sm text-text-secondary">
               Real moments from people on the road. Follow, like, get inspired.
             </p>
+            <div className="mt-5 flex justify-center">
+              <FeedComposer />
+            </div>
           </header>
 
           {isPending && (
