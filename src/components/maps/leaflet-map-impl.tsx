@@ -37,11 +37,11 @@ interface LeafletMapImplProps {
 }
 
 const ACCENT_HEX: Record<MarkerAccent, string> = {
-  sky: "#0ea5e9",
-  emerald: "#10b981",
+  sky: "#00668a",
+  emerald: "#009668",
   amber: "#f59e0b",
   rose: "#f43f5e",
-  navy: "#0f172a",
+  navy: "#131b2e",
   violet: "#8b5cf6",
 };
 
