@@ -64,7 +64,7 @@ function Avatar({
         {src ? (
           <Image
             src={src}
-            alt={alt ?? ""}
+            alt={alt ?? fallback ?? "User avatar"}
             width={sizePixels[size]}
             height={sizePixels[size]}
             className="h-full w-full object-cover"

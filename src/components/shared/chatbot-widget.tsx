@@ -152,9 +152,10 @@ export function ChatbotWidget() {
               type="text"
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
+              aria-label="Message the travel assistant"
               placeholder="Ask anything…"
               maxLength={200}
-              className="flex-1 rounded-xl border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-sky-600"
+              className="flex-1 rounded-xl border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-sky-600 focus-visible:ring-2 focus-visible:ring-sky-500"
             />
             <button
               type="submit"
