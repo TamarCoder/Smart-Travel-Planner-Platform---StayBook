@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, CalendarRange, Cloud, Plane, Sun, Wallet, Sparkles } from "lucide-react";
+import { ArrowLeft, CalendarRange, Cloud, Plane, Sun, Wallet, Sparkles, Lightbulb } from "lucide-react";
 import { useDestination } from "@/features/destinations";
 import { SkeletonCard, SkeletonText } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -147,6 +147,40 @@ export function DestinationDetail({ slug }: DestinationDetailProps) {
                 </header>
                 <AttractionsSection destinationId={data.id} />
               </section>
+
+              {data.tips?.length ? (
+                <section className="flex flex-col gap-5">
+                  <header>
+                    <h3
+                      className="text-2xl font-bold text-text-primary"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      Travel tips
+                    </h3>
+                    <p className="mt-1 text-sm text-text-secondary">
+                      Local know-how to make the most of {data.name}.
+                    </p>
+                  </header>
+                  <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                    {data.tips.map((tip, index) => (
+                      <li
+                        key={tip}
+                        className="flex items-start gap-3 rounded-2xl border border-border bg-surface p-4 shadow-sm transition-shadow hover:shadow-md"
+                      >
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 dark:bg-sky-950">
+                          <Lightbulb className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                            Tip {index + 1}
+                          </p>
+                          <p className="mt-1 text-sm leading-relaxed text-text-primary">{tip}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
 
               <DestinationMap destination={data} />
 
