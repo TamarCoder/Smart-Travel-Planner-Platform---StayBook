@@ -7,6 +7,7 @@ import DashboardShell from "../dashboard/components/shell";
 import { SkeletonCard } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Button } from "@/components/ui/button";
+import { FadeIn } from "@/components/shared/fade-in";
 import { listFeedPage } from "@/lib/api/feed";
 import { FeedCard } from "./components/feed-card";
 
@@ -97,7 +98,9 @@ export default function FeedPage() {
           {posts.length > 0 && (
             <div className="flex flex-col gap-6">
               {posts.map((post) => (
-                <FeedCard key={post.id} post={post} />
+                <FadeIn key={post.id}>
+                  <FeedCard post={post} />
+                </FadeIn>
               ))}
             </div>
           )}

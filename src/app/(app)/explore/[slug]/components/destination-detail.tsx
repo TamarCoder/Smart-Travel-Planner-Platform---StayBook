@@ -11,6 +11,7 @@ import { AttractionsSection } from "./attractions-section";
 import { RelatedSection } from "./related-section";
 import { DestinationMap } from "./destination-map";
 import { ReviewsSection } from "@/components/shared/reviews-section";
+import { FadeInList } from "@/components/shared/fade-in";
 
 interface DestinationDetailProps {
   slug: string;
@@ -161,7 +162,7 @@ export function DestinationDetail({ slug }: DestinationDetailProps) {
                       Local know-how to make the most of {data.name}.
                     </p>
                   </header>
-                  <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                  <FadeInList as="ul" className="grid grid-cols-1 gap-3 md:grid-cols-2">
                     {data.tips.map((tip, index) => (
                       <li
                         key={tip}
@@ -178,7 +179,7 @@ export function DestinationDetail({ slug }: DestinationDetailProps) {
                         </div>
                       </li>
                     ))}
-                  </ul>
+                  </FadeInList>
                 </section>
               ) : null}
 
