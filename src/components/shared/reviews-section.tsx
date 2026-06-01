@@ -208,6 +208,7 @@ function WriteReviewForm({ entityType, entityId, onDone }: WriteReviewFormProps)
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        aria-label="Review title"
         placeholder="Sum up your experience"
         maxLength={80}
         className="rounded-xl bg-surface-muted px-4 py-2.5 text-sm text-text-primary outline-none transition focus:ring-2 focus:ring-secondary"
@@ -215,6 +216,7 @@ function WriteReviewForm({ entityType, entityId, onDone }: WriteReviewFormProps)
       <textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
+        aria-label="Review details"
         placeholder="What stood out — the location, the service, the little details?"
         rows={4}
         maxLength={600}

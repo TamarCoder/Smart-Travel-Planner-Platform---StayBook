@@ -35,13 +35,15 @@ export function DestinationsSection() {
           </div>
           <div className="flex gap-3 shrink-0">
             <button
-              className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-text-muted flex items-center justify-center hover:bg-sky-600/5 transition-colors"
+              type="button"
+              className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-text-muted flex items-center justify-center hover:bg-sky-600/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               aria-label="Previous"
             >
               <ChevronLeft className="h-4 w-4 md:h-5 md:w-5 text-text-secondary" />
             </button>
             <button
-              className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-text-muted flex items-center justify-center hover:bg-sky-600/5 transition-colors"
+              type="button"
+              className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-text-muted flex items-center justify-center hover:bg-sky-600/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               aria-label="Next"
             >
               <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-text-secondary" />
