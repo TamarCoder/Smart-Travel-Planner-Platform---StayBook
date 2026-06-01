@@ -105,6 +105,7 @@ export interface DbTrip {
   userId: string;
   title: string;
   destination: string;
+  destinations?: string[];
   coverImage?: string;
   startDate: string;
   endDate: string;
