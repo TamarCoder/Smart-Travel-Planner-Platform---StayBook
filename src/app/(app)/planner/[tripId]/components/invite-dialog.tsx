@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
 import { useAddCollaborator } from "@/features/trips";
+import { sendMockEmail } from "@/lib/api/email";
 import { inviteSchema, type InviteInput } from "@/lib/validations/collaborator";
 
 interface InviteDialogProps {
@@ -51,7 +52,14 @@ export function InviteDialog({ tripId, tripTitle }: InviteDialogProps) {
         email: values.email,
         role: values.role,
       });
-      toast.success(`${values.name} added to ${tripTitle}`);
+      sendMockEmail({
+        to: values.email,
+        subject: `You're invited to plan ${tripTitle}`,
+        body: `${values.name}, you've been added as a ${values.role}. Open this link to join: ${inviteLink}`,
+      });
+      toast.success(`${values.name} added to ${tripTitle}`, {
+        description: `📧 Invitation email sent to ${values.email}`,
+      });
       reset();
       setOpen(false);
     } catch (error) {
