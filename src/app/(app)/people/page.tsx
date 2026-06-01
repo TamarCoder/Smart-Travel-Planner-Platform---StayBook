@@ -31,7 +31,7 @@ export default function PeoplePage() {
               Travelers worth following
             </h1>
             <p className="mt-2 max-w-2xl text-sm text-text-secondary">
-              Curated voices from the StayBook community. Follow them to see their trips appear in your feed.
+              Curated voices from the Voyager community. Follow them to see their trips appear in your feed.
             </p>
           </header>
 

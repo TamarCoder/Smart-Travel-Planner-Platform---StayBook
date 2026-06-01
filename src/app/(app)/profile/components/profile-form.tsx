@@ -99,7 +99,7 @@ export function ProfileForm() {
           Your profile
         </h1>
         <p className="mt-2 text-sm text-text-secondary">
-          Personalise how StayBook shapes your recommendations and notifications.
+          Personalise how Voyager shapes your recommendations and notifications.
         </p>
       </header>
 

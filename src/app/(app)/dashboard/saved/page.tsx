@@ -20,7 +20,7 @@ export default function SavedPage() {
               Saved for later
             </h1>
             <p className="mt-2 max-w-2xl text-sm text-text-secondary">
-              Destinations and stays you have hearted across StayBook. Everything stays in sync across your devices.
+              Destinations and stays you have hearted across Voyager. Everything stays in sync across your devices.
             </p>
           </header>
 
