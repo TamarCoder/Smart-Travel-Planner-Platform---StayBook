@@ -9,6 +9,7 @@ import { ensureSeeded } from "./seed";
 import { getDb, type DbNotification } from "./db";
 import { broadcast } from "@/lib/realtime/channel";
 import { userRoom } from "@/features/realtime/rooms";
+import { sendMockEmail } from "./email";
 
 export type Notification = DbNotification;
 
@@ -60,6 +61,16 @@ export async function createNotification(
       body: notification.body,
       link: notification.link,
     });
+
+    const user = await db.get("users", userId);
+    if (user?.preferences.notifications) {
+      sendMockEmail({
+        to: user.email,
+        subject: notification.title,
+        body: notification.body ?? "Open Voyager to see the details.",
+      });
+    }
+
     return notification;
   });
 }
