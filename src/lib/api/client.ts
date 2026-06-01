@@ -12,9 +12,27 @@ export class ApiError extends Error {
   }
 }
 
-const DEFAULT_MIN_DELAY = 200;
-const DEFAULT_MAX_DELAY = 600;
-const DEFAULT_ERROR_RATE = 0.03;
+function parseLatencyRange(raw: string | undefined): [number, number] {
+  const fallback: [number, number] = [200, 600];
+  if (!raw) return fallback;
+  const parts = raw.split("-").map((value) => Number(value.trim()));
+  const [min, max] = parts.length === 2 ? parts : [parts[0], parts[0]];
+  if (!Number.isFinite(min) || !Number.isFinite(max) || min < 0 || max < min) {
+    return fallback;
+  }
+  return [min, max];
+}
+
+function parseErrorRate(raw: string | undefined): number {
+  const value = Number(raw);
+  if (!Number.isFinite(value) || value < 0 || value > 1) return 0.03;
+  return value;
+}
+
+const [DEFAULT_MIN_DELAY, DEFAULT_MAX_DELAY] = parseLatencyRange(
+  process.env.NEXT_PUBLIC_MOCK_LATENCY_MS,
+);
+const DEFAULT_ERROR_RATE = parseErrorRate(process.env.NEXT_PUBLIC_MOCK_ERROR_RATE);
 
 function randomDelay(min = DEFAULT_MIN_DELAY, max = DEFAULT_MAX_DELAY) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
