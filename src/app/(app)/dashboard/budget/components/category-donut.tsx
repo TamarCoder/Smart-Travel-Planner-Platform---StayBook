@@ -4,12 +4,12 @@ import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { formatMoney } from "@/lib/utils/currency";
 
 const COLORS: Record<string, string> = {
-  flights: "#0ea5e9",
-  hotels: "#8b5cf6",
-  dining: "#f97316",
-  activities: "#10b981",
-  transport: "#facc15",
-  other: "#64748b",
+  flights: "#00668a",
+  hotels: "#131b2e",
+  dining: "#f59e0b",
+  activities: "#009668",
+  transport: "#40c2fd",
+  other: "#76777d",
 };
 
 interface CategoryDonutProps {

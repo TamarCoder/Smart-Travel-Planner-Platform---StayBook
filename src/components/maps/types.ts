@@ -26,13 +26,13 @@ export interface MapRoute {
 }
 
 export const ROUTE_COLORS = [
-  "#0ea5e9",
-  "#10b981",
-  "#f97316",
-  "#8b5cf6",
-  "#ec4899",
-  "#22c55e",
-  "#eab308",
+  "#00668a",
+  "#009668",
+  "#565e74",
+  "#40c2fd",
+  "#131b2e",
+  "#f59e0b",
+  "#7a7289",
 ] as const;
 
 export function routeColorForIndex(index: number) {
