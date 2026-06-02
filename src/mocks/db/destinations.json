@@ -1,0 +1,142 @@
+[
+  {
+    "id": "dest_001",
+    "slug": "santorini-greece",
+    "name": "Santorini",
+    "country": "Greece",
+    "continent": "Europe",
+    "description": "Santorini is a stunning volcanic island in the Cyclades group of the Greek islands. Known for its dramatic views, stunning sunsets from Oia, the white-washed houses and churches with blue domes, and its delicious local cuisine.",
+    "shortDescription": "Iconic volcanic island with white-washed villages and breathtaking Aegean views.",
+    "image": "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&h=600&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1555952517-2e8e729e0b44?w=800&h=600&fit=crop"
+    ],
+    "rating": 4.9,
+    "reviewCount": 2847,
+    "priceFrom": 1200,
+    "currency": "USD",
+    "bestMonths": ["April", "May", "June", "September", "October"],
+    "tags": ["romantic", "luxury", "beach", "culture", "food"],
+    "coordinates": { "lat": 36.3932, "lng": 25.4615 },
+    "weather": { "temp": 26, "condition": "Sunny" },
+    "popularActivities": ["Sunset watching in Oia", "Wine tasting", "Caldera boat tour", "Akrotiri archaeological site"]
+  },
+  {
+    "id": "dest_002",
+    "slug": "maldives",
+    "name": "Maldives",
+    "country": "Maldives",
+    "continent": "Asia",
+    "description": "The Maldives is a tropical nation in the Indian Ocean composed of 26 ring-shaped atolls, which are made up of more than 1,000 coral islands. It's known for its beaches, blue lagoons and extensive reefs.",
+    "shortDescription": "Overwater bungalows and crystal-clear lagoons in the heart of the Indian Ocean.",
+    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1540202404-a2f29d43db51?w=800&h=600&fit=crop"
+    ],
+    "rating": 4.95,
+    "reviewCount": 3521,
+    "priceFrom": 2450,
+    "currency": "USD",
+    "bestMonths": ["November", "December", "January", "February", "March", "April"],
+    "tags": ["luxury", "beach", "diving", "honeymoon", "overwater"],
+    "coordinates": { "lat": 3.2028, "lng": 73.2207 },
+    "weather": { "temp": 30, "condition": "Sunny" },
+    "popularActivities": ["Snorkeling", "Scuba diving", "Overwater spa", "Dolphin watching"]
+  },
+  {
+    "id": "dest_003",
+    "slug": "kyoto-japan",
+    "name": "Kyoto",
+    "country": "Japan",
+    "continent": "Asia",
+    "description": "Kyoto, once the capital of Japan, is a city on the island of Honshu. It's famous for its numerous classical Buddhist temples, as well as gardens, imperial palaces, Shinto shrines and traditional wooden houses.",
+    "shortDescription": "Ancient temples, bamboo forests, and timeless Japanese culture.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&h=600&fit=crop"
+    ],
+    "rating": 4.8,
+    "reviewCount": 4102,
+    "priceFrom": 890,
+    "currency": "USD",
+    "bestMonths": ["March", "April", "May", "October", "November"],
+    "tags": ["culture", "temples", "nature", "food", "history"],
+    "coordinates": { "lat": 35.0116, "lng": 135.7681 },
+    "weather": { "temp": 18, "condition": "Partly Cloudy" },
+    "popularActivities": ["Fushimi Inari shrine", "Arashiyama bamboo grove", "Tea ceremony", "Nishiki Market"]
+  },
+  {
+    "id": "dest_004",
+    "slug": "amalfi-coast-italy",
+    "name": "Amalfi Coast",
+    "country": "Italy",
+    "continent": "Europe",
+    "description": "The Amalfi Coast is a stretch of coastline in southern Italy overlooking the Tyrrhenian Sea and the Gulf of Salerno. It's known for its rugged terrain and cliffside villages.",
+    "shortDescription": "Dramatic cliffside villages cascading into turquoise Mediterranean waters.",
+    "image": "https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=800&h=600&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=800&h=600&fit=crop"
+    ],
+    "rating": 4.85,
+    "reviewCount": 1983,
+    "priceFrom": 1100,
+    "currency": "USD",
+    "bestMonths": ["May", "June", "July", "August", "September"],
+    "tags": ["scenic", "food", "romantic", "beach", "luxury"],
+    "coordinates": { "lat": 40.6340, "lng": 14.6027 },
+    "weather": { "temp": 28, "condition": "Sunny" },
+    "popularActivities": ["Boat tours", "Positano shopping", "Lemon grove walks", "Ravello concerts"]
+  },
+  {
+    "id": "dest_005",
+    "slug": "bali-indonesia",
+    "name": "Bali",
+    "country": "Indonesia",
+    "continent": "Asia",
+    "description": "Bali is an Indonesian island known for its forested volcanic mountains, iconic rice paddies, beaches and coral reefs. The island is home to religious sites such as cliffside Uluwatu Temple.",
+    "shortDescription": "Spiritual retreats, surf beaches, and lush rice terraces.",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&h=600&fit=crop"
+    ],
+    "rating": 4.75,
+    "reviewCount": 5234,
+    "priceFrom": 650,
+    "currency": "USD",
+    "bestMonths": ["April", "May", "June", "July", "August", "September"],
+    "tags": ["wellness", "surf", "culture", "nature", "affordable"],
+    "coordinates": { "lat": -8.3405, "lng": 115.0920 },
+    "weather": { "temp": 29, "condition": "Partly Cloudy" },
+    "popularActivities": ["Ubud rice terraces", "Uluwatu temple sunset", "Surfing Kuta", "Cooking classes"]
+  },
+  {
+    "id": "dest_006",
+    "slug": "patagonia-argentina",
+    "name": "Patagonia",
+    "country": "Argentina",
+    "continent": "South America",
+    "description": "Patagonia is a sparsely populated region at the southern end of South America. It includes vast steppes, glaciers, fjords, mountains, and unique wildlife.",
+    "shortDescription": "End-of-the-world wilderness with glaciers, peaks, and untouched nature.",
+    "image": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1245,
+    "priceFrom": 1800,
+    "currency": "USD",
+    "bestMonths": ["November", "December", "January", "February", "March"],
+    "tags": ["adventure", "nature", "hiking", "wildlife", "remote"],
+    "coordinates": { "lat": -51.6230, "lng": -69.2168 },
+    "weather": { "temp": 12, "condition": "Windy" },
+    "popularActivities": ["Torres del Paine trekking", "Perito Moreno glacier", "Whale watching", "Fly fishing"]
+  }
+]

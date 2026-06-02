@@ -67,8 +67,8 @@ export function TestimonialsSection() {
                   <Image
                     src={avatar}
                     alt={name}
-                    width={48}
-                    height={48}
+                    width={44}
+                    height={44}
                     className="object-cover w-full h-full"
                   />
                 </div>
