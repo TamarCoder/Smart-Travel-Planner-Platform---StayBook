@@ -1,88 +1,116 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
-import { Bell, Settings, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { useAuthStore } from "@/stores";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/explore", label: "Destinations" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/concierge", label: "Concierge" },
+  { label: "Home", href: "/" },
+  { label: "Destinations", href: "#destinations" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Pricing", href: "#pricing" },
 ];
 
 export function LandingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isAuthenticated = useAuthStore((s) => s.status === "authenticated");
+  const ctaHref = isAuthenticated ? "/dashboard" : "/register";
+  const ctaLabel = isAuthenticated ? "Open dashboard" : "Get started";
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 h-16 flex items-center justify-between px-6 md:px-12 bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm">
-      <Link href="/" className="font-bold text-2xl tracking-tight text-navy-950">
-        Voyager
-      </Link>
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-12 h-16 bg-surface-elevated backdrop-blur-xl border-b border-border shadow-sm">
+      <div className="flex items-center">
+        <Link href="/">
+          <span
+            className="text-xl font-bold tracking-tight text-text-primary"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Voyager
+          </span>
+        </Link>
+      </div>
 
-      <nav className="hidden md:flex items-center gap-8">
-        {navLinks.map(({ href, label }, i) => (
+      <nav className="hidden md:flex items-center gap-10">
+        {navLinks.map(({ label, href }, i) => (
           <Link
-            key={href}
+            key={label}
             href={href}
-            className={cn(
-              "text-sm font-medium transition-colors duration-200",
+            className={
               i === 0
-                ? "text-sky-500 font-semibold"
-                : "text-text-secondary hover:text-sky-500"
-            )}
+                ? "text-sm font-semibold text-sky-600 transition-colors"
+                : "text-sm font-medium text-text-secondary hover:text-sky-600 transition-colors"
+            }
           >
             {label}
           </Link>
         ))}
       </nav>
 
-      <div className="flex items-center gap-4">
-        <div className="hidden md:flex items-center gap-3">
-          <button className="text-text-secondary hover:text-sky-500 transition-colors" aria-label="Notifications">
-            <Bell className="h-5 w-5" />
-          </button>
-          <button className="text-text-secondary hover:text-sky-500 transition-colors" aria-label="Settings">
-            <Settings className="h-5 w-5" />
-          </button>
-        </div>
-
-        <div className="h-10 w-10 rounded-full overflow-hidden border-2 border-white/40 shadow-sm hover:scale-95 transition-transform cursor-pointer shrink-0">
-          <Image
-            src="/images/landing/avatar-user.png"
-            alt="User profile"
-            width={40}
-            height={40}
-            className="object-cover w-full h-full"
-          />
-        </div>
-
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setMobileOpen((p) => !p)}
+      <div className="flex items-center gap-3">
+        <ThemeToggle className="hidden md:inline-flex" />
+        {!isAuthenticated && (
+          <Link
+            href="/login"
+            className="hidden md:block text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+          >
+            Sign in
+          </Link>
+        )}
+        <Link
+          href={ctaHref}
+          className="hidden md:block text-sm font-semibold px-5 py-2 bg-secondary hover:bg-on-secondary-container text-white rounded-full transition-all"
+        >
+          {ctaLabel}
+        </Link>
+        <button
+          className="md:hidden text-text-secondary"
+          onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
+        </button>
       </div>
 
       {mobileOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white border-t border-border px-6 py-4 flex flex-col gap-1 md:hidden shadow-md">
-          {navLinks.map(({ href, label }) => (
+        <div className="absolute top-16 left-0 w-full bg-surface-elevated backdrop-blur-xl border-b border-border shadow-md px-4 py-4 flex flex-col gap-4 md:hidden">
+          {navLinks.map(({ label, href }, i) => (
             <Link
-              key={href}
+              key={label}
               href={href}
               onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-text-secondary hover:text-sky-500 hover:bg-surface-muted rounded-xl transition-colors"
+              className={
+                i === 0
+                  ? "text-sm font-semibold text-sky-600"
+                  : "text-sm font-medium text-text-secondary"
+              }
             >
               {label}
             </Link>
           ))}
+          <div className="pt-2 border-t border-border flex flex-col gap-2">
+            <div className="flex items-center justify-between py-1">
+              <span className="text-sm font-medium text-text-secondary">Theme</span>
+              <ThemeToggle align="end" />
+            </div>
+            {!isAuthenticated && (
+              <Link
+                href="/login"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm font-medium text-text-secondary py-1"
+              >
+                Sign in
+              </Link>
+            )}
+            <Link
+              href={ctaHref}
+              onClick={() => setMobileOpen(false)}
+              className="text-sm font-semibold text-center py-2.5 bg-secondary text-white rounded-full"
+            >
+              {ctaLabel}
+            </Link>
+          </div>
         </div>
       )}
     </header>

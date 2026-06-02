@@ -4,17 +4,17 @@
   --background: #f7f9fb;
   --surface: #ffffff;
   --surface-elevated: rgba(255, 255, 255, 0.8);
-  --surface-muted: #f1f5f9;
-  --surface-hover: #eceef0;
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --divider: #f1f5f9;
+  --surface-muted: #eceef0;
+  --surface-hover: #e6e8ea;
+  --border: #c6c6cd;
+  --border-strong: #76777d;
+  --divider: #e0e3e5;
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-primary: #191c1e;
+  --text-secondary: #45464d;
+  --text-muted: #76777d;
   --text-inverse: #ffffff;
-  --text-link: #0ea5e9;
+  --text-link: #00668a;
 
   --size-xs: 0.25rem;
   --size-sm: 0.5rem;
@@ -26,20 +26,20 @@
 }
 
 .dark {
-  --background: #020617;
-  --surface: #0f172a;
-  --surface-elevated: rgba(15, 23, 42, 0.7);
-  --surface-muted: #1e293b;
-  --surface-hover: #334155;
-  --border: #1e293b;
-  --border-strong: #334155;
-  --divider: #1e293b;
+  --background: #0f1314;
+  --surface: #1b1f20;
+  --surface-elevated: rgba(27, 31, 32, 0.7);
+  --surface-muted: #25292b;
+  --surface-hover: #303436;
+  --border: #3a3e40;
+  --border-strong: #76777d;
+  --divider: #25292b;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
-  --text-inverse: #0f172a;
-  --text-link: #38bdf8;
+  --text-primary: #eff1f3;
+  --text-secondary: #c6c6cd;
+  --text-muted: #8c9198;
+  --text-inverse: #191c1e;
+  --text-link: #7bd0ff;
 }
 
 @theme inline {
@@ -58,50 +58,80 @@
   --color-text-inverse: var(--text-inverse);
   --color-text-link: var(--text-link);
 
-  --color-navy-950: #0f172a;
-  --color-navy-800: #1e293b;
-  --color-navy-600: #475569;
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #131b2e;
+  --color-on-primary-container: #7c839b;
+  --color-inverse-primary: #bec6e0;
 
-  --color-sky-600: #0284c7;
-  --color-sky-500: #0ea5e9;
-  --color-sky-400: #38bdf8;
-  --color-sky-100: #e0f2fe;
+  --color-secondary: #00668a;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #40c2fd;
+  --color-on-secondary-container: #004d6a;
 
-  --color-emerald-500: #10b981;
-  --color-emerald-100: #d1fae5;
+  --color-tertiary: #00668a;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #002113;
+  --color-on-tertiary-container: #009668;
 
-  --color-sunset-500: #f97316;
-  --color-sunset-pink: #ec4899;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-variant: #e0e3e5;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #45464d;
+  --color-outline: #76777d;
+  --color-outline-variant: #c6c6cd;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+
+  --color-navy-950: #131b2e;
+  --color-navy-800: #2d3133;
+  --color-navy-600: #45464d;
+
+  --color-sky-700: #004d6a;
+  --color-sky-600: #00668a;
+  --color-sky-500: #0e7fa8;
+  --color-sky-400: #40c2fd;
+  --color-sky-100: #c4e7ff;
+
+  --color-emerald-500: #009668;
+  --color-emerald-100: #6ffbbe;
+
+  --color-sunset-500: #00668a;
+  --color-sunset-pink: #40c2fd;
 
   --color-warning: #f59e0b;
   --color-warning-bg: #fef3c7;
 
-  --color-error: #ef4444;
-  --color-error-dark: #dc2626;
-  --color-error-bg: #fee2e2;
+  --color-error: #ba1a1a;
+  --color-error-dark: #93000a;
+  --color-error-bg: #ffdad6;
 
-  --color-info: #0ea5e9;
-  --color-info-bg: #dbeafe;
+  --color-info: #00668a;
+  --color-info-bg: #c4e7ff;
 
-  --color-success: #10b981;
-  --color-success-bg: #d1fae5;
+  --color-success: #009668;
+  --color-success-bg: #6ffbbe;
 
-  --color-chart-1: #0ea5e9;
-  --color-chart-2: #10b981;
-  --color-chart-3: #f97316;
-  --color-chart-4: #8b5cf6;
-  --color-chart-5: #ec4899;
-  --color-chart-grid: #e2e8f0;
+  --color-chart-1: #00668a;
+  --color-chart-2: #009668;
+  --color-chart-3: #565e74;
+  --color-chart-4: #40c2fd;
+  --color-chart-5: #131b2e;
+  --color-chart-grid: #e0e3e5;
 
-  --color-map-land: #f1f5f9;
-  --color-map-water: #bae6fd;
-  --color-map-marker-hotel: #0f172a;
-  --color-map-marker-attraction: #0ea5e9;
-  --color-map-marker-restaurant: #f97316;
-  --color-map-route-1: #0ea5e9;
-  --color-map-route-2: #10b981;
-  --color-map-route-3: #f97316;
-  --color-map-route-4: #8b5cf6;
+  --color-map-land: #f2f4f6;
+  --color-map-water: #c4e7ff;
+  --color-map-marker-hotel: #131b2e;
+  --color-map-marker-attraction: #00668a;
+  --color-map-marker-restaurant: #565e74;
+  --color-map-route-1: #00668a;
+  --color-map-route-2: #009668;
+  --color-map-route-3: #565e74;
+  --color-map-route-4: #40c2fd;
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -111,12 +141,12 @@
   --radius-3xl: 32px;
   --radius-full: 9999px;
 
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 8px 16px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.08);
-  --shadow-xl: 0 32px 64px rgba(15, 23, 42, 0.12);
-  --shadow-glow-primary: 0 0 0 4px rgba(14, 165, 233, 0.2);
+  --shadow-xs: 0 1px 2px rgba(19, 27, 46, 0.04);
+  --shadow-sm: 0 2px 8px rgba(19, 27, 46, 0.06);
+  --shadow-md: 0 8px 16px rgba(19, 27, 46, 0.08);
+  --shadow-lg: 0 20px 40px rgba(19, 27, 46, 0.08);
+  --shadow-xl: 0 32px 64px rgba(19, 27, 46, 0.12);
+  --shadow-glow-primary: 0 0 0 4px rgba(0, 102, 138, 0.2);
 
   --duration-fast: 150ms;
   --duration-normal: 250ms;

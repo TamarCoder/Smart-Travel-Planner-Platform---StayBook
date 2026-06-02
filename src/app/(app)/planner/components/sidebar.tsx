@@ -1,0 +1,127 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { HelpCircle, LogOut, PlaneTakeoff, X } from "lucide-react";
+import { useLogout } from "@/features/auth";
+import { PRIMARY_NAV, SECONDARY_NAV } from "@/constants/nav";
+
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function PlannerSidebar({ isOpen, onClose }: Props) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const logout = useLogout();
+
+  async function handleLogout() {
+    await logout.mutateAsync();
+    router.push("/login");
+  }
+
+  return (
+    <>
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/30 backdrop-blur-sm lg:hidden"
+          onClick={onClose}
+        />
+      )}
+      <aside
+        className={`flex flex-col w-64 fixed left-0 top-0 bottom-0 z-40 bg-surface-elevated backdrop-blur-xl border-r border-border shadow-lg pb-6 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-6 h-16 border-b border-white/10 lg:hidden">
+          <span
+            className="text-xl font-bold tracking-tight text-text-primary"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Voyager
+          </span>
+          <button onClick={onClose} className="text-text-secondary hover:text-text-primary transition-colors">
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        <div className="hidden lg:block px-6 mt-[72px] mb-6">
+          <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-surface-hover transition-all cursor-pointer">
+            <div className="w-10 h-10 rounded-lg bg-navy-950 flex items-center justify-center text-white shrink-0">
+              <PlaneTakeoff className="h-5 w-5" />
+            </div>
+            <div>
+              <p
+                className="text-sm font-semibold text-text-primary"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Voyager
+              </p>
+              <p className="text-xs text-text-secondary">Premium Planner</p>
+            </div>
+          </div>
+        </div>
+
+        <nav className="flex-1 flex flex-col gap-1 px-4 overflow-y-auto">
+          {PRIMARY_NAV.map(({ label, href, icon: Icon }) => {
+            const active = pathname === href || pathname.startsWith(`${href}/`);
+            return (
+              <Link
+                key={label}
+                href={href}
+                onClick={onClose}
+                className={
+                  active
+                    ? "flex items-center gap-4 px-6 py-3 rounded-xl bg-sky-600/10 text-sky-600 border-r-2 border-sky-600 text-sm font-medium"
+                    : "flex items-center gap-4 px-6 py-3 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all duration-200 hover:translate-x-1 text-sm font-medium"
+                }
+              >
+                <Icon className="h-5 w-5" />
+                {label}
+              </Link>
+            );
+          })}
+
+          <div className="my-3 border-t border-border" />
+
+          {SECONDARY_NAV.map(({ label, href, icon: Icon }) => {
+            const active = pathname === href;
+            return (
+              <Link
+                key={label}
+                href={href}
+                onClick={onClose}
+                className={
+                  active
+                    ? "flex items-center gap-4 px-6 py-3 rounded-xl bg-sky-600/10 text-sky-600 border-r-2 border-sky-600 text-sm font-medium"
+                    : "flex items-center gap-4 px-6 py-3 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all duration-200 hover:translate-x-1 text-sm font-medium"
+                }
+              >
+                <Icon className="h-5 w-5" />
+                {label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="mt-auto px-4 flex flex-col gap-1">
+          <Link
+            href="#"
+            className="flex items-center gap-4 px-6 py-4 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all text-sm font-medium"
+          >
+            <HelpCircle className="h-5 w-5" />
+            Help
+          </Link>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-4 px-6 py-4 rounded-xl text-text-secondary hover:bg-sky-600/5 transition-all text-sm font-medium w-full text-left"
+          >
+            <LogOut className="h-5 w-5 shrink-0" />
+            Logout
+          </button>
+        </div>
+      </aside>
+    </>
+  );
+}

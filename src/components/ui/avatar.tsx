@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -14,6 +15,14 @@ const sizeClasses: Record<string, string> = {
   md: "h-10 w-10 text-sm",
   lg: "h-14 w-14 text-base",
   xl: "h-20 w-20 text-lg",
+};
+
+const sizePixels: Record<string, number> = {
+  xs: 24,
+  sm: 32,
+  md: 40,
+  lg: 56,
+  xl: 80,
 };
 
 const indicatorClasses: Record<string, string> = {
@@ -53,10 +62,13 @@ function Avatar({
         )}
       >
         {src ? (
-          <img
+          <Image
             src={src}
-            alt={alt ?? ""}
+            alt={alt ?? fallback ?? "User avatar"}
+            width={sizePixels[size]}
+            height={sizePixels[size]}
             className="h-full w-full object-cover"
+            unoptimized
           />
         ) : (
           <span aria-hidden="true">{initials}</span>

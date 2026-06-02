@@ -1,0 +1,172 @@
+[
+  {
+    "id": "post-001",
+    "authorId": "user-002",
+    "authorName": "Sofia Castellanos",
+    "authorAvatar": "/images/landing/testimonial-elena.png",
+    "location": "Oia, Santorini",
+    "image": "/assets/smart_trip_planner__img_05.png",
+    "caption": "Three nights at Astra Suites and we still can't believe these views. Sunset cocktails at Franco's are non-negotiable.",
+    "likes": 248,
+    "comments": 32,
+    "tags": [
+      "Santorini",
+      "Aegean",
+      "Sunset"
+    ],
+    "createdAt": "2026-05-20T19:30:00Z"
+  },
+  {
+    "id": "post-002",
+    "authorId": "user-003",
+    "authorName": "Marcus Field",
+    "authorAvatar": "/images/landing/testimonial-marcus.png",
+    "location": "Lake Louise, Banff",
+    "image": "/assets/destination_santorini_greece__img_06.png",
+    "caption": "Glassy water by 6am, glaciers crashing in the distance. Canoeing here resets the soul.",
+    "likes": 412,
+    "comments": 51,
+    "tags": [
+      "Banff",
+      "Sunrise",
+      "Canoe"
+    ],
+    "createdAt": "2026-05-18T07:14:00Z"
+  },
+  {
+    "id": "post-003",
+    "authorId": "user-004",
+    "authorName": "Yuki Tanaka",
+    "authorAvatar": "/images/landing/testimonial-david.png",
+    "location": "Arashiyama, Kyoto",
+    "image": "/assets/destination_santorini_greece__img_07.png",
+    "caption": "Bamboo grove at dawn — wear quiet shoes and bring zero expectations.",
+    "likes": 188,
+    "comments": 19,
+    "tags": [
+      "Kyoto",
+      "Bamboo",
+      "DawnWalk"
+    ],
+    "createdAt": "2026-05-15T05:42:00Z"
+  },
+  {
+    "id": "post-004",
+    "authorId": "user-005",
+    "authorName": "Liam O'Brien",
+    "authorAvatar": "/images/landing/testimonial-marcus.png",
+    "location": "Serengeti National Park",
+    "image": "/assets/accommodation_booking__img_04.png",
+    "caption": "Mara crossing today. The guides at Singita know exactly where to set up.",
+    "likes": 561,
+    "comments": 74,
+    "tags": [
+      "Safari",
+      "Migration",
+      "Tanzania"
+    ],
+    "createdAt": "2026-05-12T14:20:00Z"
+  },
+  {
+    "id": "post-005",
+    "authorId": "user-006",
+    "authorName": "Mei Lin",
+    "authorAvatar": "/images/landing/testimonial-elena.png",
+    "location": "Tegalalang, Bali",
+    "image": "/assets/interactive_world_map__img_03.png",
+    "caption": "Como Shambhala morning yoga, then rice terraces. Recharged + grounded.",
+    "likes": 219,
+    "comments": 28,
+    "tags": [
+      "Bali",
+      "Wellness",
+      "Yoga"
+    ],
+    "createdAt": "2026-05-08T07:00:00Z"
+  },
+  {
+    "id": "post-006",
+    "authorId": "user-007",
+    "authorName": "Astrid Holm",
+    "authorAvatar": "/images/landing/testimonial-elena.png",
+    "location": "Troll Peninsula, Iceland",
+    "image": "/assets/luxury_travel_planner_landing_page__img_07.png",
+    "caption": "Aurora lit the sky for two hours straight. Deplar Farm hot tub goes hard.",
+    "likes": 304,
+    "comments": 41,
+    "tags": [
+      "Iceland",
+      "Aurora",
+      "Wild"
+    ],
+    "createdAt": "2026-05-05T22:15:00Z"
+  },
+  {
+    "id": "post-007",
+    "authorId": "user-008",
+    "authorName": "Felipe Vargas",
+    "authorAvatar": "/images/landing/testimonial-marcus.png",
+    "location": "El Chaltén, Patagonia",
+    "image": "/assets/destination_santorini_greece__img_09.png",
+    "caption": "Laguna de los Tres at sunrise. Nine hours up the mountain — worth every blister.",
+    "likes": 478,
+    "comments": 62,
+    "tags": [
+      "Patagonia",
+      "Trek",
+      "FitzRoy"
+    ],
+    "createdAt": "2026-05-02T07:45:00Z"
+  },
+  {
+    "id": "post-008",
+    "authorId": "user-009",
+    "authorName": "Layla Haddad",
+    "authorAvatar": "/images/landing/testimonial-elena.png",
+    "location": "Medina, Marrakech",
+    "image": "/assets/smart_trip_planner__img_03.png",
+    "caption": "Three-storey riad at Royal Mansour. Underground tunnels for the staff feel like a film set.",
+    "likes": 196,
+    "comments": 24,
+    "tags": [
+      "Marrakech",
+      "Riad",
+      "Luxury"
+    ],
+    "createdAt": "2026-04-28T17:10:00Z"
+  },
+  {
+    "id": "post-009",
+    "authorId": "user-010",
+    "authorName": "Noah Hartley",
+    "authorAvatar": "/images/landing/testimonial-marcus.png",
+    "location": "Milford Sound, NZ",
+    "image": "/assets/destination_santorini_greece__img_04.png",
+    "caption": "Cruised straight under Mitre Peak as a pod of dolphins escorted us out.",
+    "likes": 287,
+    "comments": 30,
+    "tags": [
+      "NewZealand",
+      "Fjord",
+      "Wild"
+    ],
+    "createdAt": "2026-04-24T11:55:00Z"
+  },
+  {
+    "id": "post-010",
+    "authorId": "user-011",
+    "authorName": "Thandi Mokoena",
+    "authorAvatar": "/images/landing/testimonial-elena.png",
+    "location": "Cape Town, South Africa",
+    "image": "/assets/luxury_travel_planner_landing_page__img_08.png",
+    "caption": "Table Mountain by cable car, then sundowners in Camps Bay. Cape Town never misses.",
+    "likes": 233,
+    "comments": 26,
+    "tags": [
+      "CapeTown",
+      "Mountain",
+      "Sunset"
+    ],
+    "createdAt": "2026-04-20T18:30:00Z"
+  }
+]

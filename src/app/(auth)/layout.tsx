@@ -1,41 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RedirectIfAuthenticated } from "@/features/auth";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex">
-      <div className="flex-1 flex flex-col justify-center px-6 py-12 lg:px-16 xl:px-24 bg-background">
-        <div className="mb-10">
-          <Link href="/" className="inline-flex items-center gap-2">
-            <span
-              className="text-2xl font-bold text-navy-950 tracking-tight"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Voyager
-            </span>
-          </Link>
-        </div>
-        <div style={{ maxWidth: "28rem" }}>{children}</div>
-      </div>
-
-      <div className="hidden lg:block relative flex-1">
+    <div className="min-h-screen grid lg:grid-cols-2">
+      <RedirectIfAuthenticated />
+      <div className="hidden lg:block relative overflow-hidden">
         <Image
-          src="/images/landing/hero-beach.png"
-          alt="Luxury travel"
+          src="/assets/luxury_travel_planner_landing_page__img_02.png"
+          alt="Luxury travel destination"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-navy-950/40" />
-        <div className="absolute bottom-12 left-10 right-10">
-          <blockquote
-            className="text-xl font-medium text-white leading-relaxed mb-4"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            &ldquo;Travel is the only thing you buy that makes you richer.&rdquo;
-          </blockquote>
-          <p className="text-sm text-white/70">— Anonymous</p>
+        <div className="absolute inset-0 bg-linear-to-br from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-between p-12">
+          <Link href="/" className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+            Voyager
+          </Link>
+          <div>
+            <blockquote className="text-white/90 text-xl font-medium leading-relaxed mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              &ldquo;Travel is not just a destination — it&rsquo;s a state of mind curated by the finest details.&rdquo;
+            </blockquote>
+            <p className="text-white/60 text-sm">Voyager Luxury Concierge</p>
+          </div>
         </div>
+      </div>
+
+      <div className="flex flex-col justify-center items-center px-6 py-12 bg-background">
+        <div className="lg:hidden mb-8">
+          <Link href="/" className="text-2xl font-bold text-navy-950" style={{ fontFamily: "var(--font-display)" }}>
+            Voyager
+          </Link>
+        </div>
+        <div className="w-full max-w-md">{children}</div>
       </div>
     </div>
   );

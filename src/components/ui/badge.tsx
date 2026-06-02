@@ -36,7 +36,7 @@ function Badge({ className, variant, size, style, ...props }: BadgeProps) {
       style={
         variant === "premium"
           ? {
-              background: "linear-gradient(135deg, #F97316 0%, #EC4899 100%)",
+              background: "linear-gradient(135deg, #131b2e 0%, #00668a 100%)",
               ...style,
             }
           : style

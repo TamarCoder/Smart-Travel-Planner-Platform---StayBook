@@ -1,74 +1,107 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { MapPin, Calendar, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
-  const [destination, setDestination] = useState("");
-  const [date, setDate] = useState("");
-
   return (
-    <section className="relative min-h-[900px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-150 sm:min-h-187.5 md:min-h-230.25 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/landing/hero-beach.png"
+          src="/assets/luxury_travel_planner_landing_page__img_02.png"
           alt="Luxury tropical beach"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-[#f7f9fb]" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/10 to-background/90" />
       </div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center py-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 text-center py-20 md:py-0">
         <h1
-          className="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="font-bold text-white mb-5 mx-auto leading-tight"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(1.75rem, 6vw, 4rem)",
+            lineHeight: "1.15",
+            letterSpacing: "-0.02em",
+            maxWidth: "52rem",
+          }}
         >
           The World&apos;s Most{" "}
           <span className="text-sky-400">Refined</span>{" "}
           Travel Experiences
         </h1>
 
-        <p className="text-lg md:text-xl text-white/85 mb-12 mx-auto leading-relaxed" style={{ maxWidth: "42rem" }}>
+        <p
+          className="text-white/90 mb-8 mx-auto text-sm sm:text-base md:text-lg leading-relaxed"
+          style={{ maxWidth: "34rem" }}
+        >
           Curated by experts, tailored by AI. Discover the next generation of
           luxury travel planning with Voyager.
         </p>
 
         <div
-          className="mx-auto bg-white/80 backdrop-blur-md border border-white/30 rounded-full p-3 flex flex-col md:flex-row items-center gap-3 shadow-2xl"
-          style={{ maxWidth: "48rem" }}
+          className="mx-auto md:hidden bg-white/85 backdrop-blur-xl border border-white/30 rounded-3xl p-3 flex flex-col gap-2 shadow-2xl"
+          style={{ maxWidth: "28rem" }}
         >
-          <div className="flex-1 flex items-center gap-3 px-5 w-full min-w-0">
-            <MapPin className="h-5 w-5 text-sky-500 shrink-0" />
+          <div className="flex items-center gap-3 bg-white/60 rounded-2xl px-4 py-3 focus-within:ring-2 focus-within:ring-sky-500">
+            <MapPin className="h-4 w-4 text-sky-600 shrink-0" />
             <input
               type="text"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
+              aria-label="Destination"
               placeholder="Where do you want to explore?"
-              className="bg-transparent border-none outline-none w-full text-sm text-navy-950 placeholder:text-text-secondary font-medium"
+              className="bg-transparent border-none outline-none w-full text-sm text-text-primary placeholder:text-text-secondary/60"
             />
           </div>
-
-          <div className="hidden md:block h-8 w-px bg-border shrink-0" />
-
-          <div className="flex-1 flex items-center gap-3 px-5 w-full min-w-0">
-            <Calendar className="h-5 w-5 text-sky-500 shrink-0" />
+          <div className="flex items-center gap-3 bg-white/60 rounded-2xl px-4 py-3 focus-within:ring-2 focus-within:ring-sky-500">
+            <Calendar className="h-4 w-4 text-sky-600 shrink-0" />
             <input
               type="text"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+              aria-label="Travel dates"
               placeholder="When?"
-              className="bg-transparent border-none outline-none w-full text-sm text-navy-950 placeholder:text-text-secondary font-medium"
+              className="bg-transparent border-none outline-none w-full text-sm text-text-primary placeholder:text-text-secondary/60"
             />
           </div>
-
-          <Button size="lg" className="w-full md:w-auto rounded-full px-8 shrink-0 gap-2">
+          <button
+            type="button"
+            className="w-full flex items-center justify-center gap-2 py-3.5 bg-secondary hover:bg-on-secondary-container text-white rounded-2xl text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
             <Search className="h-4 w-4" />
             Search
-          </Button>
+          </button>
+        </div>
+
+        <div
+          className="hidden md:flex mx-auto bg-white/80 backdrop-blur-xl border border-white/20 rounded-full p-2 items-center gap-2 shadow-2xl"
+          style={{ maxWidth: "48rem" }}
+        >
+          <div className="flex-1 flex items-center gap-3 px-5 py-2 rounded-full focus-within:ring-2 focus-within:ring-sky-500">
+            <MapPin className="h-4 w-4 text-sky-600 shrink-0" />
+            <input
+              type="text"
+              aria-label="Destination"
+              placeholder="Where do you want to explore?"
+              className="bg-transparent border-none outline-none w-full text-sm text-text-primary placeholder:text-text-secondary/60"
+            />
+          </div>
+          <div className="h-8 w-px bg-border-strong/40" />
+          <div className="flex-1 flex items-center gap-3 px-5 py-2 rounded-full focus-within:ring-2 focus-within:ring-sky-500">
+            <Calendar className="h-4 w-4 text-sky-600 shrink-0" />
+            <input
+              type="text"
+              aria-label="Travel dates"
+              placeholder="When?"
+              className="bg-transparent border-none outline-none w-full text-sm text-text-primary placeholder:text-text-secondary/60"
+            />
+          </div>
+          <button
+            type="button"
+            className="flex items-center gap-2 px-7 py-3 bg-secondary hover:bg-on-secondary-container text-white rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-px whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <Search className="h-4 w-4" />
+            Search
+          </button>
         </div>
       </div>
     </section>

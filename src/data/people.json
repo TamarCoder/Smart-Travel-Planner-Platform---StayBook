@@ -1,0 +1,112 @@
+[
+  {
+    "id": "user-002",
+    "name": "Sofia Castellanos",
+    "avatar": "/images/landing/testimonial-elena.png",
+    "headline": "Caldera chaser · 47 trips",
+    "bio": "Architecture writer based between Madrid and Sicily. Always looking for the next quiet sunset.",
+    "tripsCount": 47,
+    "countriesVisited": 32,
+    "followers": 8420,
+    "tags": ["Coastal", "Luxury", "Photography"]
+  },
+  {
+    "id": "user-003",
+    "name": "Marcus Field",
+    "avatar": "/images/landing/testimonial-marcus.png",
+    "headline": "Alpine + lakes · year-round",
+    "bio": "Banff local, climbs and skis the Rockies. Trail guides on Patreon.",
+    "tripsCount": 64,
+    "countriesVisited": 21,
+    "followers": 12300,
+    "tags": ["Mountains", "Adventure", "Cold"]
+  },
+  {
+    "id": "user-004",
+    "name": "Yuki Tanaka",
+    "avatar": "/images/landing/testimonial-david.png",
+    "headline": "Kyoto-based film photographer",
+    "bio": "Slow travel through Japan and Korea. Always early, always patient.",
+    "tripsCount": 28,
+    "countriesVisited": 12,
+    "followers": 5340,
+    "tags": ["Cultural", "Slow", "Analog"]
+  },
+  {
+    "id": "user-005",
+    "name": "Liam O'Brien",
+    "avatar": "/images/landing/testimonial-marcus.png",
+    "headline": "Safari guide turned writer",
+    "bio": "Twelve years of guiding in East Africa. Now writing about responsible travel.",
+    "tripsCount": 92,
+    "countriesVisited": 18,
+    "followers": 18700,
+    "tags": ["Safari", "Wildlife", "Conservation"]
+  },
+  {
+    "id": "user-006",
+    "name": "Mei Lin",
+    "avatar": "/images/landing/testimonial-elena.png",
+    "headline": "Wellness + intentional travel",
+    "bio": "Yoga teacher splitting time between Bali and Lisbon. Mindful itineraries.",
+    "tripsCount": 39,
+    "countriesVisited": 24,
+    "followers": 9210,
+    "tags": ["Wellness", "Yoga", "Retreat"]
+  },
+  {
+    "id": "user-007",
+    "name": "Astrid Holm",
+    "avatar": "/images/landing/testimonial-elena.png",
+    "headline": "Arctic + aurora specialist",
+    "bio": "Reykjavik resident with three decades of aurora chasing under her belt.",
+    "tripsCount": 56,
+    "countriesVisited": 19,
+    "followers": 14600,
+    "tags": ["Arctic", "Aurora", "Wild"]
+  },
+  {
+    "id": "user-008",
+    "name": "Felipe Vargas",
+    "avatar": "/images/landing/testimonial-marcus.png",
+    "headline": "Patagonia trekking · permits + planning",
+    "bio": "Buenos Aires-born outdoor guide. Builds tailored Patagonia logistics for crews.",
+    "tripsCount": 71,
+    "countriesVisited": 9,
+    "followers": 7430,
+    "tags": ["Trek", "Patagonia", "Logistics"]
+  },
+  {
+    "id": "user-009",
+    "name": "Layla Haddad",
+    "avatar": "/images/landing/testimonial-elena.png",
+    "headline": "Marrakech riad curator",
+    "bio": "Helps you find the family-run riads worth your time. Mint tea is on her.",
+    "tripsCount": 23,
+    "countriesVisited": 14,
+    "followers": 4280,
+    "tags": ["Cultural", "Souks", "MENA"]
+  },
+  {
+    "id": "user-010",
+    "name": "Noah Hartley",
+    "avatar": "/images/landing/testimonial-marcus.png",
+    "headline": "Adventure photographer",
+    "bio": "Queenstown native. If it floats, climbs or skis, he's documenting it.",
+    "tripsCount": 88,
+    "countriesVisited": 31,
+    "followers": 23400,
+    "tags": ["Adventure", "Photography", "Outdoors"]
+  },
+  {
+    "id": "user-011",
+    "name": "Thandi Mokoena",
+    "avatar": "/images/landing/testimonial-elena.png",
+    "headline": "Wine + city escapes from Cape Town",
+    "bio": "Sommelier and food writer. Pairs vineyards with curated city days.",
+    "tripsCount": 34,
+    "countriesVisited": 17,
+    "followers": 6720,
+    "tags": ["Wine", "City", "Food"]
+  }
+]

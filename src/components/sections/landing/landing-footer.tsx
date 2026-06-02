@@ -1,38 +1,40 @@
-import Link from "next/link";
-
 const footerLinks = [
-  { href: "/explore", label: "Destinations" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms of Service" },
+  { label: "DESTINATIONS", href: "#" },
+  { label: "PRICING", href: "#" },
+  { label: "PRIVACY POLICY", href: "#" },
+  { label: "TERMS OF SERVICE", href: "#" },
 ];
 
 export function LandingFooter() {
   return (
-    <footer className="w-full py-10 px-6 md:px-12 bg-white border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
-      <div className="flex flex-col gap-1.5">
-        <span className="text-xl font-bold text-navy-950 tracking-tight"
-          style={{ fontFamily: "var(--font-display)" }}>
-          Voyager
-        </span>
-        <p className="text-sm text-text-secondary">Luxury Travel Reimagined.</p>
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-8">
-        {footerLinks.map(({ href, label }) => (
-          <Link
-            key={href}
-            href={href}
-            className="text-xs font-semibold text-text-secondary hover:text-sky-500 transition-colors uppercase tracking-wide"
+    <footer className="w-full py-8 md:py-10 px-4 md:px-12 bg-background border-t border-border-strong">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col items-center md:items-start gap-1">
+          <span
+            className="text-lg font-bold text-text-primary"
+            style={{ fontFamily: "var(--font-display)" }}
           >
-            {label}
-          </Link>
-        ))}
-      </div>
+            Voyager
+          </span>
+          <p className="text-sm text-text-secondary/70">Luxury Travel Reimagined.</p>
+        </div>
 
-      <p className="text-xs text-text-secondary text-right">
-        © 2024 Voyager Luxury Travel. All rights reserved.
-      </p>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          {footerLinks.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="text-xs font-semibold text-text-secondary hover:text-sky-600 transition-colors tracking-wider"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+
+        <p className="text-xs text-text-secondary text-center md:text-right">
+          © 2024 Voyager Luxury Travel. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 }
